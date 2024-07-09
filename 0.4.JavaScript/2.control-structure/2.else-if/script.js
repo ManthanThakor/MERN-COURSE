@@ -43,3 +43,18 @@ if (trafficlight === "red") {
 } else {
   console.log("Invalid traffic");
 }
+
+//--------------------------
+console.log("");
+//--------------------------
+
+const tl = "hi";
+if (tl === "hii ") {
+  console.log("yo");
+} else if (tl === "yio ") {
+  console.log("yo bro");
+} else if (tl === "no ") {
+  console.log("yoo hi ");
+} else {
+  console.log("bye");
+}
