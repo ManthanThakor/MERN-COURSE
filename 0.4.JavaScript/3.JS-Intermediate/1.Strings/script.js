@@ -3,12 +3,15 @@
 //----------
 
 //Single quotes
-const singleQ = "this is single using single quoutes";
-console.log(singleQ);
+const singleQuoteString = "This is a string using single quoutes";
 
 //double quotes
+const doubleQuoteString = "This is a string using double quoutes";
 
 //Using the string constructor
+const stringConstructor = new String(
+  "This is a string using the string constructor quoutes"
+);
 
 //---------
 //==TEMPLATE LITERALS===
