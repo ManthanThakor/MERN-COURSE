@@ -2,18 +2,23 @@
 
 //Task: Storing a person's first name
 
-// var firstName = "Emmanuel";
-// console.log(firstName);
+var firstName = "Manthan Thakor";
+console.log(firstName);
 
 //!-----Using `let`----
 
-//Task: Storing a person's first name
+//Task: Storing a person's last Name
 
-// let firstName = "Emmanuel";
-// console.log(firstName);
+let lastName = "Thakor";
+console.log(lastName);
+lastName = "Thakor 0.2"; // Allowed
+console.log(lastName);
+
 //!-----Using `const`----
 
 //Task: Storing a person's first name
 
-const firstName = "Emmanuel";
-console.log(firstName);
+const firstNameConst = "Manthan Thakor";
+console.log(firstNameConst);
+firstNameConst = "Manthan Thakor 0.2"; // Not allowed
+console.log(firstNameConst);
