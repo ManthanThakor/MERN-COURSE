@@ -75,44 +75,62 @@ console.log(" ");
 
 // ? ==================================
 
+// !parseInt
 //! Converting User Input to Integer
 
 const userInput = "42";
 const userAge = parseInt(userInput, 10);
+console.log(userAge);
+console.log(" ");
 
 //Extracting Price from a Text
 const priceText = "Price: 100 USD";
+
 const extractedPrice = parseInt(
   priceText.replace("Price:", "").replace("USD", ""),
   10
 );
+console.log(extractedPrice);
+console.log(" ");
 
-//Converting Binary Data from a Sensor
+//! Converting Binary Data from a Sensor
+
 const sensorData = "1101";
 const sensorDataDecimal = parseInt(sensorData, 2);
+console.log(sensorDataDecimal);
+console.log(" ");
 
-//Converting Price for an E-commerce Checkout
-const checkoutPrice = "99.99";
+// ? ==================================
 
+//! parseFloat
+//!CConverting Price for an E-commerce Checkout
+
+const checkoutPrice = "$99.99";
 const checkoutPriceFloat = parseFloat(checkoutPrice.replace("$", ""));
+console.log(checkoutPriceFloat);
+console.log(" ");
 
-//Extracting Temperature Data from a Weather API
+//! Extracting Temperature Data from a Weather API
+
 const apiTempData = "Temperature: 23.5°C";
 const actualTempData = parseFloat(
   apiTempData.replace("Temperature:", "").replace("°C", "")
 );
+console.log(actualTempData);
+console.log(" ");
 
-//Calculating Grade Point Average (GPA)
+//! Calculating Grade Point Average (GPA)
 const inputGPA = "3.8";
 const parsedGPA = parseFloat(inputGPA);
 
-// if(isNaN(parsedGPA)){
-//     console.log('Inavalid GPA input');
-// }else{
-//     console.log(`Your GPA is ${parsedGPA}`);
-// }
+if (isNaN(parsedGPA)) {
+  console.log("Invalid GPA");
+} else {
+  console.log(`Your GPA is ${parsedGPA}`);
+}
 
-//Calculating Savings After a Transaction
+//! Calculating Savings After a Transaction
+
 const initialSavings = "1000";
 const widthdrawal = "Hello";
 const newSavings = parseFloat(initialSavings) - parseFloat(widthdrawal);
