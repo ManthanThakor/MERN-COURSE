@@ -19,10 +19,15 @@ const stringConstructor = new String(
 
 //Basic usage
 const greeting = `Hello, world`;
+console.log(greeting);
 
 //String interploation
-const username = "Emma";
+const username = "rock";
 const welcomeMessage = `Hello, ${username}! welcome to our website`;
+
+const howaU = `HOW ARE YOU? , EVERYTHING IS FINE ?`;
+const himess = `yo , ${(username, welcomeMessage)} , ${howaU} `;
+console.log(himess);
 
 //Multiline-string
 const poem = `
