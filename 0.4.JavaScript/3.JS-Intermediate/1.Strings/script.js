@@ -364,29 +364,58 @@ console.log(" ");
 
 //Converting a number to a string;
 const num = 42;
+console.log(typeof num);
+console.log(" ");
+
 const strNum = String(num);
+console.log(strNum);
+console.log(" ");
+
+console.log(typeof strNum);
+console.log(" ");
 
 //Converting a boolean to a string;
 const boolVal = true;
 const strBool = String(boolVal);
+console.log(`Converting a boolean to a string: ${strBool}`);
+console.log(" ");
+
+console.log(
+  `The data type after converting the boolean to a string is ${typeof strBool}.`
+);
+
+console.log(" ");
 
 //Converting  an array to a string;
 
 const arr = [1, 2, 3];
-// console.log(typeof String(arr));
+console.log(`type of array : ${typeof arr}`);
+console.log(" ");
+
+const strarr = String(arr);
+console.log(
+  `The data type after Converting  an array to a string is ${typeof strarr}`
+);
+console.log(" ");
 
 //Converting  object to a string;
 
 const obj = { name: "Emma", age: 25 };
-// console.log(typeof String(obj));
+console.log(`Converting  object to a string: ${typeof String(obj)}`);
+console.log(" ");
 
 //Converting  null and undefined to a string;
-const str1Null = String(null);
 
-// console.log(typeof str1Null);
+const str1Undefined = String(undefined);
+console.log(typeof str1Undefined);
+console.log(" ");
+
+const str1Null = String(null);
+console.log(typeof str1Null);
+console.log(" ");
 
 //---------
-//==.toString()===
+//! ==.toString()===
 //----------
 //Convert number to string
 
