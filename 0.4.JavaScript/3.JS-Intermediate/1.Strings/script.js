@@ -208,11 +208,13 @@ console.log(" ");
 const phrase = "Hello, world";
 const endingText = phrase.slice(-7);
 console.log(`using negative indices: ${endingText}`);
+console.log(" ");
 
 //slicing between negative indices
 const sentence2 = "Hello, world";
 const result3 = sentence2.slice(-6, -1);
 console.log(`slicing between negative indices: ${result3}`);
+console.log(" ");
 
 //---------
 //! ==STRING SPLIT===
@@ -221,21 +223,29 @@ console.log(`slicing between negative indices: ${result3}`);
 //Simple split by space
 const mySentence = "Hello, world";
 const words = mySentence.split(",");
+console.log(words);
+console.log(" ");
 
 //Limit number od split
 const fruits = "apple,banana,pear";
-const limitedFruits = fruits.split(",", 1);
+const limitedfruits = fruits.split(",", 2);
+console.log(limitedfruits);
+console.log(" ");
 
 //Split by multiple characters
-const complextText = "apple:banana;pear";
-const mixedFruits = complextText.split(/[:;]/);
+const darkness = "devil:evil;dark?fire";
+const maindarkness = darkness.split(/[:;?]/); // ! more important for complex text
+console.log(maindarkness);
+console.log(" ");
 
 //split into characters
 const word = "Emmanuel";
 const letters = word.split("");
+console.log(letters);
+console.log(" ");
 
 //---------
-//==STRING INDEXOF===
+// ! ==STRING INDEXOF===
 //----------
 
 //Basic usage
