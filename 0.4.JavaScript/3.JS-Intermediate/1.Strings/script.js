@@ -415,21 +415,22 @@ console.log(typeof str1Null);
 console.log(" ");
 
 //---------
-//! ==.toString()===
+//! == .toString() ===
 //----------
-//Convert number to string
 
+//Convert number to string
 const num1 = 25;
 const strNum1 = num1.toString();
-//console.log( typeof strNum1);
+console.log(typeof strNum1);
+console.log(" ");
 
 //Convert boolean to string
 const boolVal2 = false;
-
-// console.log(typeof boolVal2.toString());
+console.log(typeof boolVal2.toString());
+console.log(" ");
 
 //---------
-//==STRING TO NUMBER===
+//! == STRING TO NUMBER ===
 //----------
 //Converting Pixel Value to Number with parseInt()
 const pixelvalueAsString = "42px";
