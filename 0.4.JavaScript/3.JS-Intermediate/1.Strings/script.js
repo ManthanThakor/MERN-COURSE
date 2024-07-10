@@ -101,9 +101,8 @@ console.log(" ");
 //using the .concat() method
 const str1 = "Hello";
 const str2 = "World";
-const combinedString = str1.concat(str2);
+const combinedString = str1.concat(" ", str2);
 console.log(`hello , this is using the.concat() method: ${combinedString}`);
-
 console.log(" ");
 
 //Template literal
@@ -111,41 +110,53 @@ const fruit = "apple";
 const color = "red";
 
 const sentence = `The ${fruit} is  ${color}`;
+console.log(`this is the use of Template literal: ${sentence}`);
+console.log(" ");
 
 //---------
-//==TOLOWER AND TOUPPER CASE===
+//! ==ToLOWER AND ToUPPER CASE===
 //----------
 
 //toUpperCase()
 const localCaseStr = "Hello, world";
-// const result = localCaseStr.toLocaleUpperCase()
+const result1 = localCaseStr.toUpperCase();
+const res = `Hello, world in uppercase: ${result1}`;
+console.log(res);
+console.log(" ");
 
 //toLowerCase()
 const upperCaseStr = "HELLO, WORLD";
-// const result = localCaseStr.toLocaleLowerCase()
+const result2 = upperCaseStr.toLowerCase();
+const ress = `Hello, world in lowercase: ${result2}`;
+console.log(ress);
+console.log(" ");
 
 //Mixing both methods
 const mixStr = "HeLLo, WoRLD";
-
-// const result = mixStr.toLocaleLowerCase();
-
-// const result = mixStr.toUpperCase();
+const result11 = mixStr.toLocaleLowerCase();
+const result22 = mixStr.toUpperCase();
+console.log(`lowercase : ${result11} , toUpperCase: ${result22}`);
+console.log(" ");
 
 //case-insensitive comparison
 const string1 = "Javascript";
 const string2 = "javascript";
 
-if (string1.toLowerCase() === string2.toLowerCase()) {
-  //console.log('The strings are equal, ignoring the case');
+if (string1.toLocaleLowerCase === string2.toLocaleLowerCase) {
+  console.log("Both strings are equal (case-insensitive)");
+} else {
+  console.log("Both strings are not equal (case-insensitive)");
 }
+console.log(" ");
 
 //Note on non-english characters
 const accentedStr = 'áéíóú"';
 
-// const result = accentedStr.toLocaleUpperCase()
+const accentedStrres = accentedStr.toLocaleUpperCase();
+console.log(`Accented string in uppercase: ${accentedStrres}`);
 
 //---------
-//==STRING LENGTH===
+//! ==STRING LENGTH===
 //----------
 
 //Find the length of a string
