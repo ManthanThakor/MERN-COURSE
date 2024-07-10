@@ -248,20 +248,39 @@ console.log(" ");
 // ! ==STRING INDEXOF===
 //----------
 
+//? string.indexOf(searchValue, start);
+
 //Basic usage
-const sentences = "Hello,world";
-const index = sentences.indexOf("hello");
+const sentences = "Hello, world";
+const index = sentences.indexOf("world");
+console.log(index);
+console.log(" ");
+
+let textt = "Hello, world!";
+let indexx = textt.indexOf("World");
+console.log(indexx); //! -1 (because "World" is not the same as "world")
+console.log(" ");
+
+let tex = "Hello, world! Hello again!";
+let inde = tex.indexOf("Hello", 5);
+console.log(inde); // 14 (the second "Hello" starts at index 14)
+console.log(" ");
 
 //---------
-//==STRING TRIM===
+//! ==STRING TRIM===
 //----------
+
 //Trimming user input
 const userInput = "   emma@gmail.com   ";
 const emailTrimmed = userInput.trim();
+console.log(emailTrimmed);
+console.log(" ");
 
 //Removing Line Breaks
-const stringsWithBreaks = "\n\t Hello, World";
+const stringsWithBreaks = `\n\t Hello, World`;
 const cleanString = stringsWithBreaks.trim();
+console.log(cleanString);
+console.log(" ");
 
 //---------
 //==STRING REPLACEMENT===
