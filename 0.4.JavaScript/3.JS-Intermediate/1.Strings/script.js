@@ -329,26 +329,37 @@ console.log(" ");
 //Basic usage
 const myText = "apple organe, apple, banana";
 const lastIndx = myText.lastIndexOf("apple");
+console.log(lastIndx);
+console.log(" ");
 
 //Specifying the from index
-// const result = myText.lastIndexOf('apple',12)
+let sr = "Hello, world Welcome to the world of JavaScript.";
+let inex = sr.lastIndexOf("world", 7);
+console.log(inex); //
+console.log(" ");
 
 //---------
-//==STRING INCLUDES===
+//! ==STRING INCLUDES===
 //----------
 
 //Basic usage
 const myText2 = "I have an apple";
-// const result = myText2.includes('Apple')
+const youtext = myText2.includes("apple");
+console.log(`STRING INCLUDES : ${youtext}`); // true
+console.log(" ");
 
 //Checking for a character
-// const result = myText2.includes('I');
+const resu = myText2.includes("I");
+console.log(`STRING INCLUDES : ${resu}`); // true
+console.log(" ");
 
 //Specifying specific position
 const result = myText2.includes("apple", 8);
+console.log(`STRING INCLUDES : ${result}`); // false
+console.log(" ");
 
 //---------
-//==STRING CONVERSION===
+//! ==STRING CONVERSION===
 //----------
 
 //Converting a number to a string;
