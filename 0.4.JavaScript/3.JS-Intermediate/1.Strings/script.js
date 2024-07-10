@@ -1,5 +1,5 @@
 //---------
-//==SINGLE, DOUBLE AND CONSTRUCTOR===
+// ! ==SINGLE, DOUBLE AND CONSTRUCTOR===
 //----------
 
 //Single quotes
@@ -14,7 +14,7 @@ const stringConstructor = new String(
 );
 
 //---------
-//==TEMPLATE LITERALS===
+//! ==TEMPLATE LITERALS===
 //----------
 
 //Basic usage
@@ -36,17 +36,23 @@ violets are blue,
 Sugar is sweet,
 And so are you?
 `;
+console.log(poem);
 
 //Expression evaluation
 const price = 10;
 const tax = 0.05;
 const total = `The price: ${price * (1 + tax)}`;
+const meee = `This is the total Price ${total}`;
+console.log(`Hi , ${meee} !`);
+console.log(" ");
 
 //Escaping backtics
 const stringWithBacktick = `He's a backtick \``;
+console.log(stringWithBacktick);
+console.log(" ");
 
 //---------
-//==ESCAPING CHARACTERS IN STRINGS===
+//! ==ESCAPING CHARACTERS IN STRINGS===
 //----------
 
 //Using backslahes before escaping
