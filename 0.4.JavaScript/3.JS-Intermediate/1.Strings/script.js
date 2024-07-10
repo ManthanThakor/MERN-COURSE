@@ -288,15 +288,44 @@ console.log(" ");
 
 //Basic usage
 const originalText = "This is an old text.";
-const updatedText = originalText.replace("Old", "new");
+const updatedText = originalText.replace("old", "new");
+console.log(updatedText);
+console.log(" ");
 
 //Replace all occurances
 const repititiveText = "old text with old words";
 const replaceAll = repititiveText.replace(/old/g, "new");
+console.log(replaceAll);
+console.log(" ");
+
+//! g flag replace multiple occurances
+
+// Replacing with Regular Expressions:
+
+let str = "Apples are round, and apples are juicy.";
+let newStr = str.replace(/apples/gi, "oranges");
+
+console.log(newStr); // Output: "Oranges are round, and oranges are juicy."
+console.log(" ");
+
+// ! Here, /apples/gi is a regular expression that replaces all occurrences of "apples" (case insensitive due to the i flag) with "oranges" in the string str.
+
+// Using a Function for Replacement:
+
+function capitalize(match) {
+  return match.toUpperCase();
+}
+
+let strr = "hello, world!";
+let newStrr = strr.replace(/hello/g, capitalize);
+
+console.log(newStrr); // Output: "HELLO, world!"
+console.log(" ");
 
 //---------
-//==STRING LASTINDEXOF===
+//! == STRING LASTINDEXOF ===
 //----------
+
 //Basic usage
 const myText = "apple organe, apple, banana";
 const lastIndx = myText.lastIndexOf("apple");
