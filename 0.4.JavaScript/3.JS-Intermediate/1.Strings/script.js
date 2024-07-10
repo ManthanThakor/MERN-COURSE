@@ -283,7 +283,7 @@ console.log(cleanString);
 console.log(" ");
 
 //---------
-//==STRING REPLACEMENT===
+//! ==STRING REPLACEMENT===
 //----------
 
 //Basic usage
