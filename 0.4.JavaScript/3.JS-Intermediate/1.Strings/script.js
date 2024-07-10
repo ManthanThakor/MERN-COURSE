@@ -57,36 +57,54 @@ console.log(" ");
 
 //Using backslahes before escaping
 const quote = 'He said, "Hello, world"';
+console.log(quote);
+console.log(" ");
 
 //NewLines and Tabs
 
 const multiline = "Line 1\nLine 2\tTabbed";
+console.log(multiline);
+console.log(" ");
 
 //Escaping backslashes
 const filePath = "c:\\Program files\\App";
+console.log(filePath);
+console.log(" ");
 
 //Using the Template literals
-const anotherQuote = `He said, "That's awesome"`;
+const anotherQuote = `He said, "That's \tawesome"`;
+console.log(anotherQuote);
+console.log(" ");
 
 //Unicode characters
 const heart = "I \u2764 Javascript";
+console.log(heart);
+console.log(" ");
 
 // Escape Sequence for a Dollar Sign and Curly Braces in Template Literals
 const metaString = `The syntax for variable is \${variableName}`;
+console.log(metaString);
+console.log(" ");
 
 //---------
-//==STRING CONCATENATION===
+//! ==STRING CONCATENATION===
 //----------
+
 //using the + operator
-const firstname = "Ben";
-const lastname = "Emma";
-const fullname = firstname + " " + lastname;
+
+const fname = "MANTHAN";
+const lname = "THAKOR";
+const fullname = fname + " " + lname;
+console.log(`hello , this is using the + operator: ${fullname}`);
+console.log(" ");
 
 //using the .concat() method
 const str1 = "Hello";
 const str2 = "World";
+const combinedString = str1.concat(str2);
+console.log(`hello , this is using the.concat() method: ${combinedString}`);
 
-const combinedStr = str1.concat(" ", str2);
+console.log(" ");
 
 //Template literal
 const fruit = "apple";
