@@ -206,14 +206,16 @@ console.log(" ");
 
 //using negative indices
 const phrase = "Hello, world";
-const endingText = phrase.slice(-6);
+const endingText = phrase.slice(-7);
+console.log(`using negative indices: ${endingText}`);
 
 //slicing between negative indices
 const sentence2 = "Hello, world";
-const result3 = sentence.slice(-6, -1);
+const result3 = sentence2.slice(-6, -1);
+console.log(`slicing between negative indices: ${result3}`);
 
 //---------
-//==STRING SPLIT===
+//! ==STRING SPLIT===
 //----------
 
 //Simple split by space
