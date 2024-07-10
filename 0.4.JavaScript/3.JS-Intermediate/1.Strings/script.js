@@ -154,6 +154,7 @@ const accentedStr = 'áéíóú"';
 
 const accentedStrres = accentedStr.toLocaleUpperCase();
 console.log(`Accented string in uppercase: ${accentedStrres}`);
+console.log(" ");
 
 //---------
 //! ==STRING LENGTH===
@@ -161,32 +162,47 @@ console.log(`Accented string in uppercase: ${accentedStrres}`);
 
 //Find the length of a string
 const myStr = "Hello, world";
-const strLength = myStr.length;
+const strLenght = myStr.length;
+console.log(strLenght);
+console.log(" ");
 
 //Check for empty string
 const emptyStr = "";
-
-// const result = emptyStr.length
+const emptyStrLenght = emptyStr.length;
+console.log(`${emptyStrLenght}`);
+console.log(" ");
 
 //string validation
 const username1 = "Emma";
-if (username1.length >= 6) {
-  // console.log('Valid username');
+const usernameee =
+  username1.length >= 6
+    ? console.log(`valid username: ${username1}`)
+    : console.log(`invalid username: ${username1}`);
+console.log(" ");
+
+const username2 = "Manthu";
+if (username2.length >= 7) {
+  console.log("Valid username");
 } else {
-  // console.log('Invalid user, Must be at least 6 characters');
+  console.log("Invalid user, Must be at least 7 characters");
 }
+console.log(" ");
 
 //---------
-//==STRING SLICE===
+//! ==STRING SLICE===
 //----------
 
 //Basic use
 const greeting1 = "Hello, world";
-const extractedWord = greeting1.slice(7, 90);
+const extractedword = greeting1.slice(7);
+console.log(`omitting the end index: ${extractedword}`);
+console.log(" ");
 
 //omitting the end index
 const text = "Hello, world";
-// const result = text.slice(7, 9)
+const resul = text.slice(7, 9);
+console.log(`omitting the end index: ${resul}`);
+console.log(" ");
 
 //using negative indices
 const phrase = "Hello, world";
