@@ -432,48 +432,62 @@ console.log(" ");
 //---------
 //! == STRING TO NUMBER ===
 //----------
+
 //Converting Pixel Value to Number with parseInt()
+
 const pixelvalueAsString = "42px";
-// const convertedVal = parseInt(pixelvalueAsString)
-// console.log( convertedVal+10);
+console.log(typeof pixelvalueAsString);
+const convertedVals = parseInt(pixelvalueAsString);
+console.log(" ");
+
+console.log(`${convertedVals + 10}px`);
+console.log(typeof convertedVals);
+console.log(" ");
 
 // Example 2: Converting Dimension String to Number with parseFloat()
+
 const dimensionStr = "42.5px";
-//  const convertedVal = parseFloat(dimensionStr)
+const convertedVal1 = parseFloat(dimensionStr);
+console.log(typeof convertedVal1);
+console.log(" ");
 
 // Example 3: Converting Age Input to Number using Number()
 
-const ageInput = "42";
-//  const convertedVal = Number(ageInput)
-
-//  console.log( convertedVal + 10);
+const ageInput = "422";
+const convertedVal3 = Number(ageInput);
+console.log(typeof convertedVal3);
+console.log(" ");
+console.log(convertedVal3 + 1000000);
+console.log(" ");
 
 // Example 4: Quick Conversion using Unary + Operator
+
 const scoreStr = "100";
-//  const convertedVal = +scoreStr
-
-//  console.log( convertedVal + 200);
+const convertedVal4 = +scoreStr;
+console.log(convertedVal4 + 200);
+console.log(" ");
 
 //-------
-//String to Boolean
+//! String to Boolean
 //-------
+
 // Example 1: Using Boolean() for Form Validation
 
 const usernameInput = "Thomas";
-// const convertedVal = Boolean(usernameInput)
-
-// console.log(convertedVal);
+const convertedVal5 = Boolean(usernameInput);
+console.log(convertedVal5);
+console.log(" ");
 
 // Example 2: Using Boolean() with Empty String
 
 const emptyField = "";
-
-//  const convertedVal = Boolean(emptyField)
-//  console.log(convertedVal);
+const convertedVal6 = Boolean(emptyField);
+console.log(convertedVal6);
+console.log(" ");
 
 // Example 3: Using Double Negation !! for Quick Conversion
 
 const emailInput = "emma@gmail.com";
 const convertedVal = !!emailInput;
-
 console.log(convertedVal);
+console.log(" ");
