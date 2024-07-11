@@ -1,6 +1,8 @@
+//!======================================
 //---
 //?  Creating Object using Object Literals
 //---
+//!======================================
 
 //! Define an object to represent a book in a bookstore
 
@@ -18,9 +20,11 @@ const books = {
 //availiable
 //pages
 
+//!======================================
 //---
-//! Access object properties using the dot notation
+//? Access object properties using the dot notation
 //---
+//!======================================
 
 const booktitle = books.title;
 // console.log(booktitle);
@@ -40,20 +44,30 @@ const book = {
 };
 
 const bookTitle = book["title"];
-// console.log(book['available']);
-// console.log(book['price']);
-// console.log(book['author']);
+// console.log(bookTitle);
+const author = book["author"];
+// console.log(author);
+const price = book["price"];
+// console.log(price);
+const available = book["available"];
+// console.log(available);
 
-//Properties with Special Characters
+//! Properties with Special Characters
+
 const person = {
-  "first name": "Ben",
-  "last name": "Joe",
+  firstname: "ben",
+  lastname: "ten",
+  age: 25,
+  hobbies: ["reading", "painting"],
 };
 
-// console.log(person['first name']);
-// console.log(person['last name']);
+// console.log(person["firstname"]);
+// console.log(person["lastname"]);
+// console.log(person["age"]);
+// console.log(person.hobbies[0]); // Output: "reading"
+// console.log(person.hobbies[1]);
 
-// Using Expressions
+//! Using Expressions
 
 const task = {
   description: "Finish homework",
@@ -63,48 +77,58 @@ const task = {
 const query = "isCom" + "pleted";
 // console.log(task[query]);
 
+//! ======================================
 //---
-//Adding Properties to objects
+//? Adding Properties to objects
 //---
+//!======================================
 
-//Add user role
+//! Add user role
 
 const userProfile = {
-  username: "Masynctech",
-  email: "masunctech@gmail.com",
-  // portfolio: {
-  //     work1:'Landing page',
-  //     work2:'Web App'
-  // }
+  username: "Manthan",
+  email: "mr123@gmail.com",
+  portfolio: {
+    projects: "project1",
+    tasks: "task1",
+  },
 };
-//add role property
 
-// userProfile.role = 'admin';
-userProfile["role"] = "superAdmin";
+//! add role property
 
-// Adding Properties with Special Characters
+userProfile.role = "admin";
+// userProfile["role"] = "superAdmin";
+// console.log(userProfile);
+
+//! Adding Properties with Special Characters
+
 const book1 = {
   title: "Harry potter",
 };
 
-book1["publication year"] = 2025;
+book1.publicationYear = 2025;
+// console.log(book1);
 
-//Adding Nested Properties
+//! Adding Nested Properties
 
 const employee = {
   name: "Bob",
   department: "HR",
 };
+
 //add address
 employee.address = {
-  city: "Kumasi",
-  state: "Ghana",
+  city: "surat",
+  state: "gujarat",
 };
+// console.log(employee);
 // console.log(employee.address.state);
 
+//! ======================================
 //--
-//Deleting Properties from objects
+//? Deleting Properties from objects
 //--
+//! ======================================
 
 // Deleting User Credentials
 // const user = {
