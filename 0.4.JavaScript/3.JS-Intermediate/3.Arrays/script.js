@@ -204,35 +204,57 @@ for (let i = 10; i >= 0; i--) {
   // console.log(`Looping in reverse: ${i}`);
 }
 
+// ! ==========================================
+
 //* ----
-//! ForEach Loop
+//? ForEach Loop
 //* ---
 
-//  const numbers  = [1,2,3,4,5,6, 100]
-// numbers.forEach(function(element, index, array){
-// console.log('Element', element);
-// console.log('index', index);
-// console.log('array', array);
-// })
+// ! The forEach loop in JavaScript is a method used to iterate over elements of an array, executing a provided function once for each array element. It’s often used to perform actions on each element of an array without needing to manage the loop control variables explicitly.
 
-// Using forEach to sum the elements of an array
-// let sum=0;
-// numbers.forEach(function(num){
-//     sum += num
-// })
-// console.log('The total sum is:', sum);
+//* Syntax
 
-// Modifying array elements using forEach
-// const numbers  = [1,2,3,4,5,6, ]
-// const squares  = []
-// numbers.forEach(function(num){
-//   squares.push(num*num)
-// })
+//! array.forEach(function (currentValue, index, array) {
+//    Code to execute for each element
+//! });
+
+const numbers1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 100];
+numbers1.forEach(function (elements, index, arrr) {
+  // console.log(`Element at index ${index} IS ${elements} , and array:${arrr}`);
+});
+
+// --------------------
+
+const game = ["coc", "gta", "pubg", "cod"];
+game.forEach(function (el, index, ar) {
+  // console.log(`element: ${el} , index: ${index}, array: ${ar}`);
+});
+
+//! Using forEach to sum the elements of an array
+
+let sums = 0;
+const numb = [1, 2, 3, 4, 5, 6, 100000];
+
+numb.forEach(function (e, i) {
+  sums = sums + e; // sums += e
+});
+// console.log("Sum of the numbers:", sums);
+
+//! Modifying array elements using forEach
+
+const numberss = [1, 2, 3, 4, 5, 6, 1000, 212];
+const squares = [];
+numberss.forEach(function (num) {
+  squares.push(num * num);
+});
 // console.log(squares);
-// console.log(numbers);
+// console.log(numberss);
+
+// ! ==========================================
+// ! ==========================================
 
 //----
-// Mapping (.map())
+//! Mapping (.map())
 //---
 
 //   const numbers  = [1,2,3,4,5,6,]
