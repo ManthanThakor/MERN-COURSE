@@ -119,6 +119,8 @@ const actualTempData = parseFloat(
 console.log(actualTempData);
 console.log(" ");
 
+// ? ==================================
+
 //! Calculating Grade Point Average (GPA)
 const inputGPA = "3.8";
 const parsedGPA = parseFloat(inputGPA);
@@ -128,6 +130,7 @@ if (isNaN(parsedGPA)) {
 } else {
   console.log(`Your GPA is ${parsedGPA}`);
 }
+console.log(" ");
 
 //! Calculating Savings After a Transaction
 
@@ -135,33 +138,38 @@ const initialSavings = "1000";
 const widthdrawal = "Hello";
 const newSavings = parseFloat(initialSavings) - parseFloat(widthdrawal);
 
-// if(isNaN(newSavings)){
-//     console.log('Invalid transaction');
-// }else{
-//     console.log(`Your new savings amount is ${newSavings}`);
-// }
+if (isNaN(newSavings)) {
+  console.log("Invalid savings");
+} else {
+  console.log(`Your new savings are ${newSavings}`);
+}
+console.log(" ");
 
-//Computing the Area of a Circle
+//! Computing the Area of a Circle
 
 const radiusInput = "7";
 const radius = parseFloat(radiusInput);
 const area = Math.PI * Math.pow(radius, 2);
-// if(isNaN(area)){
-//     console.log('Invalid radius');
-// }else{
-//     console.log(`The area of the circle is ${area}`);
-// }
+if (isNaN(area)) {
+  console.log("Invalid radius");
+} else {
+  console.log(`The area of the circle is ${area}`);
+}
+console.log(" ");
+
+// ? ==================================
 
 //Validating User Input for Discount Calculation
-// const originalPrice = parseFloat(prompt('Enter the original Price'));
-// const discoutRate = parseFloat(prompt('Enter the discount rate'))
+
+// const originalPrice = parseFloat(prompt("Enter the original Price"));
+// const discoutRate = parseFloat(prompt("Enter the discount rate"));
 // let discountPrice;
 
-// if(isFinite(originalPrice) && isFinite(discoutRate)){
-//     discountPrice = originalPrice - (originalPrice*discoutRate/100);
-//     console.log(`The discounted price is ${discountPrice}`);
-// }else{
-//     console.log("Invalid input:please enter finite number");
+// if (isFinite(originalPrice) && isFinite(discoutRate)) {
+//   discountPrice = originalPrice - (originalPrice * discoutRate) / 100;
+//   console.log(`The discounted price is ${discountPrice}`);
+// } else {
+//   console.log("Invalid input:please enter finite number");
 // }
 
 //------
