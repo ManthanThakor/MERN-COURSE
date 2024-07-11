@@ -67,7 +67,7 @@ const checkevenorodd = function () {
   }
 };
 // Invoke the function
-checkevenorodd();
+// checkevenorodd();
 
 // ----------------------------
 
@@ -83,24 +83,27 @@ checkevenorodd();
 
 // () => console.log('Weclome');
 
-//--
-//! Immediately Invoked Function Expression (IIFE)
-//
+// ! ================================
+//----
+//? Immediately Invoked Function Expression (IIFE)
+//----
+// ! ================================
 
-// Calculating Square of a Number
+//! Calculating Square of a Number
+
 (function () {
-  const num = 5;
+  const num = 10;
   const square = num * num;
-  //   console.log(square);
+  // console.log(square);
 })();
 
-//Concatenating Strings
+//! Concatenating Strings
 
 (function () {
   const str1 = "Hello";
   const str2 = "World";
-  const result = str1 + " " + str2;
-  //   console.log(result);
+  const combine = `${str1 + " " + str2}`;
+  // console.log(combine);
 })();
 
 //--
