@@ -106,31 +106,32 @@ const checkevenorodd = function () {
   // console.log(combine);
 })();
 
+// ! ================================
 //--
-//Function parameters vs arguments
+//? Function parameters vs arguments
 //--
-//DRY = Don't repeat yourself
-const greetings = function (name, age) {
-  //   console.log(name);
-  //   console.log(age);
-  console.log(`Welcome ${name} your age is:${age} years`);
+// ! ================================
+
+//! DRY = Don't repeat yourself
+
+const pers = function (name, age) {
+  console.log(`welcome ${name}, your age  is ${age} year`);
 };
+// pers("Manthan", 21);
+// pers("devil", 20);
 
-// greetings("Emma", 27);
-// greetings("Alice", 24);
+//! function to add any two numbers
 
-//function to add any two numbers
-
-const addTwoNumbers = function (a, b) {
-  const result = a + b;
-  console.log(result);
+const addtnum = function (a, b) {
+  const res = a + b;
+  console.log(`The Result is ${res}`);
 };
-
-// addTwoNumbers(9000, 111);
+// addtnum(5, 5);
+// addtnum(50000000000, 50);
 
 //---
-// Default parameters
-//
+//? Default parameters
+//---
 
 //Basic Default Parameters
 
