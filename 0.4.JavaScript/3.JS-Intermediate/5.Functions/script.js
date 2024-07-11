@@ -129,32 +129,40 @@ const addtnum = function (a, b) {
 // addtnum(5, 5);
 // addtnum(50000000000, 50);
 
+// ! ================================
 //---
 //? Default parameters
 //---
+// ! ================================
 
 //Basic Default Parameters
 
-const greet = function (name = "Guest", age = 17) {
-  console.log(`Hello, my name is ${name}, and I am ${age} years old`);
+const hi = function (name = "xyz", age = "20") {
+  console.log(`Hello ${name}, your age is ${age}`);
 };
+// hi();
+// hi("Manthan", 21);
+// hi("Emma", 30);
+// hi("ManthanAA");
 
-// greet("Emma", 30);
-//Default Parameters with Expression
+//! Default Parameters with Expression
 
 const multiply = function (a, b = a * 2) {
   const result = a * b;
-  // console.log(`The Result is ${result}`);
+  console.log(`The Result is ${result}`);
 };
-
+multiply(2);
 // const myFnCall = multiply(2);
 
 // console.log(myFnCall);
 
+// ! ================================
 //---
-//Return Statement
+//? Return Statement
 //--
-//Basic Return Statement
+// ! ================================
+
+//! Basic Return Statement
 const add = function (a, b) {
   const result = a + b;
   // console.log("Before return");
