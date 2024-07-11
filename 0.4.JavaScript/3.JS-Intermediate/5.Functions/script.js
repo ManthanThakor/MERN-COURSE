@@ -77,12 +77,14 @@ checkevenorodd();
 //--
 // ! ================================
 
-// function(){
+// function(){  //!  ERROR: Identifier expected.
 //     console.log('Weclome');
 // }
 
+// () => console.log('Weclome');
+
 //--
-//Immediately Invoked Function Expression (IIFE)
+//! Immediately Invoked Function Expression (IIFE)
 //
 
 // Calculating Square of a Number
