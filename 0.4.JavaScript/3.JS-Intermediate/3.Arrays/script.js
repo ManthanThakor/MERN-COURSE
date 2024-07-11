@@ -253,31 +253,54 @@ numberss.forEach(function (num) {
 // ! ==========================================
 // ! ==========================================
 
-//----
+//* ----
 //! Mapping (.map())
-//---
+//* ---
 
-//   const numbers  = [1,2,3,4,5,6,]
+//! The map method in JavaScript is used to create a new array by applying a provided function to each element of the original array. It is particularly useful when you want to transform or compute a new array from an existing array.
 
-//   const newNumArrSquare = numbers.map(function(num, idx, arr){
-//       return num * 10
-//   })
+// * Syntax
 
-//   console.log(newNumArrSquare);
-//   console.log(numbers);
+// !const newArray = array.map(function(currentValue, index, array) {
+//    Return element for newArray
+// !});
 
-// Using map to convert an array of strings to uppercase
+const numbe = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 352, 4423, 34434, 3434236, 43757, 4354, 3, 23,
+  34, 3, 4,
+];
+const newNumbe = numbe.map(function (element, index, array) {
+  return `element:${element}, index: ${index} array: ${array}`;
+});
+// console.log(newNumbe);
+
+// ----------------------
+
+const number = [1, 2, 3, 4, 5, 500];
+const doubled = number.map(function (number) {
+  return number * 2;
+});
+
+// console.log(doubled);
+// console.log(number);
+
+//! Using map to convert an array of strings to uppercase
+
 const words = ["apple", "pear", "mango"];
 
-const convertedWords = words.map(function (word) {
+const convertWords = words.map(function (word) {
   return word.toUpperCase();
 });
 
-//   console.log(convertedWords);
+console.log(convertWords);
+
+// ! ==========================================
+// ! ==========================================
 
 //---
-//Filtering (.filter())
+//? Filtering (.filter())
 //---
+
 const numbers = [1, 2, 3, 4, 5, 6];
 
 // const evenNumbers = numbers.filter(function(num){
