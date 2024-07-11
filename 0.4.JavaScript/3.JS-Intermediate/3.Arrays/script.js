@@ -11,9 +11,18 @@ const studentAges = [12, 23, 21, 22, 50, 54, 11];
 
 //! Access the first elemen
 
-const studentAgess = [12, 23, 21, 22, 50, 54, 11];
-const firstAge = studentAgess[studentAgess.length - 1];
+const studentAgess = [12, 23, 21, 22, 50, 54, 110000000000000000];
+const firstAge = studentAgess[0];
+const firstAge1 = studentAgess[1];
+const firstAge2 = studentAgess[-1];
+const firstAge3 = studentAgess[100];
+const fisrtAge4 = studentAgess[studentAgess.length - 1];
+
 // console.log(firstAge);
+// console.log(firstAge1);
+// console.log(firstAge2);
+// console.log(firstAge3);
+// console.log(fisrtAge4);
 
 //! Declaring an array of strings
 const daysOfTheWeek = [
@@ -69,7 +78,7 @@ const mixDataType = new Array(1, false, "Emmanuel");
 //! Creating an array with numbers
 
 const numArr = Array.of(1, 2, 3, 4);
-console.log(numArr);
+// console.log(numArr);
 
 //! Creating an array with strings
 
@@ -84,59 +93,79 @@ const mixedArr = Array.of("Apple", "Banana", "Kiwi", false, true, 20);
 //? Creating Array using Array.from()
 //* ---
 
-//cloning array
+//! cloning array
 
-const originalArr = [1, 2, 3];
+const originalArr = [1, 2, 4, 5, 7, 8];
 const clonedArr = Array.from(originalArr);
+// console.log(clonedArr);
 
 //creating an array from an array-like object
-const arrayLike = {
-  0: "a",
-  1: "b",
-  2: "c",
-  length: 3,
-};
+const arrayLike = { 0: "a", 1: "b", 2: "c", length: 3 };
 const convertedArr = Array.from(arrayLike);
+// console.log(convertedArr);
+
+// ! ==========================================
 
 //* -----
 //? Using push method
 //* -----
 
-// const fruits = ['Apple','Banana']
-// console.log('Original fruits', fruits);
-// const newArrayOfFruits = fruits.push('Kiwi','Mango')
-// console.log('modfied fruits', fruits);
+// !  Using .push() to add elements at the end of an array
 
-// Using .unshift() to add elements at the beginning of an array
+const fruits1 = ["Apple", "Banana"];
+// console.log("Original fruits", fruits1);
+const newArrayOfFruits1 = fruits1.push("kiwi");
+// console.log("Modified fruits", fruits1);
+
+// !  Using .unshift() to add elements at the beginning of an array
+
 const fruits = ["Apple", "Banana"];
-// console.log('Original fruits', fruits);
-const newArrayOfFruits = fruits.unshift("Kiwi", "Mango");
-// console.log('modfied fruits', fruits);
+// console.log("Original fruits", fruits);
+const newArrayOfFruits = fruits.unshift("Mango", "kiwi");
+// console.log("modfied fruits", fruits);
 
-//----
-//Remove Elements (.pop(), .shift())
-//-----
+// ! ==========================================
+
+//* ----
+//? Remove Elements (.pop(), .shift())
+//* -----
+
+// ! pop() removes the last element
 
 const animal = ["Cat", "Dog", "Elephant"];
-// console.log('Original Animal', animal);
-//pop()
-// const popedAnimal = animal.pop()
-const shiftedAnimal = animal.shift();
-// console.log('After Poped Animal', animal);
+// console.log("Original Animal", animal);
+//! pop()
+const popedAnimal = animal.pop();
+// console.log("After Poped Animal", animal);
 
-//-----
-//Array Size (.length)
-//-----
+//! shift() removes the first element
+
+const vehicle = ["car", "bike", "truck"];
+// console.log("Original Vehicle", vehicle);
+//! shift()
+const shiftedVehicle = vehicle.shift();
+// console.log("After Shifted Vehicle", vehicle);
+
+// ! ==========================================
+
+//* -----
+//? Array Size (.length)
+//* -----
 
 const colors = ["Red", "Yellow", "Green", "Black"];
 const arrayLength = colors.length;
+// console.log("Array length", arrayLength);
 
-//Modify the length of the array
+//! Modify the length of the array
 colors.length = 2;
 // console.log(colors);
 
+// ! ==========================================
+// ! ==========================================
+// ! ==========================================
+
 //----
-//For Loops
+//? For Loops
 //----
 
 //Basic for loop to print numbers 0-5
@@ -295,6 +324,6 @@ const threeDArray = [
   ],
 ];
 
-console.log(threeDArray[0][1][1]);
+// console.log(threeDArray[0][1][1]);
 
-console.log(threeDArray[1][0][0]);
+// console.log(threeDArray[1][0][0]);
