@@ -1,28 +1,32 @@
+// ! ================================
 //----
-//Syntax of  Function declaration
+//? Syntax of  Function declaration
 //----
-//calling the function/invoke/use the function
-// sayHello()
-//say hello
-// function sayHello(){
-//     //logic goes here
-//     //write any logic
-//     console.log('Hello world');
-// }
+// ! ================================
 
-//greeting
-// function greetings(){
-//     console.log('Welcome to Masynctech');
-// }
+//! calling the function/invoke/use the function
+
 //invoke
-// greetings()
-//show date
+// sayHelloo();
+//! say hello
+function sayHelloo() {
+  console.log("Hello world");
+}
+
+//! greeting
+function greetingss() {
+  console.log("Welcome to MrRock");
+}
+//invoke
+// greetingss();
+
+//! show date
 function showDate() {
   const currentDate = new Date();
   console.log(`Todays date is ${currentDate}`);
 }
 //invoke
-// showDate()
+// showDate();
 
 //---
 //Function expression
