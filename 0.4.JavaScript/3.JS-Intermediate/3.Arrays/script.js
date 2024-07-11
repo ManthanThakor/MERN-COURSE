@@ -394,7 +394,7 @@ const truthyValues = mixedArr2.filter(function (value) {
   return Boolean(value);
 });
 
-console.log(truthyValues); // Output: [1, "apple", "banana", null, "Mango"]
+// console.log(truthyValues); // Output: [1, "apple", "banana", null, "Mango"]
 
 // ! ==========================================
 // ! ==========================================
@@ -402,19 +402,35 @@ console.log(truthyValues); // Output: [1, "apple", "banana", null, "Mango"]
 //----
 //? Reducing (.reduce())
 //----
-// Using reduce to sum up all elements in an array
 
-// The reduce method in JavaScript applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value. This method is useful for aggregating array values into a single result, such as summing all numbers, concatenating strings, or calculating averages.
+//! The reduce method in JavaScript applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value. This method is useful for aggregating array values into a single result, such as summing all numbers, concatenating strings, or calculating averages.
 
-const numbers2 = [1, 2, 3, 4, 5, 6, 30];
+// syntax
 
-const sum = numbers2.reduce(function (acc, current) {
-  //perfomr our logic
-  return acc + current;
+//! array.reduce(function (accumulator, currentValue, index, array) {
+//   Return new accumulator value
+//! }, initialValue);
+
+// -------------------------------
+
+//!  Using reduce to sum up all elements in an array
+
+const num12 = [1, 2, 46, 73, 47, 24, 89, 42];
+const summm = num12.reduce(function (acc, curr) {
+  //logic
+  // console.log(acc);
+  // console.log(curr);
+  return acc + curr;
 }, 0);
 
-// Using reduce to find the maximum value in an array
-const maxNum = numbers2.reduce(function (acc, current) {
+// console.log(summm); // Output: 334
+
+// -------------------------------
+
+//! Using reduce to find the maximum value in an array
+
+const num13 = [1, 2, 46, 73, 47, 24, 89, 42];
+const maxNum = num13.reduce(function (acc, current) {
   if (current > acc) {
     return current;
   } else {
@@ -422,31 +438,79 @@ const maxNum = numbers2.reduce(function (acc, current) {
   }
 }, 0);
 
-// Using reduce to count the frequency of elements in an array
-const fruits2 = ["Apple", "Banana", "Apple", "Mango", "Apple", "Mango"];
-const fruitCount = fruits2.reduce(function (acc, current) {
-  if (acc[current]) {
-    acc[current] += 1;
+// console.log(maxNum); // Output: 89
+
+const minNum = num13.reduce(function (acc, current) {
+  if (current < acc) {
+    return current;
   } else {
-    acc[current] = 1;
+    return acc;
+  }
+}, Infinity);
+
+// console.log(minNum); // Output: 1
+
+// -------------------------------
+
+//! Using reduce to count the frequency of elements in an array
+
+const fruits2 = ["Apple", "Banana", "Apple", "Mango", "Apple", "Mango"];
+
+const fruitCount = fruits2.reduce(function (acc, curr) {
+  if (acc[curr]) {
+    acc[curr] += 1;
+  } else {
+    acc[curr] = 1;
   }
   return acc;
 }, {});
 
+// console.log(fruitCount); // Output: { Apple: 3, Banana: 1, Mango: 2 }
+
+const people = [
+  { name: "Alice", age: 21 },
+  { name: "Bob", age: 22 },
+  { name: "Charlie", age: 21 },
+  { name: "David", age: 22 },
+];
+
+const groupedByAge = people.reduce((accumulator, currentValue) => {
+  const age = currentValue.age;
+  if (!accumulator[age]) {
+    accumulator[age] = [];
+  }
+  accumulator[age].push(currentValue);
+  return accumulator;
+}, {});
+
+// console.log(groupedByAge);
+
+// Output:
+// {
+//   '21': [{ name: 'Alice', age: 21 }, { name: 'Charlie', age: 21 }],
+//   '22': [{ name: 'Bob', age: 22 }, { name: 'David', age: 22 }]
+// }
+
+// ! ==========================================
+// ! ==========================================
+
 //----
-//Multi-Dimensional Arrays
+//? Multi-Dimensional Arrays
 //----
-// Creating a 2D array
+
+//! Creating a 2D array
 const matrix = [
   [1, 2, 3],
   [4, 5, 6],
   [7, 8, 9],
 ];
 //Access the elements
-//console.log(matrix[0][0]);
-// console.log(matrix[2][2]);
+// console.log(matrix[0][0]); //1
+// console.log(matrix[2][2]); //9
+// console.log(matrix[1][2]); //6
 
-// Creating a 3D array
+//! Creating a 3D array
+
 const threeDArray = [
   [
     [1, 2],
@@ -457,7 +521,6 @@ const threeDArray = [
     [7, 8],
   ],
 ];
-
-// console.log(threeDArray[0][1][1]);
-
-// console.log(threeDArray[1][0][0]);
+console.log(threeDArray);
+console.log(threeDArray[0][1][1]);
+console.log(threeDArray[1][0][0]);
