@@ -292,7 +292,27 @@ const convertWords = words.map(function (word) {
   return word.toUpperCase();
 });
 
-console.log(convertWords);
+// console.log(convertWords);
+
+//! ----------Working with Objects------------
+
+const users = [
+  { firstName: "John", lastName: "Doe" },
+  { firstName: "Jane", lastName: "Doe" },
+];
+
+const fullNames = users.map((user) => {
+  return `${user.firstName} ${user.lastName}`;
+});
+
+// console.log(fullNames); // Output: ['John Doe', 'Jane Doe']
+
+//! -----------Converting Data Types-----------
+
+const strings = ["1", "2", "3", "4", "5"];
+const nu = strings.map((str) => parseInt(str * 10));
+
+// console.log(nu); // Output: [1, 2, 3, 4, 5]
 
 // ! ==========================================
 // ! ==========================================
@@ -301,28 +321,90 @@ console.log(convertWords);
 //? Filtering (.filter())
 //---
 
+//! The filter method in JavaScript creates a new array with all elements that pass the test implemented by the provided function. This is useful for selecting a subset of elements from an array based on some criteria.
+
+// Syntax
+
+// !const newArray = array.filter(function(currentValue, index, array) {
+//    Return true to keep the element, false otherwise
+//! });
+
 const numbers = [1, 2, 3, 4, 5, 6];
 
-// const evenNumbers = numbers.filter(function(num){
-//     //filter logic here
-//     return num %2 ===0
-// })
-// console.log(evenNumbers);
+const evennumbers = numbers.filter(function (num) {
+  return num % 2 === 0;
+});
+
+// console.log(evennumbers); // Output: [2, 4, 6]
+
+// ------------------------
+
 const gender = ["male", "female"];
 
 const maleArr = gender.filter(function (gender) {
   return gender === "male";
 });
-// Using filter to remove falsy values from an array
+// console.log(gender);
+// console.log(maleArr);
+
+const femaleArr = gender.filter(function (gender) {
+  return gender === "female";
+});
+// console.log(femaleArr);
+
+//! --------array object filter-------------
+
+const genderr = [
+  { Name: "manthan", gender: "male" },
+  { Name: "cutie", gender: "female" },
+  { Name: "devil", gender: "male" },
+  { Name: "cutie2", gender: "female" },
+  { Name: "cutie4", gender: "female" },
+  { Name: "cutie5", gender: "female" },
+];
+
+const maleArrr = genderr.filter(function (obj) {
+  return obj.gender === "male";
+});
+// console.log(genderr);
+// console.log(maleArrr);
+
+const femaleArrr = genderr.filter(function (obj) {
+  return obj.gender === "female";
+});
+// console.log(femaleArrr);
+
+//! Filtering Objects
+
+const use = [
+  { name: "John", age: 25 },
+  { name: "Jane", age: 30 },
+  { name: "Jim", age: 27 },
+];
+
+const youngUsers = use.filter((user) => user.age < 30);
+
+// console.log(youngUsers);
+// Output: [{ name: 'John', age: 25 }, { name: 'Jim', age: 27 }]
+
+//! Using filter to remove falsy values from an array
+
 const mixedArr2 = [0, 1, "apple", "", null, "banana"];
 const truthyValues = mixedArr2.filter(function (value) {
   return Boolean(value);
 });
 
+console.log(truthyValues); // Output: [1, "apple", "banana", null, "Mango"]
+
+// ! ==========================================
+// ! ==========================================
+
 //----
-//Reducing (.reduce())
+//? Reducing (.reduce())
 //----
 // Using reduce to sum up all elements in an array
+
+// The reduce method in JavaScript applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value. This method is useful for aggregating array values into a single result, such as summing all numbers, concatenating strings, or calculating averages.
 
 const numbers2 = [1, 2, 3, 4, 5, 6, 30];
 
