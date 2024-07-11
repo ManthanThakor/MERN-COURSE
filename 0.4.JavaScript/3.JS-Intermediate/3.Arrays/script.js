@@ -1,5 +1,3 @@
-console.log(" ");
-
 //-------
 //! Creating Array using Array Literal
 //-------
@@ -168,38 +166,47 @@ colors.length = 2;
 //? For Loops
 //----
 
-//Basic for loop to print numbers 0-5
+//! Basic for loop to print numbers 0-5
 
-// for(let i=0; i<=5; i++){
-//     //code will run
-//     console.log(i);
-// }
+for (let i = 0; i <= 100; i++) {
+  // console.log(`for loop 1 to 100: ${i}`);
+}
 
-// Looping through an array to print its elements
-// const myFruits = ['Apple','Banana','Kiwi']
-// for(let i=0; i<myFruits.length; i++){
-//     console.log(myFruits[i]);
-// }
+// ! Looping through an array to print its elements
 
-// Using 'break' to exit the loop early
+const devil = ["vk", "devil", "dark"];
+for (let i = 0; i < devil.length; i++) {
+  // console.log(devil[i]);
+}
 
-// for(let i=0; i<=10; i++){
-//     //code will run
-//   if(i ===5){
-//     break
-//   }
-//   console.log(i);
-// }
+//! Using 'break' to exit the loop early
 
-// Using 'continue' to skip an iteration
-// Looping in reverse
-// for(let i=5; i>0; i--){
-//   console.log(i);
-// }
+for (let i = 0; i <= 10; i++) {
+  if (i === 5) {
+    break;
+  } else {
+    // console.log(`Looping through array: ${i}`);
+  }
+}
 
-//----
-//ForEach Loop
-//---
+//! Using 'continue' to skip an iteration
+
+for (i = 0; i <= 10; i++) {
+  if (i % 2 === 0) {
+    continue;
+  }
+  // console.log(`Looping through array with condition: ${i}`);
+}
+
+//! Looping in reverse
+
+for (let i = 10; i >= 0; i--) {
+  // console.log(`Looping in reverse: ${i}`);
+}
+
+//* ----
+//! ForEach Loop
+//* ---
 
 //  const numbers  = [1,2,3,4,5,6, 100]
 // numbers.forEach(function(element, index, array){
