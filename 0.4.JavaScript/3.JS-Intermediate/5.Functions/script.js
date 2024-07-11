@@ -13,12 +13,16 @@ function sayHelloo() {
   console.log("Hello world");
 }
 
+// ----------------------------
+
 //! greeting
 function greetingss() {
   console.log("Welcome to MrRock");
 }
 //invoke
 // greetingss();
+
+// ----------------------------
 
 //! show date
 function showDate() {
@@ -27,40 +31,51 @@ function showDate() {
 }
 //invoke
 // showDate();
+// ----------------------------
 
+// ! ================================
 //---
-//Function expression
+//? Function expression
 //---
+// ! ================================
 
 //invoke
-// sayHello()
+// sayHello();
 
 const sayHello = function () {
   console.log("Hello world");
 };
-
-// const greetings = function () {
-//   console.log("Welcome to Masynctech");
-// };
-
 //invoke
-//  greetings()
+// sayHello();
 
-//Determines if a fixed number (e.g., 4) is even or odd.
-const checkEvenOrOdd = function () {
-  const number = 5;
-  if (number % 2 === 0) {
-    console.log("This is an even number");
+const greetingssss = function () {
+  console.log("Welcome to MR-MANTHU ROCKS");
+};
+//invoke
+// greetingssss();
+
+// ----------------------------
+
+//! Determines if a fixed number (e.g., 4) is even or odd.
+
+const checkevenorodd = function () {
+  const num = 4;
+  if (num % 2 === 0) {
+    console.log(`${num} is an even number`);
   } else {
-    console.log("This is an odd number");
+    console.log(`${num} is an odd number`);
   }
 };
+// Invoke the function
+checkevenorodd();
 
-//checkEvenOrOdd();
+// ----------------------------
 
+// ! ================================
 //---
-// Anonymous functions
+// ? Anonymous functions
 //--
+// ! ================================
 
 // function(){
 //     console.log('Weclome');
@@ -69,10 +84,6 @@ const checkEvenOrOdd = function () {
 //--
 //Immediately Invoked Function Expression (IIFE)
 //
-
-(function () {
-  //   console.log("Weclome");
-})();
 
 // Calculating Square of a Number
 (function () {
@@ -179,11 +190,11 @@ function outerFn() {
 
   function innerFn() {
     const innerVar = "I am an inner variable";
-    console.log(outerVar);
+    // console.log(outerVar);
   }
   innerFn();
 }
 
 outerFn();
 
-console.log(globalVar);
+// console.log(globalVar);
