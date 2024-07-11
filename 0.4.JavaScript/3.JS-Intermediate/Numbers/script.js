@@ -172,75 +172,80 @@ console.log(" ");
 //   console.log("Invalid input:please enter finite number");
 // }
 
+// ? ==================================
+
 //------
-//Math.round() Method
+//! Math.round() Method
 //------
 
 //Rounding a Grade Point
 
 const gradePoint = 3.4;
 const roundedPoint = Math.round(gradePoint);
+console.log(`Rounding a Grade Point: ${roundedPoint}`);
 
 //Rounding Age
 const actualAge = 29.1;
-// console.log(Math.round(actualAge));
+const rv = Math.round(actualAge);
+console.log(`Rounding a Grade Point: ${rv}`);
 
 //-----
-//Math.floor() and Math.ceil() Methods
+//! Math.floor() and Math.ceil() Methods
 //-----
 
-//Rounding Down with `Math.floor()`
 const totalPosts = 27;
 const postPerPage = 5;
 
 const totalPages = totalPosts / postPerPage;
 const convertedPage = Math.floor(totalPosts / postPerPage);
-
-// console.log(convertedPage);
+console.log(`Math.floor() : ${convertedPage}`);
 
 //-----
 // Rounding Up with `Math.ceil()`
 ///-----
 
 const rawTaxAmount = 35.1;
-const roundedTaxtAmt = Math.ceil(rawTaxAmount);
+console.log(`Math.ceil() : ${Math.ceil(rawTaxAmount)}`);
 
-// console.log(roundedTaxtAmt);
+// ? ==================================
 
 //----
-//Math.random() Method
+//! Math.random() Method
 //-----
 
 // Generating a Random Number Between 0 and 1
 
 const randomNum = Math.random();
+console.log(randomNum);
 
 //Generating a Random Number Between 0 and 100
 
-const scaledRandomNum = Math.random() * 100;
+const scaledRandomNum = Math.random() * 100 + 1;
+console.log(scaledRandomNum);
 
 // console.log(Math.ceil(scaledRandomNum));
 
 // Rolling a Die
 
 const dieRoll = Math.random() * 6 + 1;
-// console.log(Math.floor(dieRoll));
+console.log(`Rolling a Die : ${Math.floor(dieRoll)}`);
 
 //Generating a Random Number Between 20 and 40
+
 const min = 20;
 const max = 40;
-const randomNumber = Math.random() * (max - min) + min;
+const randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
 
-// console.log(Math.floor(randomNumber));
+console.log(Math.floor(randomNumber));
 
 //----
-//Using Math.sqrt()
+//! Using Math.sqrt()
 //---
 
 //Basic Usage
 const myNum = 25;
 const result = Math.sqrt(myNum);
-// console.log(result);
+console.log(result);
 
 //Using With Pythagorean Theorem
 
@@ -255,13 +260,14 @@ const c = Math.floor(Math.sqrt(a * b + b * b));
 
 // Finding the minimum value
 const smallestNum = Math.min(5, 8, 3, 10, 5, 6);
-// console.log(smallestNum);
+console.log(smallestNum);
 
 // Finding the maximum value
 const maximumNum = Math.max(5, 8, 3, 10, 5, 6);
-// console.log(maximumNum);
+console.log(maximumNum);
 
 //----
 //Math.abs() Method
 //----
-console.log(Math.abs("dd"));
+
+console.log(Math.abs(-4));
