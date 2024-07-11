@@ -43,34 +43,46 @@ const emptyArr = [];
 //*----
 
 //! Create an array with empty data
+
 const emptyArray = new Array();
+// console.log(emptyArray);
 
-//Creating an array with a predefined size (5)
+//! Creating an array with a predefined size (5)
+
 const sizeDefinedArr = new Array(5);
+// console.log(sizeDefinedArr);
 
-//Creating an array with elements
-const fruitArr = new Array("Apple", "Banana", "Kiwi");
+//! Creating an array with elements
 
-//Creating an array with mixed types
+const fruitArr = new Array("Apple", "Banana", "kiwi");
+// console.log(fruitArr);
+
+//! Creating an array with mixed types
+
 const mixDataType = new Array(1, false, "Emmanuel");
+// console.log(mixDataType);
 
-//----
-//Creating Array using Array.of()
-//----
-// Creating an array with numbers
+//*----
+//? Creating Array using Array.of()
+//*----
+
+//! Creating an array with numbers
 
 const numArr = Array.of(1, 2, 3, 4);
+console.log(numArr);
 
-//Creating an array with strings
+//! Creating an array with strings
 
 const strArr = Array.of("Apple", "Banana", "Kiwi");
+// console.log(strArr);
 
-// Creating an array with mixed types
+//!  Creating an array with mixed types
 const mixedArr = Array.of("Apple", "Banana", "Kiwi", false, true, 20);
+// console.log(mixedArr);
 
-//---
-//Creating Array using Array.from()
-//---
+//* ---
+//? Creating Array using Array.from()
+//* ---
 
 //cloning array
 
@@ -86,9 +98,10 @@ const arrayLike = {
 };
 const convertedArr = Array.from(arrayLike);
 
-//-----
-//Using push method
-//-----
+//* -----
+//? Using push method
+//* -----
+
 // const fruits = ['Apple','Banana']
 // console.log('Original fruits', fruits);
 // const newArrayOfFruits = fruits.push('Kiwi','Mango')
