@@ -151,7 +151,7 @@ const multiply = function (a, b = a * 2) {
   const result = a * b;
   console.log(`The Result is ${result}`);
 };
-multiply(2);
+// multiply(2);
 // const myFnCall = multiply(2);
 
 // console.log(myFnCall);
@@ -164,19 +164,32 @@ multiply(2);
 
 //! Basic Return Statement
 
-// Return Statement with Conditionals
-function isEven(num) {
-  if (num % 2 === 0) {
-    return "It is an even number";
-  } else {
-    return "It is not an even number";
-  }
-}
+const add = function (a, b) {
+  const res = a + b;
+  return res;
+};
+const addres = add(2, 2);
+// console.log(addres);
 
-// console.log(isEven(3));
+//-------------------
+
+//! Return Statement with Conditionals
+
+const con = function (num) {
+  if (num % 2 === 0) {
+    return "Number is Even";
+  } else {
+    return "Number is Odd";
+  }
+};
+const conres = con(21);
+// console.log(conres);
+
+// ! ================================
 //--
-//Function Scope
+//? Function Scope
 //--
+// ! ================================
 
 // Local Variable in Function
 
