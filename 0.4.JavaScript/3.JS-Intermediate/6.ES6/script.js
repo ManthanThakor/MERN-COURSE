@@ -152,23 +152,18 @@ const { namee, agee, emaill } = {
   agee: 21,
   emaill: "manthan@example.com",
 };
-console.log(namee);
-console.log(agee);
-console.log(emaill);
+// console.log(namee);
+// console.log(agee);
+// console.log(emaill);
 
-// //Destructuring in Function Parameters
+//! Destructuring in Function Parameters
 
-// function greet2({ name, age }) {
-//   console.log(`Hello, ${name}, your age is ${age}`);
-// }
+function greet2({ name, age }) {
+  console.log(`Hello, ${name}, your age is ${age}`);
+}
+// greet2({ name: "John", age: 30 });
 
-// const myUser = {
-//   name: "John",
-//   age: 30,
-// };
-// greet2(myUser);
-
-//Nested Destructuring
+//! Nested Destructuring
 
 const {
   id,
@@ -180,10 +175,15 @@ const {
     age: 10,
   },
 };
+// console.log(id);
+// console.log(name);
+// console.log(age);
 
+//!===========================
 //---
-//Spread and Rest Operator
+//? Spread and Rest Operator
 //---
+//!===========================
 
 //Spread operator
 //array concatenation
