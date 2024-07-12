@@ -112,45 +112,49 @@ for (let i = 0; i < 3; i++) {
 
 //? using var and let
 
-const x = 10;
-x = 20;
+// const x = 10;
+// x = 20;
 // console.log(x);
 
+//!===========================
 //---
-//Destructuring in JavaScript ES6
+//? Destructuring in JavaScript ES6
 //--
+//!===========================
 
-//basic
+//! basic
 
 const numbers = [1, 2, 3, 4];
+const [first, second, third, four] = numbers;
 
-const [first, second, third, fourth] = numbers;
-
+// console.log(first);
 // console.log(second);
+// console.log(third);
+// console.log(four);
+// console.log(numbers[0]);
 // console.log(numbers[1]);
+// console.log(numbers[2]);
+// console.log(numbers[3]);
 
-//swap variiables
+//! swap variiables
 
 let a = 1;
 let b = 2;
-
 [a, b] = [b, a];
-
 // console.log(a, b);
 
-//Object Destructuring
+//! Object Destructuring
 
-//Extract user data
+//? Extract user data
 
-// const { name, age, email } = {
-//   name: "Masynctech",
-//   age: 10,
-//   email: "support@masynctech.com",
-// };
-
-// console.log(name);
-// console.log(age);
-// console.log(email);
+const { namee, agee, emaill } = {
+  namee: "manthan",
+  agee: 21,
+  emaill: "manthan@example.com",
+};
+console.log(namee);
+console.log(agee);
+console.log(emaill);
 
 // //Destructuring in Function Parameters
 
