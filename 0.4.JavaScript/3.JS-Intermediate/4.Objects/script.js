@@ -130,38 +130,41 @@ employee.address = {
 //--
 //! ======================================
 
-// Deleting User Credentials
-// const user = {
-//     username:'masynctech',
-//     password:'12345',
-//     gender:'male'
-// }
+//! Deleting User Credentials
 
-//delete password field
-// console.log(user);
-// delete user.password
-// delete user['gender']
-// console.log(user);
+const userr = {
+  username: "mr",
+  password: "12345",
+  gender: "male",
+};
 
-//Deleting a Nested Property
+//! delete password field
+// console.log(userr);
+delete userr.password;
+delete userr["gender"];
+// console.log(userr);
 
-// const student ={
-//     name:'Thomas',
-//     score:{
-//         math:90,
-//         science:99
-//     }
-// }
+//! Deleting a Nested Property
 
+const studenty = {
+  name: "Thomas",
+  score: {
+    math: 90,
+    science: 99,
+  },
+};
+
+console.log(studenty);
+
+//? remove science score
+delete studenty.score.science;
 // console.log(student);
 
-// //remove science score
-// delete student.score.science
-// console.log(student);
-
+//! ======================================
 //--
-//Updating Object Properties
+//? Updating Object Properties
 //--
+//! ======================================
 
 const user = {
   username: "masynctech",
@@ -172,25 +175,27 @@ const user = {
   postCount: 1,
 };
 
-//update the user plan
-
-// if(user.postCount >= 10){
-//     user.plan ='Premium'
-// }else{
-//     user.plan = 'Basic'
-// }
+//? update the user plan
 
 if (user.postCount >= 10) {
-  user["plan"] = "Premium";
+  user.plan = "Premium";
 } else {
-  user["plan"] = "Basic";
+  user.plan = "Basic";
 }
+
+// if (user.postCount >= 10) {
+//   user["plan"] = "Premium";
+// } else {
+//   user["plan"] = "Basic";
+// }
 
 // console.log(user);
 
+//! ======================================
 //--
-//Looping Through Objects using for...in Loop
+//? Looping Through Objects using for...in Loop
 //--
+//! ======================================
 
 const student = {
   name: "Thomas",
@@ -205,7 +210,7 @@ for (const objeckKey in student) {
   }
 }
 
-//Loop to Create a New Object
+//! Loop to Create a New Object
 const numbers = {
   one: 1,
   two: 2,
@@ -219,26 +224,27 @@ for (const key in numbers) {
   }
 }
 
-//Loop Through Nested Objects
+//! Loop Through Nested Objects
 const school = {
-  name: "Maynsynctech School",
+  name: "mr School",
   students: {
     course1: "Javascript",
     course2: "Node JS",
   },
 };
 
-// for(const key in school){
-//     if(typeof school[key] ==='object'){
-//         for(const subKey in school[key]){
-//             console.log(`${subKey}:${school[key][subKey]}`);
-//         }
-//     }else{
-//         console.log(`${key}: ${school[key]}`);
-//     }
-// }
+for (const key in school) {
+  if (typeof school[key] === "object") {
+    for (const subKey in school[key]) {
+      console.log(`${subKey}:${school[key][subKey]}`);
+    }
+  } else {
+    console.log(`${key}: ${school[key]}`);
+  }
+}
 
 // Loop to Filter Object Properties
+
 const scores = {
   math: 90,
   science: 85,
@@ -256,8 +262,9 @@ for (const subject in scores) {
 // console.log(passedSub);
 
 //--
-//Looping Through Objects using Object.keys()
+//! Looping Through Objects using Object.keys()
 //--
+
 const person1 = {
   name: "Alice",
   age: 30,
