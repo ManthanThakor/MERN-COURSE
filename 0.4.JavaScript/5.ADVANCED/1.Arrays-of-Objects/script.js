@@ -119,21 +119,30 @@ const addTask = (description) => {
 };
 addTask("car driving");
 
-console.log(todoLists);
+// console.log(todoLists);
 
 // call fn
 // addTask("Programming");
 
 //! Function to mark a task as completed
 
-const markAsCompleted = (id) => {};
-
-markAsCompleted(3);
+const markAsCompleted = (id) => {
+  // find task
+  const foundTask = todoLists.tasks.find((tasks) => tasks.id === id);
+  if (foundTask) {
+    foundTask.completed = true;
+  } else {
+    console.log("Task not found");
+  }
+};
+markAsCompleted(1);
 // console.log(todoLists);
 
+//! =====================================
 //--
-//iterate through arrays using `forEach()`
+//? iterate through arrays using `forEach()`
 //--
+//! =====================================
 
 //Basic example
 const fruits = [
