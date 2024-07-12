@@ -139,9 +139,7 @@ markAsCompleted(1);
 // console.log(todoLists);
 
 //! =====================================
-//--
 //? iterate through arrays using `forEach()`
-//--
 //! =====================================
 
 //Basic example
@@ -151,11 +149,11 @@ const fruits = [
   { name: "cherry", color: "red" },
 ];
 
-// fruits.forEach((currentVal, index, array) => {
-//   console.log(currentVal, index, array);
-// });
+fruits.forEach((currentcal, index, arr) => {
+  // console.log(index, currentcal, arr);
+});
 
-//Case Study: Online Shopping Cart Calculation
+//! Case Study: Online Shopping Cart Calculation
 
 //Suppose you are working on an e-commerce website, and you need to calculate the total price of items in a user's shopping cart. Each item in the cart is represented as an object in an array with properties such as `name`, `price`, and `quantity`. Your task is to calculate the total cost of items in the cart and also list the names of all items in the cart for the user's review.
 
@@ -167,23 +165,24 @@ const cart = [
   { name: "Headphones", price: 100, qty: 3 },
 ];
 //Calculate the total cost of the items in the cart.
+
 let totalCost = 0;
 cart.forEach((item) => {
-  //Sum all the product prices
+  // sum all the product prices
   totalCost += item.price * item.qty;
 });
+// console.log(totalCost);
 
-//List all the names of the products
+//! List all the names of the products
 
 let productNames = [];
 
 cart.forEach((item) => {
   productNames.push(item.name);
 });
-
 // console.log(productNames);
 
-//Calculate the Total Number of Items
+//! Calculate the Total Number of Items
 
 let totalItems = 0;
 cart.forEach((item) => {
@@ -192,9 +191,9 @@ cart.forEach((item) => {
 
 // console.log(totalItems);
 
-//----
-//iterate through arrays using `map()`
-//----
+//! =====================================
+//? iterate through arrays using `map()`
+//! =====================================
 
 //Suppose we have an array of products in a shopping cart. Each object represents a product with a name and a price. We want to apply a 10% discount to all products.
 
