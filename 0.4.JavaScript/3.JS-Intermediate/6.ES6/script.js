@@ -227,7 +227,7 @@ const timer = {
   },
 };
 
-timer.start();
+// timer.start();
 
 //Computed Property Names
 
@@ -239,4 +239,4 @@ const appSettings = {
   [settingName]: settingValue,
 };
 
-console.log(appSettings);
+// console.log(appSettings);
