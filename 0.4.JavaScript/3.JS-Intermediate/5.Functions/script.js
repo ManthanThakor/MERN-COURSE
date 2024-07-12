@@ -163,16 +163,6 @@ multiply(2);
 // ! ================================
 
 //! Basic Return Statement
-const add = function (a, b) {
-  const result = a + b;
-  // console.log("Before return");
-  // console.log("After the return");
-  return result;
-};
-
-const addResult = add(2, 2);
-
-// console.log(addResult);
 
 // Return Statement with Conditionals
 function isEven(num) {
