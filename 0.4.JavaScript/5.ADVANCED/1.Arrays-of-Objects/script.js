@@ -1,38 +1,40 @@
+//! =====================================
 //----
-//The Concept of Objects Being Passed by Reference
+//? The Concept of Objects Being Passed by Reference
 //----
+//! =====================================
 
-//Modifying Object Through a Different Reference
+//! Modifying Object Through a Different Reference
 
 const person1 = { name: "Alice", age: 20 };
 
 const person2 = person1;
 //modify age
 person2.age = 30;
-
 person1.name = "Emmanuel";
 // console.log("person2", person2);
 // console.log("person1", person1);
 
-//Passing Object to a Function
+//! Passing Object to a Function
 
 const incrementAge = (personObj) => {
   personObj.age += 1;
 };
-
-//person Obj
-// const bob = { name: "Bob", age: 40 };
+//! person Obj
+const bob = { name: "Bob", age: 40 };
 // console.log("Before", bob);
-// incrementAge(bob);
+incrementAge(bob);
 // console.log("after", bob);
 
+//! =====================================
 //---
-// Objects in arrays
+//?  Objects in arrays
 //---
+//! =====================================
 
-//Scenario: Managing a List of Students
+//! Scenario: Managing a List of Students
 
-//In this example, we'll create a simple list of students where each student is an object with properties like `id`, `name`, and `grade`.
+//! In this example, we'll create a simple list of students where each student is an object with properties like `id`, `name`, and `grade`.
 
 const students = [
   { id: 1, name: "Bob", grade: "A" },
@@ -437,9 +439,9 @@ const updatedStudents = studentsArr.map((student, index) => {
 
 // console.log(updatedStudents);
 
-//--
-//Search and Filter using `find()`
-//--
+//! --
+//? Search and Filter using `find()`
+//! --
 
 //Finding the First Patient with a Specific Ailment in a Hospital Database
 const patients = [
