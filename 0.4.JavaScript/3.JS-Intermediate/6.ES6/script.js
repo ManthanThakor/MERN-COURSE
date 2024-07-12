@@ -185,12 +185,13 @@ const {
 //---
 //!===========================
 
-//Spread operator
+//! Spread operator
 //array concatenation
 
 const fruits = ["apple", "banana"];
 const veggies = ["carrot", "potato"];
 const food = [...fruits, ...veggies];
+// console.log(food);
 
 // Cloning an Object
 const person = { name: "Maysnctech", email: "support@masynctech.com" };
@@ -200,7 +201,7 @@ const clonedObj = { ...person, location: "Ghana" };
 // console.log(person);
 // console.log(clonedObj);
 
-//Collect Function Arguments
+//! Collect Function Arguments
 
 //using rest operator
 
@@ -221,6 +222,7 @@ const sumAll = (...args) => {
 };
 
 const results = sumAll(1, 2, 3, 4, 5, 6, 7, 8);
+// console.log(results);
 
 //Object Destructuring with Rest
 
@@ -230,18 +232,18 @@ const { userId, ...otherProps } = { userId: 1, name: "Alice", age: 20 };
 // console.log(userId);
 
 //---
-//Enhanced Object Literals
+//! Enhanced Object Literals
 //--
 
-//Property shorthand
+//! Property shorthand
+
 const username = "Masynctech";
 const email = "masynctech2@gmail.com";
-
 const userProfile = { username, email };
 
 // console.log(userProfile);
 
-//Method Shorthand
+//! Method Shorthand
 
 const timer = {
   startTime: 10,
@@ -252,7 +254,7 @@ const timer = {
 
 // timer.start();
 
-//Computed Property Names
+//! Computed Property Names
 
 const settingName = "isWhiteMode";
 const settingValue = true;
