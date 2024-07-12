@@ -191,27 +191,35 @@ const conres = con(21);
 //--
 // ! ================================
 
-// Local Variable in Function
+//! Local Variable in Function
 
 function showLocalVariable() {
   const localVar = "I am a local variable";
+  // console.log(localVar);
 }
 // console.log(localVar);
 // showLocalVariable();
 
-// Variable in Outer and Inner Function
-const globalVar = "I am a global variable";
+//-------------------
 
-function outerFn() {
-  const outerVar = " I am an outer variable";
+//! Variable in Outer and Inner Function
 
-  function innerFn() {
-    const innerVar = "I am an inner variable";
-    // console.log(outerVar);
+const globvar = "i am a global var";
+function outfn() {
+  const outvar = "I am a outer variable";
+  console.log(outvar);
+  function innerfn() {
+    const innervar = "I am a inner variable";
+    console.log(innervar);
   }
-  innerFn();
+  // innerfn();
 }
-
-outerFn();
+// outfn();
 
 // console.log(globalVar);
+// ! ================================
+// ! ================================
+// ! ================================
+// ! ================================
+// ! ================================
+// ! ================================
