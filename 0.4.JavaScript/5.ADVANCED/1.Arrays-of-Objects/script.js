@@ -504,7 +504,7 @@ const patienyWithCold2 = patients.some((patient) => {
   return patient.disease === "Cold";
 });
 
-console.log(patienyWithCold2);
+// console.log(patienyWithCold2);
 // console.log(patienyWithCold);
 
 //! =====================================
@@ -515,9 +515,12 @@ console.log(patienyWithCold2);
 
 const masynctechStudents = [
   { id: 1, name: "Bob", grade: "A" },
-  { id: 2, name: "Alice", grade: "F" },
+  { id: 2, name: "Alice", grade: "A" },
   { id: 3, name: "Emma", grade: "A" },
 ];
-const allPassed = masynctechStudents.every((student) => student.grade !== "F");
 
-console.log(allPassed);
+const allPassed = masynctechStudents.every((student) => {
+  return student.grade === "A";
+});
+
+// console.log(allPassed); // TRUE
