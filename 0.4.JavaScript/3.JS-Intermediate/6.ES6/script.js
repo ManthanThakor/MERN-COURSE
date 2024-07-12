@@ -1,12 +1,16 @@
+//!===========================
 //----
-//ARROW FUNCTION
+//? ARROW FUNCTION
 //---
+//!===========================
 
-//Basic Syntax
+//! Basic Syntax
 
 // function multiply(a, b) {
 //   return a * b;
 // }
+
+//! Arrow Function Syntax
 
 const multiply = (a, b) => a * b;
 const result = multiply(2, 3);
