@@ -273,7 +273,7 @@ const filterallamountabove100 = transactions.filter((params) => {
   return params.amount > 100;
 });
 
-console.log(filterallamountabove100);
+// console.log(filterallamountabove100);
 
 //! =====================================
 //Transformation and Manipulation using `splice()`
@@ -299,23 +299,28 @@ const usersArr = [
   },
 ];
 
-//Remove inactive user
-//find the the index of the user to be removed
+//! Remove inactive user
+//! find the the index of the user to be removed
 
-const indexToRemove = usersArr.findIndex(
-  (user) => user.id === 1 && !user.isActive
-);
+const indexToRemove = usersArr.findIndex((user) => {
+  return user.id === 1 && !user.isActive;
+});
+// console.log(indexToRemove); // 0 MEANS USER FOUND , -1 means not found
 
-//use splice
+//! use splice
 if (indexToRemove !== -1) {
   usersArr.splice(indexToRemove, 1);
 }
+// console.log(usersArr);
 
-//Managing playlist
+// ------------------------
+
+//! Managing playlist
 
 //case study: You're developing a playlist feature for a music streaming app. Users can add and remove songs to their playlists. Each playlist is an array of song objects. You have to implement features that allow the user to delete a song, move a song up or down the playlist, and insert a song at a particular index.
 
-//solution
+//* solution
+
 const playlist = [
   { id: "s1", title: "Song 1", artist: "Artist A" },
   { id: "s2", title: "Song 2", artist: "Artist B" },
@@ -325,34 +330,38 @@ const playlist = [
 
 //Remove song of id of s1
 
-const songIndexToRemove = playlist.findIndex(function (song) {
-  return song.id === "s1";
-});
+// const removesong = playlist.findIndex((song) => {
+//   return song.id === "s1";
+// });
+// console.log(removesong); // 0 MEANS USER FOUND , -1 means not found
 
-//using splice
-// if (songIndexToRemove !== -1) {
-//   playlist.splice(songIndexToRemove, 1);
+// if (removesong !== -1) {
+//   playlist.splice(removesong, 1);
 // }
-
-//Move a ong of id of s1 to third position
-const indexToMove = playlist.findIndex((song) => song.id === "s1");
-if (indexToMove !== -1) {
-  const [songToMove] = playlist.splice(indexToMove, 1);
-  playlist.splice(2, 0, songToMove);
-}
-
 // console.log(playlist);
 
-//insert new song
-const newSong = { id: "s5", title: "Song 5", artist: "Artist E" };
+//! Move a ong of id of s1 to third position
 
+const indexToMove = playlist.findIndex((song) => {
+  return song.id === "s1";
+});
+if (indexToMove != -1) {
+  const [songTOmove] = playlist.splice(indexToMove, 1);
+  playlist.splice(2, 0, songTOmove);
+  // console.log(songTOmove);
+}
+// console.log(playlist);
+
+//! insert new song
+
+const newSong = { id: "s5", title: "Song 5", artist: "Artist E" };
 playlist.splice(0, 0, newSong);
 
 // console.log(playlist);
 
-//--
-//Transformation and Manipulation using `concat()`
-//--
+//! =====================================
+//? Transformation and Manipulation using `concat()`
+//! =====================================
 
 //Concatenating Customer Records from Different Branches
 
@@ -367,6 +376,7 @@ const branch2Customers = [
 ];
 
 const allCustomers = branch1Customers.concat(branch2Customers);
+// console.log(allCustomers);
 
 //In this example, we'll be working with an e-commerce scenario where we have an array of items in a shopping cart and an array of new items that a user wants to add. We'll also have an array of promotional items that get added if certain conditions are met.
 
@@ -415,7 +425,7 @@ const promotionalItems = [
   },
 ];
 
-//function to check if the cart total is above certain amount
+//!function to check if the cart total is above certain amount
 
 const isCartTotalAbove = (cartItems, threshold) => {
   //calculate the total of the cartitems
@@ -429,7 +439,7 @@ const updatedCart = currentCartItems.concat(newCartItems);
 
 // console.log(updatedCart);
 
-//Check if the cart total is above $1000 to add a promotional item
+//! Check if the cart total is above $1000 to add a promotional item
 
 // if (isCartTotalAbove(updatedCart, 9000)) {
 //   //concate a promotional item to the updated cart
@@ -439,19 +449,21 @@ const updatedCart = currentCartItems.concat(newCartItems);
 //   console.log("updated cart", updatedCart);
 // }
 
-//---
-//Object.assign()
-//--
+//! =====================================
+//? Object.assign()
+//! =====================================
 
-//updating properties of students in a class
+//! updating properties of students in a class
 const studentsArr = [
   { id: 1, name: "Alice", grade: "A" },
   { id: 2, name: "Bob", grade: "B" },
 ];
-//Grade updates
+
+//! Grade updates
+
 const gradeUpdates = [{ grade: "A+" }, { grade: "A-" }];
 
-//Update the students
+//! Update the students
 const updatedStudents = studentsArr.map((student, index) => {
   return Object.assign({}, student, gradeUpdates[index]);
 });
@@ -462,35 +474,42 @@ const updatedStudents = studentsArr.map((student, index) => {
 //? Search and Filter using `find()`
 //! =====================================
 
-//Finding the First Patient with a Specific Ailment in a Hospital Database
+//! Finding the First Patient with a Specific Ailment in a Hospital Database
 const patients = [
   { id: 101, name: "Sarah", disease: "Cold" },
   { id: 102, name: "Mike", disease: "Fever" },
   { id: 103, name: "Lucy", disease: "Cold" },
 ];
-//Patient with cold
-const patienyWithCold = patients.find((patient) => patient.disease === "Cold");
 
-//--
-//Search and Filter using `some()`
-//--
+//! Patient with cold
+
+const patienyWithCold = patients.find((patient) => {
+  return patient.disease === "Cold";
+});
+
+// console.log(patienyWithCold);
+
+//! =====================================
+//? Search and Filter using `some()`
+//! =====================================
 
 const patients2 = [
   { id: 101, name: "Sarah", disease: "Cold" },
   { id: 102, name: "Mike", disease: "Fever" },
   { id: 103, name: "Lucy", disease: "Cold" },
 ];
-//Patient with cold
-const patienyWithCold2 = patients2.some(
-  (patient) => patient.disease === "Cold"
-);
 
-// console.log(patienyWithCold2);
+//! Patient with cold
+const patienyWithCold2 = patients.some((patient) => {
+  return patient.disease === "Cold";
+});
+
+console.log(patienyWithCold2);
 // console.log(patienyWithCold);
 
-//----
-//Search and Filter using `every()`
-//---
+//! =====================================
+//? Search and Filter using `every()`
+//! =====================================
 
 //Confirming All Students Passed Their Exam
 
