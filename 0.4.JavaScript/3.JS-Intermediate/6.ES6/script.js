@@ -6,95 +6,114 @@
 
 //! Basic Syntax
 
-// function multiply(a, b) {
-//   return a * b;
-// }
+function mult(a, b) {
+  const sum = a * b;
+  console.log(sum);
+}
+// mult(100, 100);
 
 //! Arrow Function Syntax
 
 const multiply = (a, b) => a * b;
-const result = multiply(2, 3);
-//Block Body Syntax
 
-// const greet = (name) => {
-//   return `Hello, ${name}`;
-// };
+const multFn = multiply(100, 100);
+// console.log(multFn);
+const rest = multiply(2, 3);
+// console.log(rest);
 
-const greet = (name) => `Hello, ${name}`;
+//! Block Body Syntax
 
+const greetuser = (name) => {
+  return `Hello, ${name}`;
+};
+
+const greetFnn = greetuser("Manthan");
+// console.log(greetFnn);
+
+//-----------------
+
+const greet = (namee) => `Hello, ${namee}`;
 const greetFn = greet("Emmanuel");
+// console.log(greetFn);
 
-// Single Parameter, No Parentheses
+//-----------------
+
+//! Single Parameter, No Parentheses
 
 const square = (x) => x * x;
-
 const squareFn = square(5);
+// console.log(squareFn);
 
-//No Parameters
+//! No Parameters
 
 const random = () => Math.random();
+const randomFn = random();
+// console.log(randomFn);
 
-//Object Literal Return
+//! Object Literal Return
 
-// const getUser = () => {
-//   return {
-//     name: "Masynctech",
-//     age: 10,
-//   };
-// };
+const getuser = () => {
+  return {
+    name: "John",
+    age: 30,
+  };
+};
+const getUserF = getuser();
+// console.log(getUserF);
 
-const getUser = () => ({ name: "Masynctech", age: 10 });
+const getUser = () => ({ name: "MR", age: 21 });
 const getUserFn = getUser();
+// console.log(getUserFn);
 
+//!===========================
 //---
-//"let" and "const" in JavaScript
+//? "let" and "const" in JavaScript
 //--
+//!===========================
 
-//Hoisting
-//using var
+//! Hoisting
+//? using var
 
-// function hoistingIssue() {
-//   console.log(a);
-//   var a = 10;
-//   // console.log(a);
-// }
+function hostingIssue() {
+  console.log(a);
+  var a = 10;
+  console.log(a);
+}
+// hostingIssue();
 
-// hoistingIssue();
+//? using var
 
-//using var
-
-function hoistingIssue() {
+function hoistingIssuee() {
   console.log(a);
   let a = 10;
-  // console.log(a);
+  console.log(a);
 }
+// hoistingIssuee();
 
-//hoistingIssue();
+//! Block Scope
 
-//Block Scope
+//? using var
 
-//using var
-
-// for (var i = 0; i < 3; i++) {
-//   //console.log(i);
-// }
+//! for (var i = 0; i < 10; i++) {
+// console.log(i);
+//! }
 // console.log(i);
 
-//using var
+//? using var
 
-// for (let i = 0; i < 3; i++) {
-//   console.log(i);
-// }
+for (let i = 0; i < 3; i++) {
+  // console.log(i);
+}
 // console.log(i);
 
-//Immutability
+//-------------------
 
-//using var and let
+//! Immutability
 
-// const x = 10;
+//? using var and let
 
-// x = 20;
-
+const x = 10;
+x = 20;
 // console.log(x);
 
 //---
