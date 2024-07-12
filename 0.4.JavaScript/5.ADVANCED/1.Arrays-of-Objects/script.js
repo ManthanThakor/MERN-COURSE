@@ -197,7 +197,7 @@ cart.forEach((item) => {
 
 //Suppose we have an array of products in a shopping cart. Each object represents a product with a name and a price. We want to apply a 10% discount to all products.
 
-//Initial Data
+//! Initial Data
 const shoppingCart = [
   { name: "Laptop", price: 1000, qty: 1 },
   { name: "Phone", price: 500, qty: 2 },
@@ -205,29 +205,31 @@ const shoppingCart = [
   { name: "Headphones", price: 100, qty: 3 },
 ];
 
-//Add 105 discount
+//! Add 105 discount
 
-const discountedCart = shoppingCart.map((product) => {
+const discountCart = shoppingCart.map((product) => {
   return {
     name: product.name,
     price: product.price * 0.9,
   };
 });
+// console.log(discountCart);
 
-//get all the product names only
+//! get all the product names only
 
 const productNamesOnly = shoppingCart.map((product) => {
   return {
     name: product.name,
+    // price: product.price * 0.9,
   };
 });
 
 // console.log(productNamesOnly);
 // console.log(shoppingCart);
 
-//----
-//iterate through arrays using `filter()`
-//---
+//! =====================================
+//? iterate through arrays using `filter()`
+//! =====================================
 
 //Filtering Active Users
 
@@ -249,30 +251,33 @@ const users = [
   },
 ];
 
-//filter out active users
+//!filter out active users
 
 const activeUsers = users.filter((user) => {
   return user.isActive === true;
 });
-
 // console.log(activeUsers);
 // console.log(users);
 
-//Transactions Above a Certain Amount
+//!Transactions Above a Certain Amount
+
 const transactions = [
   { id: 1, amount: 50 },
   { id: 2, amount: 150 },
   { id: 3, amount: 200 },
 ];
 
-//filter out all amount above 100
-const largeTransactions = transactions.filter(
-  (transaction) => transaction.amount > 100
-);
+//! filter out all amount above 100
 
-//---
+const filterallamountabove100 = transactions.filter((params) => {
+  return params.amount > 100;
+});
+
+console.log(filterallamountabove100);
+
+//! =====================================
 //Transformation and Manipulation using `splice()`
-//---
+//! =====================================
 
 //Remove inactive users
 
@@ -453,9 +458,9 @@ const updatedStudents = studentsArr.map((student, index) => {
 
 // console.log(updatedStudents);
 
-//! --
+//! =====================================
 //? Search and Filter using `find()`
-//! --
+//! =====================================
 
 //Finding the First Patient with a Specific Ailment in a Hospital Database
 const patients = [
