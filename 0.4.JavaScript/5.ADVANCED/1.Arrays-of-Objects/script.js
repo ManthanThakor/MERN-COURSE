@@ -39,20 +39,26 @@ incrementAge(bob);
 const students = [
   { id: 1, name: "Bob", grade: "A" },
   { id: 2, name: "Alice", grade: "B" },
+  { id: 3, name: "xyz", grade: "A" },
 ];
 //Access student
 const student1 = students[0].name;
+// console.log(student1);
 
 //Add new student
 const addStudent = (id, name, grade) => {
-  const newStudent = { id, name, grade };
-  //push the new student into the students array
-  students.push(newStudent);
+  const newstudent = { id, name, grade };
+  students.push(newstudent);
 };
+addStudent(4, "David", "B");
+addStudent(5, "Devil", "A");
+addStudent(6, "Devil2", "B");
+addStudent(7, "Devil", "C");
 
-// addStudent(3, "Emmanuel", "C");
+// Check the list of students
+//? console.log(students);
 
-//Upgrade a  student
+//! Upgrade a  student
 
 const updateStudentGrade = (id, newGrade) => {
   //find the student by id
