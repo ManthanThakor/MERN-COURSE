@@ -11,6 +11,7 @@ console.log(highestRatingEl);
 //! Get the first laptop category product
 
 const laptopEl = document.querySelector("[data-category='laptop']");
+console.log(laptopEl);
 
 //! selecting an id
 
