@@ -1,5 +1,5 @@
 //---
-//Window object
+//! Window object
 //---
 // console.log(window.innerWidth);
 console.log(innerHeight);
