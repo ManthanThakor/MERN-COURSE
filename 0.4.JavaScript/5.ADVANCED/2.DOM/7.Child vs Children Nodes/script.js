@@ -1,10 +1,20 @@
-// Fetch the element with id="parent"
+// ! Fetch the element with id="parent"
+
 const parentEl = document.querySelector("#parent");
 // console.log(parentEl.childNodes);
-// parentEl.childNodes.forEach((node) => console.log(node.nodeType));
 
-// Fetch all child element nodes of the parent element
+parentEl.childNodes.forEach((node) => {
+  //   return console.log(node);
+});
+
+//!  Fetch all child element nodes of the parent element
+
 console.log(parentEl.children);
 
+// Convert the HTMLCollection to an array
+
 const convertedHTMLCollection = Array.from(parentEl.children);
-convertedHTMLCollection.forEach((el) => console.log(el));
+
+convertedHTMLCollection.forEach((el) => {
+  return console.log(el);
+});
