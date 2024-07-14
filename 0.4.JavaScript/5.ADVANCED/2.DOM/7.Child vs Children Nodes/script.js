@@ -16,5 +16,5 @@ console.log(parentEl.children);
 const convertedHTMLCollection = Array.from(parentEl.children);
 
 convertedHTMLCollection.forEach((el) => {
-  return console.log(el);
+  //   return console.log(el);
 });
