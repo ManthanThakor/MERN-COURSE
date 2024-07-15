@@ -1,20 +1,26 @@
 //! Step 1: Select the outer div using its ID
 
-const outerDivEl =
+const outerDivEl = document.getElementById("outerDiv");
 // console.log(outerDivEl);
 
 //! Step 2: Navigate to the first child, which is a text node
 
-// const firstChildEl = 
+const firstChildEl = outerDivEl.childNodes[0];
+
+// console.log(firstChildEl);
 
 // ! Step 3: Navigate to the second child, which is the innerDiv
 
-// const innerDivEl = 
+const innerDivEl = outerDivEl.childNodes[1];
+
+// console.log(innerDivEl);
 
 //! Step 4: select the first child of the inner div
 
-// const innerDivFirstChildEl = 
+const innerDivFirstChildEl = innerDivEl.childNodes[0];
+// console.log(innerDivFirstChildEl);
 
-//! Step 4: select the second child of the inner div
+//! Step 5: select the second child of the inner div
 
-// const nestetListEl = 
+const nestetListEl = innerDivEl.childNodes[1];
+// console.log(nestetListEl);
