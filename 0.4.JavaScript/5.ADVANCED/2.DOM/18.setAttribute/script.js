@@ -13,3 +13,9 @@ product1ImageEl.setAttribute(
 product1ImageEl.setAttribute("alt", "my new product");
 
 //! Using setAttribute to change product links
+
+const product1LinkEl = document.getElementById("product1").querySelector("a");
+
+product1LinkEl.setAttribute("href", "new.html");
+
+console.log(product1LinkEl);
