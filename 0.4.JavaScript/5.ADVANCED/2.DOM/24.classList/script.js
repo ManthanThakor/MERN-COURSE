@@ -1,25 +1,27 @@
-//select the p element
+//! select the p element
+
 const p = document.getElementById("textElement");
 // p.classList.add("highlight", "bold", "italic");
 // p.classList.add("bold");
 // p.classList.add("italic");
 
-//function to add class
+//! function to add class
 function addClass() {
   p.classList.add("highlight", "bold", "italic");
 }
 
-//removeClass
+//! removeClass
 function removeClass() {
   p.classList.remove("highlight", "bold", "italic");
 }
 
-//toggleClass
+//! toggleClass
 function toggleClass() {
   p.classList.toggle("italic");
+  p.classList.toggle("bold");
 }
 
-//checkContains
+//! checkContains
 function checkContains() {
   alert(
     p.classList.contains("highlight")
@@ -28,7 +30,7 @@ function checkContains() {
   );
 }
 
-//replaceClass
+//! replaceClass
 
 function replaceClass() {
   if (p.classList.contains("italic")) {
@@ -38,13 +40,13 @@ function replaceClass() {
   }
 }
 
-//listItem
+//! listItem
 
 function listItem() {
   alert("The first clas is:" + p.classList.item(0));
 }
 
-//getValue
+//! getValue
 function getValue() {
   console.log(p.classList.value);
 }
