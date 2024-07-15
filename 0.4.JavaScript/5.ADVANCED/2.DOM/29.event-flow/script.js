@@ -1,4 +1,4 @@
-// Add event listener to the div
+//! Add event listener to the div
 
 document.getElementById("parentDiv").addEventListener(
   "click",
@@ -8,7 +8,8 @@ document.getElementById("parentDiv").addEventListener(
   true
 ); //Capturing
 
-//Add event listener to the ul
+//! Add event listener to the ul
+
 document.getElementById("list").addEventListener(
   "click",
   function (event) {
@@ -17,7 +18,8 @@ document.getElementById("list").addEventListener(
   true
 ); //Capturing
 
-//Add event listener to the li
+//! Add event listener to the li
+
 document.getElementById("item1").addEventListener(
   "click",
   function (event) {
