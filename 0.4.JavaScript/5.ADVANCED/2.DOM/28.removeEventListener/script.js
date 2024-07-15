@@ -1,22 +1,13 @@
-//Named function for alert
+//!Named function for alert
 
 function showAlert() {
   console.log("Hello");
 }
 
-//getting the button element
-const alertButtonEl = document.getElementById("alertButton");
+//!getting the button element
 
-//Add addEventListener  to the element
-alertButtonEl.addEventListener("click", showAlert);
+//!Add addEventListener  to the element
 
-//Named function for  removing event
+//!Named function for  removing event
 
-function removeAlert() {
-  alertButtonEl.removeEventListener("click", showAlert);
-}
-
-//getting the remove button element
-const removeButtonEl = document.getElementById("removeButton");
-
-removeButtonEl.addEventListener("click", removeAlert);
+//!getting the remove button element
