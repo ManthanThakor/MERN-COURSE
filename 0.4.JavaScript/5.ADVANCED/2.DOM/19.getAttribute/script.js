@@ -5,7 +5,7 @@
 const imagesEl = document
   .getElementById("imageGallery")
   .querySelectorAll("img");
-console.log(imagesEl);
+// console.log(imagesEl);
 
 //! Create an array to store images by Alice
 
@@ -13,7 +13,7 @@ let imagesByAlice = [];
 
 //! Use getAttribute to filter images by author Alice
 imagesEl.forEach((img) => {
-  //   console.log(img);
+  // console.log(img);
   const author = img.getAttribute("data-author");
   // console.log(author);
   if (author === "Alice") {
@@ -21,7 +21,7 @@ imagesEl.forEach((img) => {
   }
 });
 
-// imagesByAlice.forEach((img) => console.log(img));
+imagesByAlice.forEach((img) => console.log(img));
 
 //! Hide images that are not by Alice
 
