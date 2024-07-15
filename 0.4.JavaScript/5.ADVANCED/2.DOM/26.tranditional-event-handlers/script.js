@@ -1,6 +1,6 @@
 //-----Mouse Event-----
 document.getElementById("clickButton").onclick = function clickHandler() {
-  //console.log("Click event is called");
+  console.log("Click event is called");
 };
 
 document.getElementById("doubleClickButton").ondblclick =
@@ -17,21 +17,22 @@ document.getElementById("hoverDiv").onmouseout = function onMouseOutHandler() {
   console.log("onMouseOutHandler event is called");
 };
 
-//-----Keyboard Event-----
+//! -----Keyboard Event-----
 
 document.getElementById("keyInput").onkeydown = function onkeydownHandler() {
   console.log("onkeydownHandler event is called");
 };
 
 document.getElementById("keyInput").onkeyup = function onkeyupHandler() {
-  //console.log("onkeyupHandler event is called");
+  console.log("onkeyupHandler event is called");
 };
 
-document.getElementById("keyInput").onkeypress = function onkeypressHandler() {
-  console.log("onkeypressHandler event is called");
-};
+document.getElementById("keyInput").onkeypressHandler =
+  function onkeypressHandler() {
+    console.log("onkeypressHandler event is called");
+  };
 
-//-----Form Events-----
+//! -----Form Events-----
 
 document.getElementById("myForm").onsubmit = function onsubmitHandler() {
   console.log("onsubmitHandler event is called");
