@@ -1,36 +1,38 @@
-//-----Mouse Event-----
+//! -----Mouse Event-----
 function clickHandler() {
-  //console.log("Click event is called");
+  console.log("Click event is called");
 }
 
 function dbClickHandler() {
-  //console.log("dbClickHandler event is called");
+  console.log("dbClickHandler event is called");
 }
 
 function onMouseOverHandler() {
-  //console.log("onMouseOverHandler event is called");
+  console.log("onMouseOverHandler event is called");
 }
 
 function onMouseOutHandler() {
-  //console.log("onMouseOutHandler event is called");
+  console.log("onMouseOutHandler event is called");
 }
 
-//-----Keyboard Event-----
+//! -----Keyboard Event-----
+
 function onkeydownHandler() {
-  //console.log("onkeydownHandler event is called");
+  console.log("onkeydownHandler event is called");
 }
 
 function onkeyupHandler() {
-  //console.log("onkeyupHandler event is called");
+  console.log("onkeyupHandler event is called");
 }
 
 function onkeypressHandler() {
   console.log("onkeypressHandler event is called");
 }
 
-//-----Form Events-----
+//! -----Form Events-----
+
 function onsubmitHandler() {
-  // console.log("onsubmitHandler event is called");
+  console.log("onsubmitHandler event is called");
 }
 
 function onfocusHandler() {
