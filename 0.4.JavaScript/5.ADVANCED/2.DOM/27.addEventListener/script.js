@@ -1,4 +1,4 @@
-//-----Mouse Event-----
+//! -----Mouse Event-----
 
 function addEvent() {
   console.log("Click event is called");
@@ -21,7 +21,7 @@ document.getElementById("hoverDiv").addEventListener("mouseout", function () {
   console.log("onMouseOutHandler event is called");
 });
 
-//-----Keyboard Event-----
+//! -----Keyboard Event-----
 
 document.getElementById("keyInput").addEventListener("keydown", function () {
   console.log("onkeydownHandler event is called");
@@ -35,7 +35,7 @@ document.getElementById("keyInput").addEventListener("keypress", function () {
   console.log("onkeypressHandler event is called");
 });
 
-//-----Form Events-----
+//! -----Form Events-----
 
 document.getElementById("myForm").addEventListener("submit", function () {
   console.log("onsubmitHandler event is called");
