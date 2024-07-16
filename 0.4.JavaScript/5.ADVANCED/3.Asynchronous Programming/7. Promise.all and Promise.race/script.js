@@ -2,14 +2,14 @@
 
 //? create our promises
 
-// const promise1 = Promise.resolve("Promise 1 resolved");
-// const promise2 = Promise.resolve("Promise 2 resolved");
+const promise11 = Promise.resolve("Promise 11 resolved");
+const promise22 = Promise.resolve("Promise 22 resolved");
 
-// Promise.all([promise1, promise2])
-//   .then((result) => {
-//     console.log(result);
-//   })
-//   .catch((err) => console.log(err));
+Promise.all([promise11, promise22])
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((err) => console.log(err));
 
 //! Promise.race
 
