@@ -1,8 +1,10 @@
-//Example 1 with Callback
+//! ================
+//? Example 1 with Callback
+//! ================
 
-//creation
+//! creation
 function simpleCb(success, cb) {
-  console.log("Cb function called");
+  //? console.log("Cb function called");
   if (success) {
     cb(null, "The operation was successful");
   } else {
@@ -10,44 +12,51 @@ function simpleCb(success, cb) {
   }
 }
 
-//usage
-// simpleCb(false, (err, result) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log(result);
-//   }
-//   console.log("This always log regardless of the operation");
-// });
+//! usage
 
-//Example 1 convert to use promise
+simpleCb(true, (err, result) => {
+  if (err) {
+    //? console.log(err);
+  } else {
+    //? console.log(result);
+  }
+  //? console.log("This always log regardless of the operation");
+});
 
-//creation
+//! ================
+//? Example 1 convert to use promise
+//! ================
 
-// const simplePromise = new Promise((resolve, reject) => {
-//   const success = false;
-//   if (success) {
-//     //resolve the promise
-//     resolve("The promise operation was successful");
-//   } else {
-//     //reject the promise
-//     reject("The promise operation failed");
-//   }
-// });
+//! creation
 
-//usage
-// simplePromise
-//   .then((result) => {
-//     console.log(result);
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   })
-//   .finally(() => {
-//     console.log("This always log regardless of the operation");
-//   });
+const simplePromise = new Promise((resolve, reject) => {
+  const success = true;
+  if (success) {
+    //resolve the promise
+    //? resolve("The promise operation was successful");
+  } else {
+    //reject the promise
+    //? reject("The promise operation failed");
+  }
+});
 
-//Example 2 convert to use promise
+//! usage
+
+simplePromise
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+  .finally(() => {
+    //? console.log("This always log regardless of the operation");
+  });
+
+//! ================
+//? Example 2 convert to use promise
+//! ================
+
 function isEvenNumber(number, cb) {
   if (number % 2 === 0) {
     cb(null, `The number ${number} is even`);
@@ -56,16 +65,18 @@ function isEvenNumber(number, cb) {
   }
 }
 
-//usage
-// isEvenNumber(5, (err, result) => {
-//   if (err) {
-//     console.log(err.message);
-//   } else {
-//     console.log(result);
-//   }
-// });
+//! usage
 
-//Creation
+isEvenNumber(5, (err, result) => {
+  if (err) {
+    console.log(err.message);
+  } else {
+    console.log(result);
+  }
+});
+
+//!Creation
+
 function isEvenNumberPromise(number) {
   return new Promise((resolve, reject) => {
     if (number % 2 === 0) {
@@ -78,7 +89,8 @@ function isEvenNumberPromise(number) {
   });
 }
 
-//call the fn/resolve
+//!call the fn/resolve
+
 isEvenNumberPromise(4)
   .then((result) => {
     console.log(result);
