@@ -1,4 +1,4 @@
-// Accessing the username input and submit button
+//! Accessing the username input and submit button
 const usernameEl = document.getElementById("username");
 const submitButtonEl = document.getElementById("submitButton");
 
@@ -9,12 +9,12 @@ const usernameSubmitted = new CustomEvent("usernameSubmitted", {
   detail: { text: "" },
 });
 
-//Attach an event listener to handle the custom event
+//! Attach an event listener to handle the custom event
 document.addEventListener("usernameSubmitted", function (event) {
   console.log(`Username is ${event.detail.text} has been submitted`);
 });
 
-//Attach an event listener to the submit button
+//! Attach an event listener to the submit button
 
 submitButtonEl.addEventListener("click", function () {
   // Populate the detail property with the input value
