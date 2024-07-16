@@ -1,4 +1,4 @@
-//First function returning a Promise
+//! First function returning a Promise
 
 function stepOnePromise() {
   return new Promise((resolve) => {
@@ -18,8 +18,8 @@ function stepThreePromise() {
   });
 }
 
-//Chaining
-//first promise
+//! Chaining
+//! first promise
 stepOnePromise()
   .then((resultFromP1) => {
     console.log(resultFromP1);
