@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display API Data</title>
+    <style>
+      body {
+        background-color: #2c3e50;
+        color: #ecf0f1;
+        text-align: center;
+        font-family: Arial, sans-serif;
+      }
+      #content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      img {
+        width: 200px;
+        height: 200px;
+        margin: 10px;
+        border-radius: 10px;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      img:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      img {
+        animation: fadeIn 2s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Dynamic Image Gallery</h1>
+    <div id="content"></div>
+
+    <script>
+      const numberOfImages = 20; // Number of images to fetch
+
+      function fetchImage() {
+        return new Promise((resolve, reject) => {
+          const xhr = new XMLHttpRequest();
+          xhr.withCredentials = true;
+
+          xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === this.DONE) {
+              if (this.status === 200) {
+                resolve(JSON.parse(this.responseText));
+              } else {
+                reject("Failed to load image");
+              }
+            }
+          });
+
+          xhr.open("GET", "https://porn-image1.p.rapidapi.com/?type=pussy");
+          xhr.setRequestHeader(
+            "x-rapidapi-key",
+            "a7d906860dmsha9e0fd650cdd6cap18af61jsn7b13dd16c19f"
+          );
+          xhr.setRequestHeader("x-rapidapi-host", "porn-image1.p.rapidapi.com");
+
+          xhr.send(null);
+        });
+      }
+
+      async function fetchAndDisplayImages() {
+        const contentDiv = document.getElementById("content");
+
+        for (let i = 0; i < numberOfImages; i++) {
+          try {
+            const data = await fetchImage();
+            if (data.success) {
+              const imgElement = document.createElement("img");
+              imgElement.src = data.url;
+              imgElement.alt = "API Image";
+              imgElement.style.animationDelay = `${i * 0.1}s`; // Staggered animation
+              contentDiv.appendChild(imgElement);
+            }
+          } catch (error) {
+            console.error(error);
+          }
+        }
+      }
+
+      fetchAndDisplayImages();
+    </script>
+  </body>
+</html>
