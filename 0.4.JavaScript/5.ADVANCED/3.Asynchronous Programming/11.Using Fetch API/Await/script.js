@@ -1,7 +1,7 @@
 const url = "https://jsonplaceholder.typicode.com/posts";
 
+//! old method {[[[[[[[[[[[[[[
 // Create a new instance of XMLHttpRequest
-
 const xhr = new XMLHttpRequest();
 
 //Configure the request
@@ -20,11 +20,21 @@ xhr.onreadystatechange = function () {
     console.log(xhr.statusText);
   }
 };
+//! old method ]]]]]]]]]]]]]]}
 
 //send the reques
 // xhr.send();
 
-//Using Promise based
+//! ==============================================
+//! ==============================================
+//! ==============================================
+//! ==============================================
+//? Using Promise based
+//! ==============================================
+//! ==============================================
+//! ==============================================
+//! ==============================================
+
 const fetchData = () => {
   fetch(url)
     .then((response) => {
@@ -33,12 +43,13 @@ const fetchData = () => {
     .then((data) => {
       console.log(data);
     })
-    .catch((error) => console.log(error));
+    .catch((error) => {
+      console.log(error);
+    });
 };
+// fetchData();
 
-//fetchData();
-
-//Using async await
+//! Using async await
 
 const fetchData2 = async () => {
   try {
