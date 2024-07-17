@@ -1,18 +1,21 @@
 const url = "https://jsonplaceholder.typicode.com/posts";
 
-//Using Promise based
+//! Using Promise based
+
 const fetchData = () => {
   axios
     .get(url)
     .then((response) => {
       console.log(response.data);
     })
-    .catch((error) => console.log(error));
+    .catch((error) => {
+      console.log(error);
+    });
 };
 
-// fetchData();
+fetchData();
 
-//Using async await
+//! Using async await
 
 const fetchData2 = async () => {
   try {
