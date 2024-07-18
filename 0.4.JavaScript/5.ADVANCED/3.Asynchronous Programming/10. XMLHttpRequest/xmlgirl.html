@@ -45,60 +45,31 @@
     <div id="content"></div>
 
     <script>
-      const numberOfImages = 20; // Number of images to fetch
+      const data = null;
 
-      function fetchImage() {
-        return new Promise((resolve, reject) => {
-          const xhr = new XMLHttpRequest();
-          xhr.withCredentials = true;
+      const xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
 
-          xhr.addEventListener("readystatechange", function () {
-            if (this.readyState === this.DONE) {
-              if (this.status === 200) {
-                resolve(JSON.parse(this.responseText));
-              } else {
-                reject("Failed to load image");
-              }
-            }
-          });
-
-          xhr.open(
-            "GET",
-            "https://girls-nude-image.p.rapidapi.com/?type=boobs"
-          );
-          xhr.setRequestHeader(
-            "x-rapidapi-key",
-            "a7d906860dmsha9e0fd650cdd6cap18af61jsn7b13dd16c19f"
-          );
-          xhr.setRequestHeader(
-            "x-rapidapi-host",
-            "girls-nude-image.p.rapidapi.com"
-          );
-
-          xhr.send(null);
-        });
-      }
-
-      async function fetchAndDisplayImages() {
-        const contentDiv = document.getElementById("content");
-
-        for (let i = 0; i < numberOfImages; i++) {
-          try {
-            const data = await fetchImage();
-            if (data.success) {
-              const imgElement = document.createElement("img");
-              imgElement.src = data.url;
-              imgElement.alt = "API Image";
-              imgElement.style.animationDelay = `${i * 0.1}s`; // Staggered animation
-              contentDiv.appendChild(imgElement);
-            }
-          } catch (error) {
-            console.error(error);
-          }
+      xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === this.DONE) {
+          console.log(this.responseText);
         }
-      }
+      });
 
-      fetchAndDisplayImages();
+      xhr.open(
+        "GET",
+        "https://instagram-scraper-api2.p.rapidapi.com/v1/likes?code_or_id_or_url=CxYQJO8xuC6"
+      );
+      xhr.setRequestHeader(
+        "x-rapidapi-key",
+        "a7d906860dmsha9e0fd650cdd6cap18af61jsn7b13dd16c19f"
+      );
+      xhr.setRequestHeader(
+        "x-rapidapi-host",
+        "instagram-scraper-api2.p.rapidapi.com"
+      );
+
+      xhr.send(data);
     </script>
   </body>
 </html>
