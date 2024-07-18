@@ -1,4 +1,4 @@
-//--Accessing the global object---
+//! --Accessing the global object---
 
 //Accessing the global object
 global.myGlobal = "Hello from the global object";
