@@ -3,22 +3,33 @@
 //Accessing the global object
 global.myGlobal = "Hello from the global object";
 
-// To check if our variable is truly global
+//? console.log(" ");
+//? console.log(global.myGlobal);
+//? console.log(" ");
+//? console.log("myGlobalss" in global); // false
+//? console.log("myGlobal" in global); // true
+//? console.log(" ");
 
-//console.log(__dirname);
-console.log(__filename);
+//! To check if our variable is truly global
 
-//!Using `setInterval` and `clearInterval
-// let count = 0;
-// const intervalId = setInterval(() => {
-//   console.log("Hello word");
-//   count++;
-//   if (count === 5) {
-//     clearInterval(intervalId);
-//   }
-// }, 1000);
+//? console.log(__dirname);
+//? console.log(" ");
+//? console.log(__filename);
+console.log(" ");
 
-//setTimeout
+//! Using `setInterval` and `clearInterval
+
+let count = 0;
+const intervalId = setInterval(() => {
+  console.log("Hello word");
+  count++;
+  if (count === 5) {
+    clearInterval(intervalId);
+  }
+}, 1000);
+
+//? setTimeout
+
 setTimeout(() => {
   console.log("This will be delayed by 5S");
 }, 5000);
