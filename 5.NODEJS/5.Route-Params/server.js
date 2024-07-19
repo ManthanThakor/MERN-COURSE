@@ -10,7 +10,7 @@ const url = require("url");
 //! =====================================
 
 const requestHandler = (req, res) => {
-  //! pass the url
+  //! parse the url
   const passedURL = url.parse(req.url, true);
   const pathName = passedURL.pathname;
   console.log(pathName);

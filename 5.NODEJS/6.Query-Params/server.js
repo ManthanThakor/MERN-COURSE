@@ -10,26 +10,23 @@ const url = require("url");
 //! =====================================
 
 const requestHandler = (req, res) => {
-  //pass the url
-  const passedUrl = url.parse(req.url, true);
-  //Extract query
-  const queryParameters = passedUrl.query;
-  console.log(queryParameters);
-  res.writeHead(200, { "Cotent-Type": "text/pain" });
-  res.end(`Welcome`);
+  //! Parse the request URL
+  const parseURL = url.parse(req.url, true);
+  //! Send the response
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end("HI");
 };
 
 //! =====================================
 //? =====  Create The Server =====
 //! =====================================
-
-const server = http.createServer(requestHandler);
+const createServer = http.createServer(requestHandler);
 
 //! =====================================
 //? =====  Start The Server =====
 //! =====================================
 
-const PORT = 3000;
-server.listen(PORT, () => {
-  console.log(`The server is running on http://localhost:${PORT}`);
+const PORT = process.env.PORT || 3000;
+createServer.listen(PORT, () => {
+  console.log(`Server is running at http://localhost:${PORT}`);
 });
