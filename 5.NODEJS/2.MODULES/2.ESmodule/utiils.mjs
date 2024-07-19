@@ -9,12 +9,12 @@
 //? Default Export
 //! =================
 
-export default function (name) {
-  return `Hello ${name}`;
-}
+// export default function (name) {
+//   return `Hello ${name}`;
+// }
 
 //! =================
-//!Name Export
+//? Name Export
 //! =================
 
 // export function add(a, b) {
@@ -25,7 +25,7 @@ export default function (name) {
 // }
 
 //! =================
-//!Mixed Export(Default + Named)
+//? Mixed Export(Default + Named)
 //! =================
 
 // export default function (name) {
@@ -41,7 +41,7 @@ export default function (name) {
 // }
 
 //! =================
-//! Export everything
+//? Export everything
 //! =================
 
 export function subtract(a, b) {
