@@ -12,6 +12,9 @@ const url = require("url");
 const requestHandler = (req, res) => {
   //! Parse the request URL
   const parseURL = url.parse(req.url, true);
+  //! Extract QUERY
+  const queryParameters = parseURL.query;
+  console.log(queryParameters);
   //! Send the response
   res.writeHead(200, { "Content-Type": "text/plain" });
   res.end("HI");
