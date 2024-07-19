@@ -8,61 +8,74 @@ const fs = require("fs");
 //? Read a file
 //!========================
 
-//Synchronous
-// const dataBuffer = fs.readFileSync("./sample.txt");
-// const content = dataBuffer.toString();
+//? Synchronous
+
+const dataBuffer = fs.readFileSync("./sample.txt");
+// const content = fs.readFileSync("./sample.txt", "utf8");
+const content = dataBuffer.toString();
 // console.log(content);
 
-//Asynchronous
-// fs.readFile("./sample.txt", "utf-8", (err, content) => {
-//   if (err) {
-//     console.log(err);
-//     throw err;
-//   } else {
-//     console.log(content);
-//   }
-// });
+//? Asynchronous
 
-//Write to a file
-// fs.writeFile("./new.txt", "some new content", (err) => {
-//   if (err) {
-//     console.log(err);
-//     return;
-//   } else {
-//     console.log("File has been written");
-//   }
-// });
+fs.readFile("./sample.txt", "utf-8", (err, content) => {
+  if (err) {
+    // console.log(err);
+    throw err;
+  } else {
+    // console.log(content);
+  }
+});
 
-// Appending to a File
+//!========================
+//? Write to a file
+//!========================
 
-// fs.appendFile("./new.txt", "Appended content", (error) => {
-//   if (error) {
-//     console.log(error);
-//   } else {
-//     console.log("File contented appended");
-//   }
-// });
+fs.writeFile("./new.txt", "some new content", (err) => {
+  if (err) {
+    // console.log(err);
+    return;
+  } else {
+    // console.log("File has been written");
+  }
+});
 
-//Checking if a File Exists
-// fs.access("./new2.txt", fs.constants.F_OK, (error) => {
-//   if (error) {
-//     console.log("File does not exists");
-//   } else {
-//     console.log("File Exists");
-//   }
-// });
+//!========================
+//? Appending to a File
+//!========================
 
-//Delete a file
-// fs.unlink("./new.txt", (error) => {
-//   if (error) {
-//     console.log(error);
-//     return;
-//   } else {
-//     console.log("File has been deleted");
-//   }
-// });
+fs.appendFile("./new.txt", " || HI, this is Appended content", (error) => {
+  if (error) {
+    // console.log(error);
+  } else {
+    // console.log("File contented appended");
+  }
+});
+
+//! Checking if a File Exists
+
+fs.access("./new.txt", fs.constants.F_OK, (error) => {
+  if (error) {
+    // console.log("File does not exist");
+  } else {
+    // console.log("File exists");
+  }
+});
+
+//!========================
+//? Delete a file
+//!========================
+
+fs.unlink("./new.txt", (error) => {
+  if (error) {
+    // console.log(error);
+    return;
+  } else {
+    // console.log("File has been deleted");
+  }
+});
 
 //! Using promise
+
 const fs2 = require("fs/promises");
 
 // fs.readFile("./sample.txt", "utf-8", (err, content) => {
