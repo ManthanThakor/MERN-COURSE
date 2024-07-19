@@ -1,6 +1,14 @@
+//! =====================================
+//? =====  IMPORTS Required modules =====
+//! =====================================
+
 const http = require("http");
 const url = require("url");
-//2. Define the handler
+
+//! =====================================
+//? =====  Define The Handler =====
+//! =====================================
+
 const requestHandler = (req, res) => {
   //pass the url
   const passedUrl = url.parse(req.url, true);
@@ -11,10 +19,16 @@ const requestHandler = (req, res) => {
   res.end(`Welcome`);
 };
 
-//3. Create the server
+//! =====================================
+//? =====  Create The Server =====
+//! =====================================
+
 const server = http.createServer(requestHandler);
 
-//4. Start our server
+//! =====================================
+//? =====  Start The Server =====
+//! =====================================
+
 const PORT = 3000;
 server.listen(PORT, () => {
   console.log(`The server is running on http://localhost:${PORT}`);

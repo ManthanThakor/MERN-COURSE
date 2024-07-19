@@ -1,10 +1,15 @@
+//! =====================================
+//? =====  IMPORTS Required modules =====
+//! =====================================
 const http = require("http");
 //mimic (database)
 const employees = [
   { id: 1, name: "Emmanuel" },
   { id: 2, name: "Agnes" },
 ];
-//2. Define the handler
+//! =====================================
+//? =====  Define The Handler =====
+//! =====================================
 const requestHandler = (req, res) => {
   const { method, url } = req;
   const parts = url.split("/");
@@ -48,10 +53,14 @@ const requestHandler = (req, res) => {
   }
 };
 
-//3. Create the server
+//! =====================================
+//? =====  Create The Server =====
+//! =====================================
 const server = http.createServer(requestHandler);
 
-//4. Start our server
+//! =====================================
+//? =====  Start The Server =====
+//! =====================================
 const PORT = 3000;
 server.listen(PORT, () => {
   console.log(`The server is running on http://localhost:${PORT}`);
