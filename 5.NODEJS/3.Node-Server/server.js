@@ -9,9 +9,9 @@ const http = require("http");
 //? =====  Define The Handler =====
 //! =====================================
 
-const requestHandler = (request, response) => {
+const requestHandler = (req, res) => {
   //! send response
-  res.writehead(200, { "content-type": "text/plain" });
+  res.writeHead(200, { "content-type": "text/plain" });
   res.end("Hello from Node.js Server\n");
 };
 
