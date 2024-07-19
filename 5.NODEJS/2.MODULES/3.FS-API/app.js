@@ -1,6 +1,13 @@
+//! -----------------------
 const fs = require("fs");
+//! -----------------------
 
-//! Read a file
+// console.log(fs);
+
+//!========================
+//? Read a file
+//!========================
+
 //Synchronous
 // const dataBuffer = fs.readFileSync("./sample.txt");
 // const content = dataBuffer.toString();
