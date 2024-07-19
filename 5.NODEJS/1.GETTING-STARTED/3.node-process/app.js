@@ -11,16 +11,17 @@
 //? Environment variables
 //! =====================
 
-// console.log(process.env);
+//? console.log(process.env);
 
 //! Accessing env varibales
 
 const appEnv = process.env.APP_ENV || "development";
 
 //! Display the env
+
 console.log(`Our Node App is running ${appEnv}`);
 
-//setting the env
+//! setting the env
 
 //! process.exit()
 // Check the current environment using the 'NODE_ENV' environment variable
