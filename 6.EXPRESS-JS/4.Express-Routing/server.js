@@ -6,6 +6,8 @@ const express = require("express");
 
 const userRouter = require("./routes/usersRouter");
 
+const postRouter = require("./routes/postsRouter");
+
 //! =================================
 //? === INSTANCE ===
 //! =================================
@@ -27,6 +29,10 @@ app.get("/", (req, res) => {
 // User Route
 
 app.use("/users", userRouter);
+
+// Post Route
+
+app.use("/posts", postRouter);
 
 //! =================================
 //? === start the server ===
