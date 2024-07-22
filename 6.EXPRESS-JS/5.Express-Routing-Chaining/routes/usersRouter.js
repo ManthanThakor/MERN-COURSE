@@ -10,7 +10,9 @@ userRouter.route("/").get((req, res) => {
     message: "All users  fetched",
   });
 });
+
 //Handle a specific user ID
+
 userRouter
   .route("/:id")
   .get((req, res) => {
