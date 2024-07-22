@@ -22,6 +22,46 @@ app.get("/", (req, res) => {
   });
 });
 
+// users Route
+
+//! Getting all users
+app.get("/users", (req, res) => {
+  res.json({
+    message: "All users Fetched",
+  });
+});
+
+//! Getting a users
+
+app.get("/users/:id", (req, res) => {
+  res.json({
+    message: "User Fetched",
+  });
+});
+
+//! update users
+
+app.get("/users/:id", (req, res) => {
+  res.json({
+    message: "User Updated",
+  });
+});
+
+//! delete users
+
+app.get("/users/:id", (req, res) => {
+  res.json({
+    message: "User Deleted",
+  });
+});
+
+// Posts Route
+
+//! Getting all users
+//! Getting a users
+//! update users
+//! delete users
+
 //! =================================
 //? === start the server ===
 //! =================================
