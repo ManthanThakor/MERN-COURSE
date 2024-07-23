@@ -1,11 +1,20 @@
 const express = require("express");
 const path = require("path");
 const app = express();
-const PORT = 8082;
-//Serve the static files/folder
+//! =================================
+//? === SERVE THE STATIC FILE ===
+//! =================================
+
 app.use(express.static(path.join(__dirname, "public")));
-//Set the view engine as  ejs
+
+//! Set the view engine
 app.set("view engine", "ejs");
+
+//! Set the views directory (if it's not in the default location)
+app.set("views", path.join(__dirname, "views"));
+
+//! Create PORT
+const PORT = process.env.PORT || 8082;
 
 //Render Home page/route
 app.get("/", (req, res) => {

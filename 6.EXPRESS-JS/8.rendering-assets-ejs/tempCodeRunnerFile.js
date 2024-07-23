@@ -1,2 +1,0 @@
-
-  res.render("products", { products })
