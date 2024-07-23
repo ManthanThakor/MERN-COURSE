@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(135deg, #000428, #004e92);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #fff;
+  overflow: hidden;
+}
+
+.container {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+
+h1 {
+  color: #00d4ff;
+  font-size: 28px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 8px #00d4ff;
+}
+
+p {
+  color: #ccc;
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.premium {
+  color: #4caf50;
+  text-shadow: 0 0 5px #4caf50;
+}
+
+.non-premium {
+  color: #ff5722;
+  text-shadow: 0 0 5px #ff5722;
+}
+
+p:hover {
+  color: #fff;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.wave {
+  position: absolute;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  opacity: 0.4;
+  top: 0;
+  z-index: 0;
+}
+
+.wave path {
+  animation: wave 10s linear infinite;
+}
+
+.wave.wave1 path {
+  animation-duration: 15s;
+}
+
+.wave.wave2 path {
+  animation-duration: 20s;
+  animation-direction: reverse;
+}
+
+.wave.wave3 path {
+  animation-duration: 25s;
+}

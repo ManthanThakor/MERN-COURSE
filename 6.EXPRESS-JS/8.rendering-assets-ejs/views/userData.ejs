@@ -4,19 +4,57 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Data</title>
+    <link rel="stylesheet" href="/css/userdata.css" />
   </head>
   <body>
-    <h1>Passing data from server to client</h1>
-    <!-- Accessing data from the server -->
-    <h1>Welcome, <%=username%></h1>
-    <p>Email: <%=email%></p>
-    <p>Age: <%=age%></p>
+    <svg
+      class="wave wave1"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1440 320"
+    >
+      <path
+        fill="#00d4ff"
+        fill-opacity="1"
+        d="M0,192L48,170.7C96,149,192,107,288,117.3C384,128,480,192,576,229.3C672,267,768,277,864,272C960,267,1056,245,1152,202.7C1248,160,1344,96,1392,64L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+      ></path>
+    </svg>
+    <svg
+      class="wave wave2"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1440 320"
+    >
+      <path
+        fill="#00d4ff"
+        fill-opacity="0.6"
+        d="M0,160L48,170.7C96,181,192,203,288,218.7C384,235,480,245,576,234.7C672,224,768,192,864,186.7C960,181,1056,203,1152,213.3C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+      ></path>
+    </svg>
+    <svg
+      class="wave wave3"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1440 320"
+    >
+      <path
+        fill="#00d4ff"
+        fill-opacity="0.3"
+        d="M0,288L48,272C96,256,192,224,288,192C384,160,480,128,576,112C672,96,768,96,864,128C960,160,1056,224,1152,218.7C1248,213,1344,139,1392,101.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+      ></path>
+    </svg>
+    <div class="container">
+      <h1>Passing data from server to client</h1>
+      <!-- Accessing data from the server -->
+      <h1>Welcome, <%= userData.username %></h1>
+      <p>Email: <%= userData.email %></p>
+      <p>Age: <%= userData.age %></p>
 
-    <%if(isPremiumUser) { %>
-    <p>You are a premium member</p>
-    <%}else{ %>
-    <p>You are not a premium member</p>
-    <%} %>
-    <p><%=(isLogin)? "Welcome you are logged in" : "Please login"%></p>
+      <% if (userData.isPremiumUser) { %>
+      <p class="premium">You are a premium member</p>
+      <% } else { %>
+      <p class="non-premium">You are not a premium member</p>
+      <% } %>
+      <p>
+        <%= userData.isLogin ? "Welcome, you are logged in" : "Please login" %>
+      </p>
+    </div>
   </body>
 </html>
