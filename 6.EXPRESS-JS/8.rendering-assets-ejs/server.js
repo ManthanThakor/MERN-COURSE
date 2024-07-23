@@ -65,20 +65,23 @@ app.get("/products", (req, res) => {
     {
       name: "Laptop",
       price: 999,
-      image: "laptop.jpg",
+      image:
+        "https://i.pinimg.com/736x/62/54/9a/62549a16d7478880b2688bada17df22f.jpg",
       description: "A high-performance laptop with 16GB RAM and 512GB SSD.",
     },
     {
       name: "Phone",
       price: 799,
-      image: "phone.jpg",
+      image:
+        "https://images.firstpost.com/wp-content/uploads/2019/09/asus-rog-phone-2-ultimate-edition.jpg?im=FitAndFill=(596,336)",
       description:
         "A smartphone with a stunning display and excellent camera quality.",
     },
     {
       name: "TV",
       price: 1200,
-      image: "tv.jpg",
+      image:
+        "https://media.wired.com/photos/64dab91d10f55482d7159eb4/master/pass/Nanoleaf-4D-Lighting-Kit-Review-Featured-Gear.jpg",
       description: "A 55-inch smart TV with 4K resolution and HDR support.",
     },
   ];
