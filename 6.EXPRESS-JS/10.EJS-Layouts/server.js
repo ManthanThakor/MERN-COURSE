@@ -46,5 +46,24 @@ app.get("/gallery", (req, res) => {
   res.render("gallery");
 });
 
+// 404 Error Handler
+
+app.use((req, res, next) => {
+  const error = new Error("Page Not Found");
+  error.status = 404;
+  next(error);
+});
+
+// Error handling middleware
+
+app.use((err, req, res, next) => {
+  res.status(err.status || 500);
+  res.render("error", {
+    error: {
+      status: err.status || 500,
+      message: err.message || "Internal Server Error",
+    },
+  });
+});
 //! Start the server
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));

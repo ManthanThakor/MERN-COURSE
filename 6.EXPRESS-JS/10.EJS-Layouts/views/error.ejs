@@ -1,3 +1,31 @@
-<div style="margin-top: 120px">
-  <h1 style="color: red; font-size: 30px"><%=error%></h1>
-</div>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+      .error-container {
+        margin-top: 120px;
+      }
+      .error-status {
+        color: red;
+        font-size: 50px;
+      }
+      .error-message {
+        color: #333;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="error-container">
+      <% if (error.status === 404) { %>
+      <h1 class="error-status">404</h1>
+      <p class="error-message">Page Not Found</p>
+      <% } else { %>
+      <h1 class="error-status"><%= error.status %></h1>
+      <p class="error-message"><%= error.message %></p>
+      <% } %>
+    </div>
+
