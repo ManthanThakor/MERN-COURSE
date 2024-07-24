@@ -99,9 +99,9 @@ const connectDB = async () => {
     //? 6. FindMany() using the find()
     //!------------
 
-    // const resultsCursor = Student.find();
-    // const results1 = await resultsCursor.toArray();
-    // console.log(results1);
+    const resultsCursor = Student.find();
+    const results1 = await resultsCursor.toArray();
+    console.log(results1);
 
     //?--OR--
 
@@ -124,6 +124,31 @@ const connectDB = async () => {
     //!------------
     //? 8. UpdateOne() using the updateOne()
     //!------------
+
+    // const up1 = await Student.updateOne(
+    //   {
+    //     name: "Jack", // filtering
+    //   },
+    //   {
+    //     $set: { name: "Jack GOD", age: 11 }, // updating
+    //   }
+    // );
+
+    // console.log(up1);
+
+    //!------------
+    //? 9. UpdateMany() using the updateMany()
+    //!------------
+
+    // const up2 = await Student.updateMany(
+    //   {
+    //     pass: false, // filtering
+    //   },
+    //   {
+    //     $set: { pass: true }, // updating
+    //   }
+    // );
+    // console.log(up2);
 
     //!====================================
     //? =======CRUD OPERATIONS =========
