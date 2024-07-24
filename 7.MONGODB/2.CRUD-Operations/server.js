@@ -61,34 +61,34 @@ const connectDB = async () => {
     //? 4. Document() using the InsertOne
     //!------------
 
-    const result = await Student.insertOne({
-      name: "Manthan",
-      age: 21,
-      subjects: ["Math", "Science"],
-    });
-    console.log(result);
-    console.log("Document inserted successfully");
+    // const result = await Student.insertOne({
+    //   name: "Manthan",
+    //   age: 21,
+    //   subjects: ["Math", "Science"],
+    // });
+    // console.log(result);
+    // console.log("Document inserted successfully");
 
     //!------------
     //? 5. Document() using the InsertMany
     //!------------
 
-    const results = await Student.insertMany([
-      {
-        name: "Devil",
-        age: 22,
-        pass: false,
-        subjects: ["English", "History"],
-      },
-      {
-        name: "DRONE",
-        age: 20,
-        pass: true,
-        subjects: ["Math", "Science"],
-      },
-    ]);
-    console.log(results);
-    console.log("Many Documents inserted successfully");
+    // const results = await Student.insertMany([
+    //   {
+    //     name: "Devil",
+    //     age: 22,
+    //     pass: false,
+    //     subjects: ["English", "History"],
+    //   },
+    //   {
+    //     name: "DRONE",
+    //     age: 20,
+    //     pass: true,
+    //     subjects: ["Math", "Science"],
+    //   },
+    // ]);
+    // console.log(results);
+    // console.log("Many Documents inserted successfully");
 
     //! =====================================
     //? =======CRUD OPERATIONS =========
@@ -96,12 +96,25 @@ const connectDB = async () => {
     //! =====================================
 
     //!------------
-    //? 6. Find() using the find()
+    //? 6. FindMany() using the find()
     //!------------
+
+    // const resultsCursor = Student.find();
+    // const results1 = await resultsCursor.toArray();
+    // console.log(results1);
+
+    //?--OR--
+
+    // const results1111 = Student.find({ age: { $gt: 20 } });
+    // const results111111 = await results1111.toArray();
+    // console.log(results111111);
 
     //!------------
     //? 7. FindOne() using the findOne()
     //!------------
+
+    // const result3 = await Student.findOne({ name: "Manthan" });
+    // console.log(result3);
 
     //! =====================================
     //? =======CRUD OPERATIONS =========
@@ -110,6 +123,15 @@ const connectDB = async () => {
 
     //!------------
     //? 8. UpdateOne() using the updateOne()
+    //!------------
+
+    //!====================================
+    //? =======CRUD OPERATIONS =========
+    //? ======= Delete Operation =========
+    //! =====================================
+
+    //!------------
+    //? 9. DeleteOne() using the deleteOne()
     //!------------
   } catch (error) {
     console.error(error);
