@@ -89,6 +89,28 @@ const connectDB = async () => {
     ]);
     console.log(results);
     console.log("Many Documents inserted successfully");
+
+    //! =====================================
+    //? =======CRUD OPERATIONS =========
+    //? ======= Read Operation =========
+    //! =====================================
+
+    //!------------
+    //? 6. Find() using the find()
+    //!------------
+
+    //!------------
+    //? 7. FindOne() using the findOne()
+    //!------------
+
+    //! =====================================
+    //? =======CRUD OPERATIONS =========
+    //? ======= Update Operation =========
+    //! =====================================
+
+    //!------------
+    //? 8. UpdateOne() using the updateOne()
+    //!------------
   } catch (error) {
     console.error(error);
   }
