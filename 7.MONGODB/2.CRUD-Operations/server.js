@@ -77,14 +77,65 @@ const connectDB = async () => {
     //   {
     //     name: "Devil",
     //     age: 22,
-    //     pass: false,
+    //     pass: true,
+    //     grade: "A",
     //     subjects: ["English", "History"],
     //   },
     //   {
-    //     name: "DRONE",
+    //     name: "Thomas",
+    //     age: 20,
+    //     pass: false,
+    //     grade: "B",
+    //     subjects: ["Math", "Physics"],
+    //   },
+    //   {
+    //     name: "Alice",
     //     age: 20,
     //     pass: true,
-    //     subjects: ["Math", "Science"],
+    //     grade: "A",
+    //     subjects: ["Math", "Physics"],
+    //   },
+    //   {
+    //     name: "Bob",
+    //     age: 21,
+    //     pass: true,
+    //     grade: "C",
+    //     subjects: ["Math", "Physics"],
+    //   },
+    //   {
+    //     name: "Charlie",
+    //     age: 20,
+    //     pass: true,
+    //     grade: "B",
+    //     subjects: ["Science", "English"],
+    //   },
+    //   {
+    //     name: "David",
+    //     age: 21,
+    //     pass: true,
+    //     grade: "B",
+    //     subjects: ["Math", "Physics"],
+    //   },
+    //   {
+    //     name: "Eve",
+    //     age: 22,
+    //     pass: false,
+    //     grade: "D",
+    //     subjects: ["Math", "Physics"],
+    //   },
+    //   {
+    //     name: "Frank",
+    //     age: 20,
+    //     pass: true,
+    //     grade: "C",
+    //     subjects: ["Math", "Physics"],
+    //   },
+    //   {
+    //     name: "Grace",
+    //     age: 22,
+    //     pass: false,
+    //     grade: "D",
+    //     subjects: ["Math", "Physics"],
     //   },
     // ]);
     // console.log(results);
@@ -150,13 +201,52 @@ const connectDB = async () => {
     // );
     // console.log(up2);
 
-    //!====================================
+    //!------------
+    //? 10. FindOneAndUpdate() using the findOneAndUpdate()
+    //!------------
+
+    // const up3 = await Student.findOneAndUpdate(
+    //   {
+    //     name: "Jack GOD", // filtering
+    //   },
+    //   {
+    //     $set: { age: 30 },
+    //   }
+    // );
+    // console.log(up3);
+
+    //! =====================================
     //? =======CRUD OPERATIONS =========
     //? ======= Delete Operation =========
     //! =====================================
 
     //!------------
-    //? 9. DeleteOne() using the deleteOne()
+    //? 11. DeleteOne() using the deleteOne()
+    //!------------
+
+    // const del1 = await Student.deleteOne({
+    //   name: "Manthan", // filtering
+    // });
+    // console.log(del1);
+
+    //!------------
+    //? 12. DeleteMany() using the deleteMany()
+    //!------------
+
+    const del2 = await Student.deleteMany({ grade: "C" });
+    console.log(del2);
+
+    //!------------
+    //? 14. FindOneAndDelete() using the findOneAndDelete()
+    //!------------
+
+    const del3 = await Student.findOneAndDelete({
+      name: "Alice", // filtering
+    });
+    console.log(del3);
+
+    //! ====
+
     //!------------
   } catch (error) {
     console.error(error);
