@@ -122,7 +122,9 @@ const connectDB = async () => {
 
     //! ------------ $nor ------------
 
-    // const re12 = await employees.find({ age: { $not: { $gt: 25 } } }).toArray();
+    // const re12 = await employees
+    //   .find({ $nor: [{ age: { $gt: 25 }, department: "Finance" }] })
+    //   .toArray();
     // console.log(re12);
 
     //! ----- Multiple condition -----
