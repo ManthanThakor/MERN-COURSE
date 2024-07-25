@@ -16,7 +16,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 const Url =
-  "mongodb+srv://thakormanthan849:HOQnOxugSZFFXWMG@myfirstmongodb.jm4tch7.mongodb.net/Data-Modelling-embedded-doc";
+  "mongodb+srv://thakormanthan849:HOQnOxugSZFFXWMG@myfirstmongodb.jm4tch7.mongodb.net/Data-Modelling-arrays-embedded";
 
 // Connect to MongoDB
 
@@ -33,58 +33,43 @@ const connectToDB = async () => {
 
 connectToDB();
 
-//! Address Schema
+//! student Schema
+const studentSchema = new mongoose.Schema({
+  name: String,
+  age: Number,
+  grades: [Number], // Array of numbers
+});
 
-const addressSchema = new mongoose.Schema(
-  {
-    street: String,
-    city: String,
-    state: String,
-    zipCode: String,
-  },
-  {
-    timestamps: true, // Automatically add createdAt and updatedAt fields
-  }
-);
+//! classroom
 
-//! User Schema
-
-const userSchema = new mongoose.Schema(
-  {
-    name: String,
-    age: Number,
-    address: addressSchema, // Embedded document
-  },
-  {
-    timestamps: true, // Automatically add createdAt and updatedAt fields
-  }
-);
+const classroomSchema = new mongoose.Schema({
+  ClassName: String,
+  students: [studentSchema], // Array of student documents
+});
 
 //! Compile the user Schema
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model("User", classroomSchema);
 
 //! Create a user
 
-const createUser = async () => {
+const createClass = async () => {
   try {
-    const newUser = await User.create({
-      name: "John Doe",
-      age: 30,
-      address: {
-        street: "123 Main St",
-        city: "New York",
-        state: "NY",
-        zipCode: "10001",
-      },
+    const user = new User({
+      ClassName: "Maths 101",
+      students: [
+        { name: "John", age: 12, grades: [85, 90, 95] },
+        { name: "Jane", age: 11, grades: [80, 85, 90] },
+      ],
     });
-    console.log("User created:", newUser);
+    await user.save();
+    console.log("Classroom created");
   } catch (error) {
-    console.error("Error creating user:", error.message);
+    console.error(error);
   }
 };
 
-createUser();
+createClass();
 
 //! =================================
 //? === start the server ===
