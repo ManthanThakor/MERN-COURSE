@@ -167,6 +167,52 @@ const UserProfile = mongoose.model("UserProfile", userProfileSchema);
 //     console.error(err);
 //   });
 
+//? 4) --- where() ---
+
+// UserProfile.where("age")
+//   .gte(18)
+//   .lte(30)
+//   .then((data) => {
+//     console.log("Users aged between 18 and 30: ", data);
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//   });
+
+//? 5) --- sort() ---
+
+// UserProfile.find()
+//   .sort({ age: -1 }) // Sort by age in descending order
+//   .then((data) => {
+//     console.log("Users sorted by age in descending order: ", data);
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//   });
+
+//? 6) --- limit() ---
+
+// UserProfile.find()
+//   .limit(5) // Limit the result to 5 documents
+//   .then((data) => {
+//     console.log("First 5 User Profiles: ", data);
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//   });
+
+//? 7) --- combination of sort() and limit() ---
+
+// UserProfile.find()
+//   .sort({ age: 1 })
+//   .limit(3) // Sort by age in ascending order and limit to 3 documents
+//   .then((data) => {
+//     console.log("First 3 users sorted by age in ascending order: ", data);
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//   });
+
 //! =================================
 //? === start the server ===
 //! =================================
