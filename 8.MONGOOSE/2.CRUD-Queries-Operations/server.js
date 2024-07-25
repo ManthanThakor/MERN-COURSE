@@ -213,6 +213,44 @@ const UserProfile = mongoose.model("UserProfile", userProfileSchema);
 //     console.error(err);
 //   });
 
+//! ---------------------------------
+//? ---------- UPDATE DOC -----------
+//! ---------------------------------
+
+//? 1) --- updateOne() ---
+
+// UserProfile.updateOne({ username: "Thakor Manthan" }, { $set: { age: 21 } })
+//   .then((result) => {
+//     console.log("Update result: ", result);
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//   });
+
+//? 2) --- updateMany() ---
+
+UserProfile.updateMany({ isActive: true }, { $set: { isActive: false } })
+  .then((result) => {
+    console.log("Update result: ", result);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+
+//? 3) --- findByIdAndUpdate() ---
+
+// UserProfile.findByIdAndUpdate(
+//   "66a1f23c7350f96529eb6e9d",
+//   { $set: { "address.city": "New City" } },
+//   { new: true }
+// )
+//   .then((data) => {
+//     console.log("Updated document: ", data);
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//   });
+
 //! =================================
 //? === start the server ===
 //! =================================
