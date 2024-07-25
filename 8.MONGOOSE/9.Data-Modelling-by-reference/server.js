@@ -1,79 +1,80 @@
+//! =================================
+//? === IMPORTS Required modules ===
+//! =================================
+
 const express = require("express");
 const mongoose = require("mongoose");
+
+//! =================================
+//? === INSTANCE ===
+//! =================================
+
 const app = express();
-const PORT = 8082;
 
-// const mongodbURL =
-//   "mongodb+srv://twentekghana:xWzu0Yn69lU7yU9K@mongodb-basics.8pldozv.mongodb.net/?retryWrites=true&w=majority";
-const mongodbURL = "mongodb://localhost:27017/masynctech";
+//! create PORT
 
-//! 1. Connect to mongodb using mongoose
+const PORT = process.env.PORT || 5000;
+
+const Url =
+  "mongodb+srv://thakormanthan849:HOQnOxugSZFFXWMG@myfirstmongodb.jm4tch7.mongodb.net/Data-Modelling-arrays-embedded";
+
+// Connect to MongoDB
+
 const connectToDB = async () => {
   try {
-    await mongoose.connect(mongodbURL);
-    console.log("Mongodb has been connected successfully");
+    await mongoose.connect(Url, {
+      autoIndex: true, // Ensure indexes are built
+    });
+    console.log("Connected to MongoDB");
   } catch (error) {
-    console.log(`Error connecting to mongodb ${error}`);
+    console.error(`Error connecting to MongoDB: ${error.message}`);
   }
 };
-connectToDB();
-//authorSchema
-const authorSchema = new mongoose.Schema(
-  {
-    name: String,
-  },
-  {
-    timestamps: true,
-  }
-);
-const Author = mongoose.model("Author", authorSchema);
-//bookschema
-const bookSchema = new mongoose.Schema(
-  {
-    title: String,
-    author: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Author", //Referencing
-      required: true,
-    },
-  },
-  {
-    timestamps: true,
-  }
-);
 
-//!Models
-const Book = mongoose.model("Book", bookSchema);
-//!-----Create Author---
-// const createAuthor = async () => {
-//   try {
-//     await Author.create({ name: "Masynctech" });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-// createAuthor();
-//!-----Create Author
-// const createBook = async () => {
-//   try {
-//     await Book.create({
-//       title: "MERN for everyone",
-//       author: "6533a2799c7f3d749dc61c52",
-//     });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-// createBook();
-//!-----fetch books
-const fetchBooks = async () => {
+connectToDB();
+
+//! student Schema
+const studentSchema = new mongoose.Schema({
+  name: String,
+  age: Number,
+  grades: [Number], // Array of numbers
+});
+
+//! classroom
+
+const classroomSchema = new mongoose.Schema({
+  ClassName: String,
+  students: [studentSchema], // Array of student documents
+});
+
+//! Compile the user Schema
+
+const User = mongoose.model("User", classroomSchema);
+
+//! Create a user
+
+const createClass = async () => {
   try {
-    const books = await Book.find().populate("author");
-    console.log(books);
+    const user = new User({
+      ClassName: "Maths 101",
+      students: [
+        { name: "John", age: 12, grades: [85, 90, 95] },
+        { name: "Jane", age: 11, grades: [80, 85, 90] },
+      ],
+    });
+    await user.save();
+    console.log("Classroom created");
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
-fetchBooks();
-//Start the server
-app.listen(PORT, console.log(`Server is up and running on port ${PORT}`));
+
+createClass();
+
+//! =================================
+//? === start the server ===
+//! =================================
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
