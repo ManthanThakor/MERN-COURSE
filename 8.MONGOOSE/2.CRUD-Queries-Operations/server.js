@@ -3,6 +3,7 @@
 //! =================================
 
 const express = require("express");
+const { FindOperators } = require("mongodb");
 const mongoose = require("mongoose");
 
 //! =================================
@@ -159,7 +160,7 @@ const UserProfile = mongoose.model("UserProfile", userProfileSchema);
 
 //? 3) --- findById() ---
 
-// UserProfile.findById("66a1f23c7350f96529eb6e9d") // Replace with an actual ID from your database
+// UserProfile.findById("66a1f1846191a5d8a57fff7e") // Replace with an actual ID from your database
 //   .then((data) => {
 //     console.log("User Profile by ID: ", data);
 //   })
@@ -240,7 +241,7 @@ UserProfile.updateMany({ isActive: true }, { $set: { isActive: false } })
 //? 3) --- findByIdAndUpdate() ---
 
 // UserProfile.findByIdAndUpdate(
-//   "66a1f23c7350f96529eb6e9d",
+//   "66a1f1846191a5d8a57fff7e",
 //   { $set: { "address.city": "New City" } },
 //   { new: true }
 // )
@@ -250,6 +251,247 @@ UserProfile.updateMany({ isActive: true }, { $set: { isActive: false } })
 //   .catch((err) => {
 //     console.error(err);
 //   });
+
+//? _________________________________
+
+//!-------- Update Operators --------
+//? _________________________________
+
+//! FIELD UPDATE OPERATORS
+
+//? 4) --- $set ---
+
+// UserProfile.updateOne(
+//   { _id: "66a1f1846191a5d8a57fff7e" }, // Filter
+//   { $set: { "address.city": "Newwww City" } } // Update operation
+// )
+//   .then((result) => console.log("Update result:", result))
+//   .catch((err) => console.error(err));
+
+//? 5) --- $unset --- (Remove field)
+
+// UserProfile.updateOne(
+//   { _id: "66a1f1846191a5d8a57fff7e" }, // Filter
+//   { $unset: { "address.city": "" } } // Update operation
+// )
+//   .then((result) => console.log("Update result:", result))
+
+//   .catch((err) => console.error(err));
+
+//? =================================
+
+//! Array Update Operators
+
+//? 6) --- $push --- (Add element to array)
+
+// UserProfile.updateOne(
+//   { _id: "66a1f1846191a5d8a57fff7e" }, // Filter
+//   { $push: { hobbies: "Fighting" } } // Update operation
+// )
+//   .then((result) => console.log("Update result:", result))
+//   .catch((err) => console.error(err));
+
+//? 7) --- $pull --- (Remove element from array)
+
+UserProfile.updateOne(
+  { _id: "66a1f1846191a5d8a57fff7e" }, // Filters
+  { $pull: { hobbies: "Reading" } } // Update operation
+)
+  .then((result) => console.log("Update result:", result))
+  .catch((err) => console.error(err));
+
+//? 8) --- $addToSet --- (Add element to array only if it doesn't exist)
+
+// UserProfile.updateOne(
+//   { _id: "66a1f1846191a5d8a57fff7e" }, // Filter
+//   { $addToSet: { hobbies: "Gardening" } } // Update operation
+// )
+//   .then((result) => console.log("Update result:", result))
+//   .catch((err) => console.error(err));
+
+//? 9) --- $pop --- (Remove element from array at specified index)
+
+// UserProfile.updateOne(
+//   { _id: "66a1f1846191a5d8a57fff7e" }, // Filter
+//   { $pop: { hobbies: -1 } } // Update operation
+// )
+//   .then((result) => console.log("Update result:", result))
+//   .catch((err) => console.error(err));
+
+//? 10) --- $pullAll --- (Remove all elements from array that match specified values)
+
+// UserProfile.updateOne(
+//   { _id: "66a1f1846191a5d8a57fff7e" }, // Filter
+//   { $pullAll: { hobbies: ["Reading", "Gardening"] } } // Update operation
+// )
+//   .then((result) => console.log("Update result:", result))
+//   .catch((err) => console.error(err));
+
+//? 11) --- $pushAll --- (Add all elements to array that don't already exist)
+
+// UserProfile.updateOne(
+//   { _id: "66a1f1846191a5d8a57fff7e" }, // Filter
+//   { $pushAll: { hobbies: ["Cooking", "Painting"] } } // Update operation
+// )
+//   .then((result) => console.log("Update result:", result))
+//   .catch((err) => console.error(err));
+
+//? =================================
+
+//!  Arithmetic Operators
+
+//? 12) --- $inc --- (Increment a field by a specified value)
+
+// UserProfile.updateOne(
+//   { _id: "66a1f1846191a5d8a57fff7e" }, // Filter
+//   { $inc: { age: 5 } } // Update operation
+// )
+//   .then((result) => console.log("Update result:", result))
+//   .catch((err) => console.error(err));
+
+//? 13) --- $mul --- (Multiply a field by a specified value)
+
+// UserProfile.updateOne(
+//   { _id: "66a1f1846191a5d8a57fff7e" }, // Filter
+//   { $mul: { age: 2 } } // Update operation
+// )
+//   .then((result) => console.log("Update result:", result))
+//   .catch((err) => console.error(err));
+
+//? 14) --- $rename --- (Rename a field)
+
+// UserProfile.updateOne(
+//   { _id: "66a1f1846191a5d8a57fff7e" }, // Filter
+//   { $rename: { "address.city": "city" } } // Update operation
+// )
+//   .then((result) => console.log("Update result:", result))
+//   .catch((err) => console.error(err));
+
+//? 16) --- $min --- (Set the value of a field to a specified minimum)
+
+// UserProfile.updateOne(
+//   { _id: "66a1f1846191a5d8a57fff7e" }, // Filter
+//   { $min: { age: 18 } } // Update operation
+// )
+//   .then((result) => console.log("Update result:", result))
+//   .catch((err) => console.error(err));
+
+//? 17) --- $max --- (Set the value of a field to a specified maximum)
+
+// UserProfile.updateOne(
+//   { _id: "66a1f1846191a5d8a57fff7e" }, // Filter
+//   { $max: { age: 65 } } // Update operation
+// )
+//   .then((result) => console.log("Update result:", result))
+//   .catch((err) => console.error(err));
+
+//? 18) --- $mod --- (Perform modulo operation on a field)
+
+// UserProfile.updateOne(
+//   { _id: "66a1f1846191a5d8a57fff7e" }, // Filter
+//   { $mod: { age: 7, remainder: 0 } } // Update operation
+// )
+//   .then((result) => console.log("Update result:", result))
+//   .catch((err) => console.error(err));
+
+//? =================================
+
+//!  Date Operators
+
+//? 15) --- $currentDate --- (Set the value of a field to the current date and time)
+
+// UserProfile.updateOne(
+//   { _id: "66a1f1846191a5d8a57fff7e" }, // Filter
+//   { $currentDate: { lastUpdated: true } } // Update operation
+// )
+//   .then((result) => console.log("Update result:", result))
+//   .catch((err) => console.error(err));
+
+//? =================================
+
+//!  Extra
+
+//? 19) --- $exists --- (Check if a field exists or not)
+
+// UserProfile.updateOne(
+//   { _id: "66a1f1846191a5d8a57fff7e" }, // Filter
+//   { $exists: { address: true } } // Update operation
+// )
+//   .then((result) => console.log("Update result:", result))
+//   .catch((err) => console.error(err));
+
+//? 20) --- $type --- (Check if a field has a specific data type)
+
+// UserProfile.updateOne(
+//   { _id: "66a1f1846191a5d8a57fff7e" }, // Filter
+//   { $type: { age: "number" } } // Update operation
+// )
+//   .then((result) => console.log("Update result:", result))
+//   .catch((err) => console.error(err));
+
+//? 21) --- $regex --- (Match values that match a specified regular expression)
+
+// UserProfile.updateOne(
+//   { _id: "66a1f1846191a5d8a57fff7e" }, // Filter
+//   { $regex: { name: /^John/ } } // Update operation
+// )
+//   .then((result) => console.log("Update result:", result))
+//   .catch((err) => console.error(err));
+
+//? =================================
+//? === end the update operations ===
+
+//! ---------------------------------
+//? ---------- DELETE DOC -----------
+//! ---------------------------------
+
+//? 1) --- deleteOne --- (Delete a single document)
+
+const deleteUserProfile = async (userId) => {
+  try {
+    const result = await UserProfile.deleteOne({ _id: userId });
+    console.log("Delete result: ", result);
+  } catch (err) {
+    console.error("Error deleting document: ", err);
+  }
+};
+
+//! Call the function with a specific user ID
+deleteUserProfile("66a1f1846191a5d8a57fff7e");
+
+//? 2) --- deleteMany --- (Delete multiple documents)
+
+// const deleteInactiveProfiles = async () => {
+//   try {
+//     const result = await UserProfile.deleteMany({ isActive: false });
+//     console.log("Delete result: ", result);
+//   } catch (err) {
+//     console.error("Error deleting documents: ", err);
+//   }
+// };
+
+//! Call the function
+// deleteInactiveProfiles();
+
+//? 3) --- findByIdAndDelete --- (Find and delete a document by ID) (MongoDB Driver)
+
+// const deleteProfileById = async (userId) => {
+//   try {
+//     const data = await UserProfile.findByIdAndDelete(userId);
+//     if (data) {
+//       console.log("Deleted document: ", data);
+//     } else {
+//       console.log("No document found with that ID.");
+//     }
+//   } catch (err) {
+//     console.error("Error deleting document: ", err);
+//   }
+// };
+
+//! Call the function with a specific user ID
+// deleteProfileById("66a1f1846191a5d8a57fff7e");
+
+//? ---------------------------------
 
 //! =================================
 //? === start the server ===
