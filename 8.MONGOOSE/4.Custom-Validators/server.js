@@ -1,67 +1,118 @@
+//! =================================
+//? === IMPORTS Required modules ===
+//! =================================
+
 const express = require("express");
 const mongoose = require("mongoose");
+
+//! =================================
+//? === INSTANCE ===
+//! =================================
+
 const app = express();
-const PORT = 8082;
 
-// const mongodbURL =
-//   "mongodb+srv://twentekghana:xWzu0Yn69lU7yU9K@mongodb-basics.8pldozv.mongodb.net/?retryWrites=true&w=majority";
-const mongodbURL = "mongodb://localhost:27017/masynctech";
+//! create PORT
 
-//! 1. Connect to mongodb using mongoose
+const PORT = process.env.PORT || 5000;
+
+const Url =
+  "mongodb+srv://thakormanthan849:HOQnOxugSZFFXWMG@myfirstmongodb.jm4tch7.mongodb.net/Validation";
+
+// Connect to MongoDB
+
 const connectToDB = async () => {
   try {
-    await mongoose.connect(mongodbURL);
-    console.log("Mongodb has been connected successfully");
+    await mongoose.connect(Url, {
+      autoIndex: true, // Ensure indexes are built
+    });
+    console.log("Connected to MongoDB");
   } catch (error) {
-    console.log(`Error connecting to mongodb ${error}`);
+    console.error(`Error connecting to MongoDB: ${error.message}`);
   }
 };
+
 connectToDB();
 
-//!. Design Our Schema
-const userSchema = new mongoose.Schema(
+//! Design Schema
+
+const userProfileSchema = new mongoose.Schema(
   {
     username: {
       type: String,
-      required: [true, "Please username is required"],
-      validate: {
-        validator: function (value) {
-          return /^[a-zA-Z0-9]+$/.test(value); //only alphameric
-        },
-        message: "Username can only contain alphanumeric character",
-      },
+      required: [true, "Please Username is required"],
+      unique: true,
+      minlength: 3,
+      maxlength: 15,
+      match: /^[a-zA-Z0-9]+$/,
     },
     email: {
       type: String,
       required: [true, "Please email is required"],
-      validate: {
-        validator: function (value) {
-          return value.endsWith("@gmail.com"); //email must end with @gmail.com
-        },
-        message: "Email must be from the domain @gamil.com",
-      },
+      match: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+    },
+    age: {
+      type: Number,
+      required: [true, "Please provide an age"],
+      min: 18,
+      max: 65,
+    },
+    gender: {
+      type: String,
+      required: [true, "Please provide a gender"],
+      enum: ["Male", "Female", "Other"],
+    },
+    address: {
+      type: String,
+      required: [true, "Please provide an address"],
+      minlength: 10,
+      maxlength: 100,
+    },
+    hobbies: {
+      type: [String],
+      required: [true, "Please provide at least one hobby"],
+    },
+    isActive: {
+      type: Boolean,
+      default: true,
     },
   },
   {
-    timestamps: true,
+    timestamps: true, // Include timestamps for createdAt and updatedAt fields
   }
 );
 
-//! Compile the schema to create the model
-const User = mongoose.model("User", userSchema);
+//! COMPILE THE SCHEMA TO FROM THE MODEL
 
-//!Create user
-const createUser = async () => {
+const UserProfile = mongoose.model("UserProfile", userProfileSchema);
+
+//! =================================
+
+const createDoc = async () => {
   try {
-    await User.create({
-      email: "emm@yahoo.com",
-      username: "#ben",
+    const userCreated = await UserProfile.create({
+      username: "johndoe",
+      email: "john.doe@example.com",
+      age: 25,
+      gender: "Male",
+      address: "123 Main St, Anytown, USA",
+      hobbies: ["Reading", "Gaming"],
     });
+    console.log("User created successfully:", userCreated);
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
-createUser();
 
-//Start the server
-app.listen(PORT, console.log(`Server is up and running on port ${PORT}`));
+createDoc();
+
+//? ---------------------------------
+
+//! =================================
+//? === start the server ===
+//! =================================
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
+//? === END ===
