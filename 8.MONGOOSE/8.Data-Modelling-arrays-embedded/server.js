@@ -1,83 +1,95 @@
+//! =================================
+//? === IMPORTS Required modules ===
+//! =================================
+
 const express = require("express");
 const mongoose = require("mongoose");
+
+//! =================================
+//? === INSTANCE ===
+//! =================================
+
 const app = express();
-const PORT = 8082;
 
-// const mongodbURL =
-//   "mongodb+srv://twentekghana:xWzu0Yn69lU7yU9K@mongodb-basics.8pldozv.mongodb.net/?retryWrites=true&w=majority";
-const mongodbURL = "mongodb://localhost:27017/masynctech";
+//! create PORT
 
-//! 1. Connect to mongodb using mongoose
+const PORT = process.env.PORT || 5000;
+
+const Url =
+  "mongodb+srv://thakormanthan849:HOQnOxugSZFFXWMG@myfirstmongodb.jm4tch7.mongodb.net/Data-Modelling-embedded-doc";
+
+// Connect to MongoDB
+
 const connectToDB = async () => {
   try {
-    await mongoose.connect(mongodbURL);
-    console.log("Mongodb has been connected successfully");
+    await mongoose.connect(Url, {
+      autoIndex: true, // Ensure indexes are built
+    });
+    console.log("Connected to MongoDB");
   } catch (error) {
-    console.log(`Error connecting to mongodb ${error}`);
+    console.error(`Error connecting to MongoDB: ${error.message}`);
   }
 };
+
 connectToDB();
-//studentSchema
-const studentSchema = new mongoose.Schema(
+
+//! Address Schema
+
+const addressSchema = new mongoose.Schema(
+  {
+    street: String,
+    city: String,
+    state: String,
+    zipCode: String,
+  },
+  {
+    timestamps: true, // Automatically add createdAt and updatedAt fields
+  }
+);
+
+//! User Schema
+
+const userSchema = new mongoose.Schema(
   {
     name: String,
     age: Number,
-    grade: String,
+    address: addressSchema, // Embedded document
   },
   {
-    timestamps: true,
-  }
-);
-//clssroomSchema
-const classroomSchema = new mongoose.Schema(
-  {
-    className: String,
-    students: [studentSchema],
-  },
-  {
-    timestamps: true,
+    timestamps: true, // Automatically add createdAt and updatedAt fields
   }
 );
 
-//!Models
-const Student = mongoose.model("Student", studentSchema);
-const Classroom = mongoose.model("Classroom", classroomSchema);
+//! Compile the user Schema
 
-// const createClassroom = async () => {
-//   try {
-//     //create the classroom
-//     const newClassroom = await Classroom.create({
-//       className: "Math 101",
-//       students: [
-//         { name: "Alice", age: 20, grade: "A" },
-//         { name: "Bob", age: 22, grade: "B" },
-//       ],
-//     });
-//     console.log(newClassroom);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+const User = mongoose.model("User", userSchema);
 
-// createClassroom();
+//! Create a user
 
-// !addStudentToClassroom
-const addStudentToClassroom = async () => {
+const createUser = async () => {
   try {
-    //Find the classroom and update
-    const classroomUpdated = await Classroom.findByIdAndUpdate(
-      "6533562edce067c10b5053d3",
-      {
-        $addToSet: { students: { name: "Agnes", age: 21, grade: "A" } },
+    const newUser = await User.create({
+      name: "John Doe",
+      age: 30,
+      address: {
+        street: "123 Main St",
+        city: "New York",
+        state: "NY",
+        zipCode: "10001",
       },
-      { new: true }
-    );
-    console.log(classroomUpdated);
+    });
+    console.log("User created:", newUser);
   } catch (error) {
-    console.log(error);
+    console.error("Error creating user:", error.message);
   }
 };
-addStudentToClassroom();
 
-//Start the server
-app.listen(PORT, console.log(`Server is up and running on port ${PORT}`));
+createUser();
+
+//! =================================
+//? === start the server ===
+//! =================================
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
