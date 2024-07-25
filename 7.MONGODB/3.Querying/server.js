@@ -103,33 +103,47 @@ const connectDB = async () => {
 
     //! ------------ $and ------------
 
-    // const result = await employees
+    // const re9 = await employees
     //   .find({ age: { $gt: 25 }, department: "Finance" })
     //   .toArray();
-    // console.log(result);
+    // console.log(re9);
 
     //! ------------ $or ------------
 
-    // const result = await employees
+    // const re10 = await employees
     //  .find({ $or: [{ age: { $gt: 25 } }, { department: "Finance" }] })
     //  .toArray();
-    // console.log(result);
+    // console.log(re10);
 
     //! ------------ $not ------------
-    // const result = await employees.find({ age: { $not: { $gt: 25 } } }).toArray();
-    // console.log(result);
+
+    // const re11 = await employees.find({ age: { $not: { $gt: 25 } } }).toArray();
+    // console.log(re11);
+
+    //! ------------ $nor ------------
+
+    // const re12 = await employees.find({ age: { $not: { $gt: 25 } } }).toArray();
+    // console.log(re12);
 
     //! ----- Multiple condition -----
+    //! --(AND = Multiple condition)--
 
-    const result = await employees
-      .find({
-        $and: [
-          { age: { $gt: 25 }, department: "Finance" },
-          { name: { $ne: "A" } },
-        ],
-      })
-      .toArray();
-    console.log(result);
+    // const re12 = await employees
+    //   .find({ age: { $gt: 25 }, department: "Finance" }, { name: { $ne: "A" } })
+    //   .toArray();
+    // console.log(re12);
+
+    // //? ---- OR ----
+
+    // const re13 = await employees
+    //   .find({
+    //     $and: [
+    //       { age: { $gt: 25 }, department: "Finance" },
+    //       { name: { $ne: "A" } },
+    //     ],
+    //   })
+    //   .toArray();
+    // console.log(re13);
 
     //! ------------ $exists ------------
     // const result = await employees.find({ age: { $exists: true } }).toArray();
