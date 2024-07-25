@@ -447,14 +447,14 @@ UserProfile.updateOne(
 
 //? 1) --- deleteOne --- (Delete a single document)
 
-const deleteUserProfile = async (userId) => {
-  try {
-    const result = await UserProfile.deleteOne({ _id: userId });
-    console.log("Delete result: ", result);
-  } catch (err) {
-    console.error("Error deleting document: ", err);
-  }
-};
+// const deleteUserProfile = async (userId) => {
+//   try {
+//     const result = await UserProfile.deleteOne({ _id: userId });
+//     console.log("Delete result: ", result);
+//   } catch (err) {
+//     console.error("Error deleting document: ", err);
+//   }
+// };
 
 //! Call the function with a specific user ID
 deleteUserProfile("66a1f1846191a5d8a57fff7e");
