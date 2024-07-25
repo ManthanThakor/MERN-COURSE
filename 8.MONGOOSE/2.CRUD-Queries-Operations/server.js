@@ -230,13 +230,13 @@ const UserProfile = mongoose.model("UserProfile", userProfileSchema);
 
 //? 2) --- updateMany() ---
 
-UserProfile.updateMany({ isActive: true }, { $set: { isActive: false } })
-  .then((result) => {
-    console.log("Update result: ", result);
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+// UserProfile.updateMany({ isActive: true }, { $set: { isActive: false } })
+//   .then((result) => {
+//     console.log("Update result: ", result);
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//   });
 
 //? 3) --- findByIdAndUpdate() ---
 
@@ -293,12 +293,12 @@ UserProfile.updateMany({ isActive: true }, { $set: { isActive: false } })
 
 //? 7) --- $pull --- (Remove element from array)
 
-UserProfile.updateOne(
-  { _id: "66a1f1846191a5d8a57fff7e" }, // Filters
-  { $pull: { hobbies: "Reading" } } // Update operation
-)
-  .then((result) => console.log("Update result:", result))
-  .catch((err) => console.error(err));
+// UserProfile.updateOne(
+//   { _id: "66a1f1846191a5d8a57fff7e" }, // Filters
+//   { $pull: { hobbies: "Reading" } } // Update operation
+// )
+//   .then((result) => console.log("Update result:", result))
+//   .catch((err) => console.error(err));
 
 //? 8) --- $addToSet --- (Add element to array only if it doesn't exist)
 
