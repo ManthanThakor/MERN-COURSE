@@ -1,76 +1,98 @@
+//! =================================
+//? === IMPORTS Required modules ===
+//! =================================
+
 const express = require("express");
 const mongoose = require("mongoose");
 const validator = require("validator");
+// https://www.npmjs.com/package/validator
+//! =================================
+//? === INSTANCE ===
+//! =================================
 
 const app = express();
-const PORT = 8082;
 
-// const mongodbURL =
-//   "mongodb+srv://twentekghana:xWzu0Yn69lU7yU9K@mongodb-basics.8pldozv.mongodb.net/?retryWrites=true&w=majority";
-const mongodbURL = "mongodb://localhost:27017/masynctech";
+//! create PORT
 
-//! 1. Connect to mongodb using mongoose
+const PORT = process.env.PORT || 5000;
+
+const Url =
+  "mongodb+srv://thakormanthan849:HOQnOxugSZFFXWMG@myfirstmongodb.jm4tch7.mongodb.net/Third-Party-Validator";
+
+// Connect to MongoDB
+
 const connectToDB = async () => {
   try {
-    await mongoose.connect(mongodbURL);
-    console.log("Mongodb has been connected successfully");
+    await mongoose.connect(Url, {
+      autoIndex: true, // Ensure indexes are built
+    });
+    console.log("Connected to MongoDB");
   } catch (error) {
-    console.log(`Error connecting to mongodb ${error}`);
+    console.error(`Error connecting to MongoDB: ${error.message}`);
   }
 };
+
 connectToDB();
 
-//!. Design Our Schema
-const userSchema = new mongoose.Schema(
+//! Design Schema
+
+const userProfileSchema = new mongoose.Schema(
   {
     username: {
-      required: true,
       type: String,
-      set: (value) => {
-        return validator.escape(value);
-      },
+      required: [true, "Username is required"],
+      minlength: [3, "Username must be at least 3 characters long"],
+      maxlength: [30, "Username must be at most 30 characters long"],
     },
     email: {
-      required: true,
       type: String,
+      required: [true, "Email is required"],
       validate: {
-        validator: (value) => {
-          return validator.isEmail(value);
-        },
+        validator: (v) => validator.isEmail(v),
+        message: (props) => `${props.value} is not a valid email address`,
       },
     },
     age: {
-      type: String,
-      required: true,
-      validate: {
-        validator: (value) => {
-          return validator.isInt(value, { min: 0, max: 120 });
-        },
-        message: "Invalid Age",
-      },
+      type: Number,
+      required: [true, "Age is required"],
+      min: [0, "Age must be a positive number"],
+      max: [120, "Age must be less than or equal to 120"],
     },
   },
   {
-    timestamps: true,
+    timestamps: true, // Include timestamps for createdAt and updatedAt fields
   }
 );
 
-//! Compile the schema to create the model
-const User = mongoose.model("User", userSchema);
+//! COMPILE THE SCHEMA TO FROM THE MODEL
 
-//!Create user
-const createUser = async () => {
+const UserProfile = mongoose.model("UserProfile", userProfileSchema);
+
+//! =================================
+
+const createDoc = async () => {
   try {
-    await User.create({
-      email: "emm@gmail.com",
-      username: "John_Doe<",
-      age: 200,
+    const userCreated = await UserProfile.create({
+      username: "Devil",
+      email: "john.doe@gmail.com",
+      age: 25,
     });
+    console.log("User created successfully:", userCreated);
   } catch (error) {
-    console.log(error);
+    console.error("Error creating user:", error.message);
   }
 };
-createUser();
 
-//Start the server
-app.listen(PORT, console.log(`Server is up and running on port ${PORT}`));
+createDoc();
+
+//? ---------------------------------
+
+//! =================================
+//? === start the server ===
+//! =================================
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
+//? === END ===
