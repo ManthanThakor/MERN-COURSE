@@ -16,7 +16,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 const Url =
-  "mongodb+srv://thakormanthan849:HOQnOxugSZFFXWMG@myfirstmongodb.jm4tch7.mongodb.net/Data-Modelling-arrays-embedded";
+  "mongodb+srv://thakormanthan849:HOQnOxugSZFFXWMG@myfirstmongodb.jm4tch7.mongodb.net/Data-Modelling-by-reference";
 
 // Connect to MongoDB
 
@@ -33,43 +33,67 @@ const connectToDB = async () => {
 
 connectToDB();
 
-//! student Schema
-const studentSchema = new mongoose.Schema({
+//! Author Schema
+
+const AuthorSchema = new mongoose.Schema({
   name: String,
   age: Number,
-  grades: [Number], // Array of numbers
 });
 
-//! classroom
+//! Compile the Author Schema
 
-const classroomSchema = new mongoose.Schema({
-  ClassName: String,
-  students: [studentSchema], // Array of student documents
+const Author = mongoose.model("Author", AuthorSchema);
+
+//! Books Schema
+const BookSchema = new mongoose.Schema({
+  title: String,
+  author: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Author",
+  },
+  pages: Number,
+  published: Date,
 });
 
-//! Compile the user Schema
+//! Compile the Books Schema
 
-const User = mongoose.model("User", classroomSchema);
+const Book = mongoose.model("Book", BookSchema);
 
-//! Create a user
+//! Create an Author
 
-const createClass = async () => {
+const createAuthor = async () => {
   try {
-    const user = new User({
-      ClassName: "Maths 101",
-      students: [
-        { name: "John", age: 12, grades: [85, 90, 95] },
-        { name: "Jane", age: 11, grades: [80, 85, 90] },
-      ],
-    });
-    await user.save();
-    console.log("Classroom created");
+    await Author.create({ name: "John Doe", age: 45 });
+    console.log("Author created");
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 };
 
-createClass();
+createAuthor();
+
+//! Create a Book
+
+const createBook = async () => {
+  try {
+    const author = await Author.findOne({ name: "John Doe" });
+    if (!author) {
+      console.log("Author not found");
+      return;
+    }
+    await Book.create({
+      title: "Mern for Beginners",
+      author: author._id,
+      pages: 300,
+      published: new Date(), // Add a published date
+    });
+    console.log("Book created");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+createBook();
 
 //! =================================
 //? === start the server ===
