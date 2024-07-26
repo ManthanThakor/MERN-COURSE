@@ -55,18 +55,19 @@ app.post("/login", (req, res) => {
   });
 
   //! create some cookies(cookie)
-  if (userFound) {
-    res.cookie("username", userFound.username, {
-      maxAge: 300000,
-      httpOnly: true,
-    });
-    res.redirect("/dashboard");
-  }
+  //? prepare the login user data
+  //? setting the cookie with the user data
+
+  res.cookie("userData", JSON.stringify(userFound), {
+    maxAge: 3 * 24 * 60 * 60 * 1000, //3days expiration
+    httpOnly: true,
+    secure: false, // true for HTTPS only
+    sameSite: "strict", // "strict" for same site only
+  });
+
   //! render the user dashboard
   if (userFound) {
     res.redirect("/dashboard");
-  } else {
-    res.send("Invalid login credentials");
   }
   //! redirect the user to login page
 });
