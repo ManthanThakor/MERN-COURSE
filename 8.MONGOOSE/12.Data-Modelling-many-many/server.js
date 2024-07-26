@@ -4,8 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-const dbUrl =
-  "mongodb+srv://thakormanthan849:HOQnOxugSZFFXWMG@myfirstmongodb.jm4tch7.mongodb.net/Many-to-many";
+const dbUrl = "YOUR MONGO DB KEY Many-to-many";
 
 // Connect to MongoDB
 const connectToDB = async () => {

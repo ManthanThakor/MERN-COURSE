@@ -18,16 +18,13 @@ const PORT = process.env.PORT || 5000;
 
 // 1. Create The client
 
-const client = new MongoClient(
-  "mongodb+srv://thakormanthan849:HOQnOxugSZFFXWMG@myfirstmongodb.jm4tch7.mongodb.net/MyFirstMongodb",
-  {
-    serverApi: {
-      version: ServerApiVersion.v1,
-      strict: true,
-      deprecationErrors: true,
-    },
-  }
-);
+const client = new MongoClient("YOUR MONGO DB KEY MyFirstMongodb", {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  },
+});
 
 // 2. Function to connect
 

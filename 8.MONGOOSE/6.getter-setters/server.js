@@ -17,8 +17,7 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-const mongodbURL =
-  "mongodb+srv://thakormanthan849:HOQnOxugSZFFXWMG@myfirstmongodb.jm4tch7.mongodb.net/getter-setter";
+const mongodbURL = "YOUR MONGO DB KEY getter-setter";
 
 //! 1. Connect to mongodb using mongoose
 const connectToDB = async () => {

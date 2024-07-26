@@ -15,8 +15,7 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-const Url =
-  "mongodb+srv://thakormanthan849:HOQnOxugSZFFXWMG@myfirstmongodb.jm4tch7.mongodb.net/Data-Modelling-embedded-doc";
+const Url = "YOUR MONGO DB KEY Data-Modelling-embedded-doc";
 
 // Connect to MongoDB
 
