@@ -1,108 +1,83 @@
 const express = require("express");
 const mongoose = require("mongoose");
+
 const app = express();
-const PORT = 8082;
+const PORT = process.env.PORT || 5000;
 
-// const mongodbURL =
-//   "mongodb+srv://twentekghana:xWzu0Yn69lU7yU9K@mongodb-basics.8pldozv.mongodb.net/?retryWrites=true&w=majority";
-const mongodbURL = "mongodb://localhost:27017/masynctech";
+const dbUrl =
+  "mongodb+srv://thakormanthan849:HOQnOxugSZFFXWMG@myfirstmongodb.jm4tch7.mongodb.net/Many-to-many";
 
-//! 1. Connect to mongodb using mongoose
+// Connect to MongoDB
 const connectToDB = async () => {
   try {
-    await mongoose.connect(mongodbURL);
-    console.log("Mongodb has been connected successfully");
+    await mongoose.connect(dbUrl, { autoIndex: true });
+    console.log("Connected to MongoDB");
   } catch (error) {
-    console.log(`Error connecting to mongodb ${error}`);
+    console.error(`Error connecting to MongoDB: ${error.message}`);
   }
 };
+
 connectToDB();
-// ! ----many-many relationship-----
-//courseSchema
-const courseSchema = new mongoose.Schema(
-  {
-    name: String,
-    enrolledStudents: [
-      { type: mongoose.Schema.Types.ObjectId, ref: "Student" },
-    ],
-  },
-  {
-    timestamps: true,
-  }
-);
-const Course = mongoose.model("Course", courseSchema);
-//studentSchema
-const studentSchema = new mongoose.Schema(
-  {
-    name: String,
-    enrolledCourse: [{ type: mongoose.Schema.Types.ObjectId, ref: "Course" }],
-  },
-  {
-    timestamps: true,
-  }
-);
 
-//!Models
-const Student = mongoose.model("Student", studentSchema);
+// Define Comment schema
+const CommentSchema = new mongoose.Schema({
+  text: { type: String, required: true },
+});
 
-//!Create the courses
-// const createCourses = async () => {
-//   try {
-//     //create courses
-//     const courses = await Course.create([
-//       {
-//         name: "Math 101",
-//       },
-//       {
-//         name: "History 101",
-//       },
-//     ]);
-//     console.log(courses);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-// createCourses();
+const Comment = mongoose.model("Comment", CommentSchema);
 
-//!Register Student
+// Define BlogPost schema
+const blogPostSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  content: { type: String, required: true },
+  createdAt: { type: Date, default: Date.now },
+  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
+});
 
-const createStudents = async () => {
+const BlogPost = mongoose.model("BlogPost", blogPostSchema);
+
+// Create a new blog post
+const createBlogPost = async () => {
   try {
-    //Create student
-    const students = await Student.create([
-      { name: "Alice" },
-      { name: "Emma" },
-    ]);
+    const newBlogPost = new BlogPost({
+      title: "My First Blog Post",
+      content: "This is my first blog post",
+    });
 
-    console.log(students);
+    const result = await newBlogPost.save();
+    console.log("Blog post created", result);
   } catch (error) {
-    console.log(error);
+    console.error("Error creating blog post", error.message);
   }
 };
 
-// createStudents();
-//!Student Applying to courses
-const applyToCourse = async () => {
-  try {
-    //1.Find the student
-    const foundStudent = await Student.findById("6651bc9cd2b86616829bd69a");
-    //2. Find the course
-    const courseFound = await Course.findById("66519b1faee508746a1e9783");
+createBlogPost();
 
-    //3. Apply to the course (1.update the student enrolledCourses 2.update the enrolledStudents on course)
-    //4.Push the course found into the student's enrolledCourse field
-    foundStudent.enrolledCourse.push(courseFound._id);
-    //4. Push the student found into the courses's enrolledStudents field
-    courseFound.enrolledStudents.push(foundStudent._id);
-    //5. Resave the student and course docs
-    await foundStudent.save();
-    await courseFound.save();
-    console.log(foundStudent);
-    console.log(courseFound);
+// Create a new comment and add it to a blog post
+const createComment = async () => {
+  try {
+    const newComment = new Comment({
+      text: "This is a sample comment",
+    });
+
+    const result = await newComment.save();
+
+    const blogPost = await BlogPost.findById("66a351573f21ea74d2c2584e");
+    if (blogPost) {
+      blogPost.comments.push(result._id);
+      await blogPost.save();
+      console.log("Comment created and added to blog post", result);
+    } else {
+      console.error("Blog post not found");
+    }
   } catch (error) {
-    console.log(error);
+    console.error("Error creating comment", error.message);
   }
 };
-applyToCourse();
-//Start the server
-app.listen(PORT, console.log(`Server is up and running on port ${PORT}`));
+
+createComment();
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
