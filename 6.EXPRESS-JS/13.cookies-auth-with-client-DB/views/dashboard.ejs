@@ -10,15 +10,22 @@
     <style>
       .dashboard-container {
         max-width: 800px;
-        margin: 3rem auto;
-        padding: 15px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 2rem auto;
+        padding: 2rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
       }
-      .user-details {
-        margin-top: 20px;
+      .dashboard-header {
+        text-align: center;
+        margin-bottom: 2rem;
       }
-      .logout-button {
-        margin-top: 20px;
+      .robot-info {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin-bottom: 1rem;
       }
       .footer {
         background-color: #343a40;
@@ -49,6 +56,9 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="/dashboard">Dashboard</a>
             </li>
             <li class="nav-item">
@@ -59,21 +69,23 @@
       </div>
     </nav>
 
-    <div class="container">
-      <div class="dashboard-container">
-        <h1 class="text-center">Welcome, <%= username %> the Robot</h1>
-        <p class="text-center">
-          This is your robot dashboard. Here you can find all your robotic
-          details.
-        </p>
-        <div class="user-details">
-          <h3>User Details</h3>
-          <ul>
-            <li><strong>Username:</strong> <%= username %></li>
-            <li><strong>Role:</strong> <%= role %></li>
-            <li><strong>Last Login:</strong> <%= lastLogin %></li>
-            <li><strong>Email:</strong> <%= email %></li>
-          </ul>
+    <div class="container dashboard-container">
+      <h1 class="dashboard-header">Welcome, <%= username %>!</h1>
+      <p>Your role: <%= role %></p>
+      <p>Last login: <%= lastLogin %></p>
+      <p>Email: <%= email %></p>
+      <div class="robot-info">
+        <div>
+          <h4>Robot Model</h4>
+          <p>Robo3000</p>
+        </div>
+        <div>
+          <h4>Status</h4>
+          <p>Operational</p>
+        </div>
+        <div>
+          <h4>Battery</h4>
+          <p>85%</p>
         </div>
       </div>
     </div>

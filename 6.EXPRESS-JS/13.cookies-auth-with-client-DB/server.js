@@ -46,9 +46,22 @@ const userSchema = new mongoose.Schema({
 //! compile the schema
 const User = mongoose.model("User", userSchema);
 
+// Middleware to check if user is logged in
+function checkAuth(req, res, next) {
+  const userData = req.cookies.userData
+    ? JSON.parse(req.cookies.userData)
+    : null;
+  if (userData) {
+    req.user = userData;
+    next();
+  } else {
+    res.redirect("/login");
+  }
+}
+
 //! HOME ROUTE
-app.get("/", (req, res) => {
-  res.render("home");
+app.get("/", checkAuth, (req, res) => {
+  res.render("home", { user: req.user });
 });
 
 //! LOGIN ROUTE (login form)
@@ -135,19 +148,10 @@ app.post("/register", async (req, res) => {
 });
 
 //! DASHBOARD ROUTE
-app.get("/dashboard", (req, res) => {
-  //? grab the user from the cookie
-  const userData = req.cookies.userData
-    ? JSON.parse(req.cookies.userData)
-    : null;
-  if (userData) {
-    const { username, role, lastLogin, email } = userData;
-    //! Render the template
-    res.render("dashboard", { username, role, lastLogin, email });
-  } else {
-    //? redirect to login if no user data found in cookies
-    res.redirect("/login");
-  }
+app.get("/dashboard", checkAuth, (req, res) => {
+  const { username, role, lastLogin, email } = req.user;
+  //! Render the template
+  res.render("dashboard", { username, role, lastLogin, email });
 });
 
 //! LOGOUT ROUTE
