@@ -38,6 +38,7 @@ const userSchema = new mongoose.Schema({
   password: String,
   role: {
     type: String,
+    default: "user", // Default role
   },
   email: String,
   lastLogin: String,
@@ -52,6 +53,19 @@ function checkAuth(req, res, next) {
     ? JSON.parse(req.cookies.userData)
     : null;
   if (userData) {
+    req.user = userData;
+    next();
+  } else {
+    res.redirect("/login");
+  }
+}
+
+// Middleware to check if user is an admin
+function checkAdmin(req, res, next) {
+  const userData = req.cookies.userData
+    ? JSON.parse(req.cookies.userData)
+    : null;
+  if (userData && userData.role === "admin") {
     req.user = userData;
     next();
   } else {
@@ -132,11 +146,10 @@ app.post("/register", async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    //? create a new user
+    //? create a new user with default role 'user'
     const newUser = new User({
       username,
       password: hashedPassword,
-      role: "user",
       email,
     });
 
@@ -155,6 +168,11 @@ app.get("/dashboard", checkAuth, (req, res) => {
   const { username, role, lastLogin, email } = req.user;
   //! Render the template
   res.render("dashboard", { username, role, lastLogin, email });
+});
+
+//! ADMIN ONLY PAGE
+app.get("/admin-only", checkAdmin, (req, res) => {
+  res.render("adminOnly");
 });
 
 //! ROBOT DETAILS ROUTE
