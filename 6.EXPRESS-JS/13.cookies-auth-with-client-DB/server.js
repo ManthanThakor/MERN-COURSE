@@ -17,6 +17,9 @@ app.use(cookieParser());
 //! Set the view engine
 app.set("view engine", "ejs");
 
+//! Serve static files from the views directory
+app.use(express.static(path.join(__dirname, "views")));
+
 //! Optional: Set the views directory explicitly
 app.set("views", path.join(__dirname, "views"));
 
