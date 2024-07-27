@@ -60,8 +60,11 @@ function checkAuth(req, res, next) {
 }
 
 //! HOME ROUTE
-app.get("/", checkAuth, (req, res) => {
-  res.render("home", { user: req.user });
+app.get("/", (req, res) => {
+  const userData = req.cookies.userData
+    ? JSON.parse(req.cookies.userData)
+    : null;
+  res.render("home", { user: userData });
 });
 
 //! LOGIN ROUTE (login form)
@@ -152,6 +155,11 @@ app.get("/dashboard", checkAuth, (req, res) => {
   const { username, role, lastLogin, email } = req.user;
   //! Render the template
   res.render("dashboard", { username, role, lastLogin, email });
+});
+
+//! ROBOT DETAILS ROUTE
+app.get("/robot-details", checkAuth, (req, res) => {
+  res.render("robotDetails");
 });
 
 //! LOGOUT ROUTE
