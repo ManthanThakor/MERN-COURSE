@@ -75,18 +75,6 @@ app.post("/login", (req, res) => {
   }
 });
 
-//! Render the user deshboard
-
-if (userFound) {
-  res.json({
-    message: `Welcome ${userFound.username}, role: ${userFound.role}`,
-  });
-} else {
-  res.json({
-    message: "Unauthorized please login first",
-  });
-}
-
 //! DASHBOARD ROUTE
 
 app.get("/dashboard", (req, res) => {
@@ -97,10 +85,16 @@ app.get("/dashboard", (req, res) => {
   if (userData) {
     const { username, role, lastLogin, email } = userData;
     //! Render the template
-    res.json("dashboard", { username, role, lastLogin, email });
+    res.json({
+      message: `Welcome ${username}, role: ${role}`,
+      lastLogin,
+      email,
+    });
   } else {
     //? redirect to login if no user data found in cookies
-    res.redirect("/login");
+    res.json({
+      message: "Unauthorized please login first",
+    });
   }
 });
 
@@ -108,7 +102,9 @@ app.get("/dashboard", (req, res) => {
 app.get("/logout", (req, res) => {
   //? clear the cookie and redirect to login
   res.clearCookie("userData");
-  res.redirect("/login");
+  res.json({
+    message: "Logged out successfully",
+  });
 });
 
 //! =================================
