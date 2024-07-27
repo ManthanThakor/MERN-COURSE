@@ -169,6 +169,18 @@ app.get("/logout", (req, res) => {
   res.redirect("/login");
 });
 
+//! get-started ROUTE
+app.get("/get-started", (req, res) => {
+  const userData = req.cookies.userData
+    ? JSON.parse(req.cookies.userData)
+    : null;
+  if (userData) {
+    res.redirect("/robot-details");
+  } else {
+    res.redirect("/login");
+  }
+});
+
 //! =================================
 //? === start the server ===
 //! =================================
