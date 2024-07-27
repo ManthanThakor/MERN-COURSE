@@ -4,7 +4,8 @@
 
 const express = require("express");
 const cookieParser = require("cookie-parser");
-const path = require("path"); // Import the path module
+const bcrypt = require("bcryptjs");
+const mongoose = require("mongoose");
 
 //! =================================
 //? === INSTANCE ===
@@ -18,8 +19,39 @@ const PORT = process.env.PORT || 3000;
 
 //! Middlewares
 
-app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+//! Set the view engine
+
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+
+//! Connect to mongoose
+
+mongoose
+  .connect("mongodb://localhost:27017/userAuthDB")
+  .then(() => {
+    console.log("DB has been connected");
+  })
+  .catch((e) => {
+    console.log(e);
+  });
+
+//! CREATE user schema
+
+const userSchema = new mongoose.Schema({
+  username: String,
+  password: String,
+  role: {
+    type: String,
+  },
+  email: String,
+});
+
+//! compile the schema
+
+const User = mongoose.model("User", userSchema);
 
 //! Simulated Database of users
 
@@ -41,9 +73,19 @@ const users = [
 //! HOME ROUTE
 
 app.get("/", (req, res) => {
-  res.json({
-    message: "Welcome to the API",
-  });
+  res.render("home");
+});
+
+//! LOGIN ROUTE (login form)
+
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
+//! REGISTER ROUTE (register form)
+
+app.get("/register", (req, res) => {
+  res.render("register");
 });
 
 //! LOGIN ROUTE (login logic)
@@ -85,16 +127,10 @@ app.get("/dashboard", (req, res) => {
   if (userData) {
     const { username, role, lastLogin, email } = userData;
     //! Render the template
-    res.json({
-      message: `Welcome ${username}, role: ${role}`,
-      lastLogin,
-      email,
-    });
+    res.render("dashboard", { username, role, lastLogin, email });
   } else {
     //? redirect to login if no user data found in cookies
-    res.json({
-      message: "Unauthorized please login first",
-    });
+    res.redirect("/login");
   }
 });
 
@@ -102,9 +138,7 @@ app.get("/dashboard", (req, res) => {
 app.get("/logout", (req, res) => {
   //? clear the cookie and redirect to login
   res.clearCookie("userData");
-  res.json({
-    message: "Logged out successfully",
-  });
+  res.redirect("/login");
 });
 
 //! =================================
