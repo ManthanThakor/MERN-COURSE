@@ -17,31 +17,76 @@
         padding: 15px 25px;
         font-size: 18px;
       }
+      .footer {
+        background-color: #343a40;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
     </style>
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">RoboApp</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
     <section class="hero-section text-center">
       <div class="container">
-        <h1 class="display-4">User Authentication with Cookies</h1>
-        <p class="lead">Express and EJS</p>
+        <h1 class="display-4">Welcome to RoboApp</h1>
+        <p class="lead">
+          Experience the future of robotic user authentication.
+        </p>
         <a href="/login" class="btn btn-primary cta-button">Get Started</a>
       </div>
     </section>
 
     <div class="container my-5">
-      <h2>Concepts Used</h2>
+      <h2>Features</h2>
       <ul>
-        <li>Cookie-Based Authentication</li>
-        <li>EJS Templating Engine</li>
-        <li>Express.js Framework</li>
+        <li>Advanced Robotic Authentication</li>
+        <li>Seamless User Experience</li>
+        <li>Secure Cookie Management</li>
       </ul>
 
-      <h2 class="mt-4">Project Description</h2>
+      <h2 class="mt-4">About RoboApp</h2>
       <p>
-        This project demonstrates how to set, get, and delete cookies for secure
-        user authentication routes in an Express application. It uses EJS for
-        server-side HTML templating.
+        RoboApp is an innovative platform that leverages cutting-edge technology
+        to provide secure and efficient user authentication through cookies. Our
+        system ensures the highest level of security while maintaining a
+        seamless user experience.
       </p>
     </div>
+
+    <footer class="footer">
+      <p>&copy; 2024 RoboApp. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

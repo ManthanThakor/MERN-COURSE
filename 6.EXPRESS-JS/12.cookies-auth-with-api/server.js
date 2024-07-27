@@ -1,80 +1,120 @@
+//! =================================
+//? === IMPORTS Required modules ===
+//! =================================
+
 const express = require("express");
 const cookieParser = require("cookie-parser");
+const path = require("path"); // Import the path module
+
+//! =================================
+//? === INSTANCE ===
+//! =================================
+
 const app = express();
 
-//!Middlewares
+//! create PORT
+
+const PORT = process.env.PORT || 3000;
+
+//! Middlewares
+
 app.use(express.json());
 app.use(cookieParser());
 
-//Simulated database of users
+//! Simulated Database of users
+
 const users = [
-  { username: "john", password: "123", role: "admin" },
-  { username: "Sarah", password: "456", role: "user" },
+  {
+    username: "john",
+    password: "123",
+    role: "admin",
+    email: "john@example.com",
+  },
+  {
+    username: "sarah",
+    password: "456",
+    role: "user",
+    email: "sarah@example.com",
+  },
 ];
 
-//Home Route
+//! HOME ROUTE
+
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to the API" });
+  res.json({
+    message: "Welcome to the API",
+  });
 });
 
-//Login Route logic
+//! LOGIN ROUTE (login logic)
+
 app.post("/login", (req, res) => {
-  //!. Find the user login details
+  //! find the user login details
   const userFound = users.find((user) => {
     const { username, password } = req.body;
     return user.username === username && user.password === password;
   });
-  //! Create some cookies (cookie);
-  //* Prepare the login user data
-  //? Setting the cookie with the userdata
-  res.cookie("userData", JSON.stringify(userFound), {
-    maxAge: 3 * 24 * 60 * 1000, //3days expiration
-    httpOnly: true,
-    secure: false,
-    sameSite: "strict",
-  });
 
-  //!Render the user dashboard
   if (userFound) {
-    res.json({
-      message: "Login Success",
+    //! set the last login time
+    userFound.lastLogin = new Date().toLocaleString();
+
+    //! create a cookie with the user data
+    res.cookie("userData", JSON.stringify(userFound), {
+      maxAge: 3 * 24 * 60 * 60 * 1000, // 3 days expiration
+      httpOnly: true,
+      secure: false, // true for HTTPS only
+      sameSite: "strict", // "strict" for same site only
     });
+
+    //! redirect to the dashboard
+    res.redirect("/dashboard");
   } else {
-    res.json({
-      message: "Login Failed",
-    });
+    //! redirect back to login if authentication fails
+    res.redirect("/login");
   }
 });
 
-//Dashboard Route
+//! Render the user deshboard
+
+if (userFound) {
+  res.json({
+    message: `Welcome ${userFound.username}, role: ${userFound.role}`,
+  });
+} else {
+  res.json({
+    message: "Unauthorized please login first",
+  });
+}
+
+//! DASHBOARD ROUTE
+
 app.get("/dashboard", (req, res) => {
-  //! Grab the user from the cookie
+  //? grab the user from the cookie
   const userData = req.cookies.userData
     ? JSON.parse(req.cookies.userData)
     : null;
-  const username = userData ? userData.username : null;
-  //! Render the template
-  if (username) {
-    res.json({
-      message: `Welcome ${username}, role: ${userData.role}`,
-    });
+  if (userData) {
+    const { username, role, lastLogin, email } = userData;
+    //! Render the template
+    res.json("dashboard", { username, role, lastLogin, email });
   } else {
-    //!Redirect to login
-    res.json({
-      message: "Unauthorized please login first",
-    });
+    //? redirect to login if no user data found in cookies
+    res.redirect("/login");
   }
 });
 
-//Logout Route
+//! LOGOUT ROUTE
 app.get("/logout", (req, res) => {
-  //!Logout
+  //? clear the cookie and redirect to login
   res.clearCookie("userData");
-  //redirect
-  res.json({
-    message: "Logged out succefully",
-  });
+  res.redirect("/login");
 });
 
-//start the server
-app.listen(3001, console.log("The server is running"));
+//! =================================
+//? === start the server ===
+//! =================================
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
