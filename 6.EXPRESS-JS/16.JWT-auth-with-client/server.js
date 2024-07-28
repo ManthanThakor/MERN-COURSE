@@ -4,10 +4,12 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 const app = express();
-
+const path = require("path");
 //Connect to mongoose
 mongoose
-  .connect("mongodb://localhost:27017/userAuthDB")
+  .connect(
+    "mongodb+srv://thakormanthan849:HOQnOxugSZFFXWMG@myfirstmongodb.jm4tch7.mongodb.net/session"
+  )
   .then(() => {
     console.log("DB has been connected");
   })
@@ -31,6 +33,12 @@ app.use(express.urlencoded({ extended: true })); //
 app.use(cookieParser());
 //!Set the view engine
 app.set("view engine", "ejs");
+
+//! Serve static files from the views directory
+app.use(express.static(path.join(__dirname, "views")));
+
+//! Optional: Set the views directory explicitly
+app.set("views", path.join(__dirname, "views"));
 
 //-----CUSTOM MIDDLEWARES-----
 //!--isAuthenticated (Authentication)
