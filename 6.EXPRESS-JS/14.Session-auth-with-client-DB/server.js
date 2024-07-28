@@ -4,10 +4,13 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const bcrypt = require("bcryptjs");
 const app = express();
+const path = require("path");
 
 //Connect to mongoose
 mongoose
-  .connect("mongodb://localhost:27017/userAuthDB")
+  .connect(
+    "mongodb+srv://thakormanthan849:HOQnOxugSZFFXWMG@myfirstmongodb.jm4tch7.mongodb.net/session"
+  )
   .then(() => {
     console.log("DB has been connected");
   })
@@ -30,6 +33,11 @@ const User = mongoose.model("User", userSchema);
 app.use(express.urlencoded({ extended: true }));
 //!Set the view engine
 app.set("view engine", "ejs");
+//! Serve static files from the views directory
+app.use(express.static(path.join(__dirname, "views")));
+
+//! Optional: Set the views directory explicitly
+app.set("views", path.join(__dirname, "views"));
 
 //-----CUSTOM MIDDLEWARES-----
 //!--isAuthenticated (Authentication)
@@ -63,7 +71,8 @@ app.use(
       maxAge: 60 * 60 * 100, //Expires in 1hr
     },
     store: MongoStore.create({
-      mongoUrl: "mongodb://localhost:27017/userAuthDB",
+      mongoUrl:
+        "mongodb+srv://thakormanthan849:HOQnOxugSZFFXWMG@myfirstmongodb.jm4tch7.mongodb.net/cookie",
     }),
   })
 );
