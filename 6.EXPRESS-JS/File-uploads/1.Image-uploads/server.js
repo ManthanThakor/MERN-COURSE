@@ -13,7 +13,10 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 //Connect to mongodb
 mongoose
-  .connect("mongodb://localhost:27017/image-upload")
+  .connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log("DB connected"))
   .catch((e) => console.log(e));
 
