@@ -1,17 +1,23 @@
+const dotenv = require("dotenv");
+const path = require("path");
+
+dotenv.config({ path: path.resolve(__dirname, ".env") });
+
 const express = require("express");
 const mongoose = require("mongoose");
 const postRouter = require("./router/postRouter");
-const path = require("path");
-const dotenv = require("dotenv");
 
 const app = express();
 
-// Load environment variables from .env file
-dotenv.config();
+// // Log all environment variables to check if MONGO_URI is loaded correctly
+// console.log("Environment Variables:", process.env);
+
+// // Log the MONGO_URI to check if it's being loaded correctly
+// console.log("MONGO_URI:", process.env.MONGO_URI);
 
 //-----Connect DB------
 mongoose
-  .connect(process.env.MONGO_URI, {
+  .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -42,4 +48,4 @@ app.get("/", (req, res) => {
 app.use("/", postRouter);
 
 //Start the server
-app.listen(PORT, console.log(`The server is running on port ${PORT}`));
+app.listen(PORT, () => console.log(`The server is running on port ${PORT}`));
