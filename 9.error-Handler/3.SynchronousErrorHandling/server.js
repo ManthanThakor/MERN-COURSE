@@ -17,12 +17,14 @@ const PORT = process.env.PORT || 3000;
 //! Simulate an In the Middlewares
 app.use((req, res, next) => {
   //! Simulate an error condition
-  const isError = true;
-  if (isError) {
-    const err = new Error("Something went wrong");
-    next(err);
-  } else {
-    next();
+  const isError = false;
+  try {
+    if (isError) {
+      throw new Error("synchronous error occurred");
+    }
+    next(); // pass request to next middleware in the stack
+  } catch (err) {
+    next(err); // pass error to next middleware in the stack
   }
 });
 
