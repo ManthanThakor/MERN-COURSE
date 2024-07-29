@@ -1,52 +1,18 @@
-//! =================================
-//? === IMPORTS Required modules ===
-//! =================================
-
 const express = require("express");
-
-//! =================================
-//? === INSTANCE ===
-//! =================================
-
 const app = express();
 
-//! create PORT
-
-const PORT = process.env.PORT || 3000;
-
-//! Simulate an In the Middlewares
-app.use((req, res, next) => {
-  //! Simulate an error condition
-  const isError = true;
-  if (isError) {
-    const err = new Error("Something went wrong");
-    next(err);
-  } else {
-    next();
-  }
+// Example route that triggers an error
+app.get("/", (req, res, next) => {
+  const err = new Error("Something went wrong");
+  next(err);
 });
 
-//! Regular Route
-
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
-
-//! custom Error Handling Middleware
-
+// Custom error handling middleware
 app.use((err, req, res, next) => {
-  //setting HTTP status code
   console.error(err.stack);
-  res.status(err.status || 500);
-  res.json({
-    error: err.message,
-    status: err.status,
-    stack: err.stack,
-  });
+  res.status(500).send("Something broke!");
 });
 
-//! =================================
-//? === start the server ===
-//! =================================
-
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(3000, () => {
+  console.log("Server is running on port 3000");
+});
