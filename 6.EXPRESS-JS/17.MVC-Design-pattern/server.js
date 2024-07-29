@@ -1,14 +1,20 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const postRouter = require("./router/postRouter");
+const path = require("path");
+const dotenv = require("dotenv");
+
 const app = express();
 
-//-----Connect DB------
+// Load environment variables from .env file
+dotenv.config();
 
+//-----Connect DB------
 mongoose
-  .connect(
-    "mongodb+srv://thakormanthan849:HOQnOxugSZFFXWMG@myfirstmongodb.jm4tch7.mongodb.net/mvc-design-pattern"
-  )
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log("DB has been connected");
   })
