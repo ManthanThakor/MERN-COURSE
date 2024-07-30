@@ -1,3 +1,10 @@
-const
-//!Start the server
+//! =================================
+//? === IMPORTS Required modules ===
+//! =================================
+//! =================================
+//? === INSTANCE ===
+//! =================================
+//! =================================
+//? === start the server ===
+//! =================================//!Start the server
 app.listen(PORT, console.log(`Server is up and running ${PORT}..`));
