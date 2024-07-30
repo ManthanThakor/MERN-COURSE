@@ -35,15 +35,34 @@ cloudinary.config({
 //! =================================
 
 const storage = new CloudinaryStorage({
-  cloudinary: cloudinary,
+  cloudinary,
   params: {
-    folder: "your_folder_name", // Change this to the desired folder name in Cloudinary
-    format: async (req, file) => "png", // supports promises as well
-    public_id: (req, file) => file.originalname.split(".")[0],
+    folder: "Images-Folder",
+    format: async (req, file) => "png", //convert all images to png
+    public_id: (req, file) => file.fieldname + "_" + Date.now(),
+    transformation: [
+      {
+        width: 800,
+        height: 600,
+        crop: "fill", //! crop image to fill the space with the specified dimensions and maintain aspect ratio
+      },
+    ],
   },
 });
 
-const upload = multer({ storage: storage });
+//! Configure multer
+
+const upload = multer({
+  storage,
+  limits: 1024 * 1024 * 5, //5MB limit
+  fileFilter: function (req, file, cb) {
+    if (file.mimetype.startsWith("image/")) {
+      cb(null, true);
+    } else {
+      cb(new Error("Only image files are allowed!"), false);
+    }
+  },
+});
 
 //! =================================
 //? === start the server ===
