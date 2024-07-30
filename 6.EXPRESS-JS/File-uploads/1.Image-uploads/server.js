@@ -8,6 +8,7 @@ const cloudinary = require("cloudinary").v2; // Use .v2 for the new Cloudinary A
 const { CloudinaryStorage } = require("multer-storage-cloudinary"); // Updated syntax for multer-storage-cloudinary
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const path = require("path");
 
 //! Load environment variables
 dotenv.config();
@@ -20,6 +21,12 @@ const app = express();
 //! create PORT
 const PORT = process.env.PORT || 5000;
 
+//! Set EJS as the templating engine
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+
+//! Serve static files
+app.use(express.static(path.join(__dirname, "public")));
 //! =================================
 //? === CLOUDINARY CONFIGURATION ===
 //! =================================
@@ -64,13 +71,39 @@ const upload = multer({
   },
 });
 
-//! Upload route
+//! =================================
+//? === ROUTES ===
+//! =================================
 
-app.post("/upload", upload.single("image"), async (req, res) => {
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "upload.html"));
+});
+
+app.get("/images", async (req, res) => {
   try {
-    res.status(200).json({ message: "Image uploaded successfully" });
+    const files = await File.find({});
+    res.render("images", { files });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.post("/upload", upload.single("file"), async (req, res) => {
+  try {
+    const file = new File({ url: req.file.path });
+    await file.save();
+    res.redirect("/images");
   } catch (error) {
     res.status(400).json({ message: error.message });
+  }
+});
+
+//! Error handling middleware
+app.use((err, req, res, next) => {
+  if (err) {
+    res.status(400).json({ message: err.message });
+  } else {
+    next();
   }
 });
 
