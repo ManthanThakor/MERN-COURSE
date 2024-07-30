@@ -64,6 +64,16 @@ const upload = multer({
   },
 });
 
+//! Upload route
+
+app.post("/upload", upload.single("image"), async (req, res) => {
+  try {
+    res.status(200).json({ message: "Image uploaded successfully" });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
 //! =================================
 //? === start the server ===
 //! =================================
