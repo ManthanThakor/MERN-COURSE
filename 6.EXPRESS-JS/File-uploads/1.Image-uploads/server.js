@@ -1,17 +1,14 @@
-require("dotenv").config();
-
+const path = require("path"); // Move this line up
+const dotenv = require("dotenv");
+dotenv.config({ path: path.resolve(__dirname, ".env") });
 const express = require("express");
 const mongoose = require("mongoose");
 const multer = require("multer");
 const cloudinary = require("cloudinary").v2;
 const { CloudinaryStorage } = require("multer-storage-cloudinary");
-const path = require("path");
 
 const PORT = 5000;
 const app = express();
-
-// Log MongoDB URI for debugging
-console.log("MongoDB URI:", process.env.MONGODB_URI);
 
 // EJS template engine
 app.set("view engine", "ejs");
@@ -21,10 +18,11 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static("public"));
 
 // Connect to MongoDB
+// Connect to MongoDB
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => console.log("DB connected"))
-  .catch((e) => console.log(e));
+  .catch((e) => console.log("DB connection error:", e));
 
 // Image schema
 const imageSchema = new mongoose.Schema(
