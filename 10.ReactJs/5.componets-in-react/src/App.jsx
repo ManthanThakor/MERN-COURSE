@@ -10,7 +10,9 @@ function App() {
   return (
     <>
       <div>
-        <h1>main APP</h1>
+        <h1 style={{ textAlign: "center" }}>Main APP</h1>
+        <UserProfile />
+        <UserProfile />
         <UserProfile />
       </div>
     </>

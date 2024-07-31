@@ -31,24 +31,34 @@ body {
   animation: fadeIn 2s;
 }
 
-.details-part b {
-  display: inline-block;
-  width: 100px;
-}
-
-.details-part p {
-  display: inline-block;
-  margin: 5px 0;
+.details-one {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.05);
+  transition: background 0.3s, transform 0.3s;
   animation: fadeIn 1.5s;
 }
 
-.details-part b,
-.details-part p {
+.details-one div {
+  margin-right: 10px;
+}
+
+.details-one b {
   color: #e0e0e0;
 }
 
-.details-part p {
-  margin-left: 10px;
+.details-one p {
+  color: #c0c0c0;
+  margin: 0;
+}
+
+.details-one:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
 }
 
 @keyframes fadeIn {
