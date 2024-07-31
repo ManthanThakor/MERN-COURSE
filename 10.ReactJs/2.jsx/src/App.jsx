@@ -2,8 +2,9 @@
 import React, { useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle, darkTheme, lightTheme } from "./theme";
-import Counter from "./counter";
 import Toggle from "./Toggle";
+import Content from "./Content";
+import Footer from "./Footer";
 
 const App = () => {
   const [theme, setTheme] = useState("dark");
@@ -16,7 +17,8 @@ const App = () => {
     <ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>
       <GlobalStyle />
       <Toggle theme={theme} toggleTheme={themeToggler} />
-      <Counter />
+      <Content />
+      <Footer />
     </ThemeProvider>
   );
 };
