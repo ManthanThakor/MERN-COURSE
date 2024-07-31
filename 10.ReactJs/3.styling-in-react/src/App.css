@@ -1,18 +1,25 @@
+/* src/App.css */
 .App {
   text-align: center;
-  background-color: #f0f0f0;
+  background: linear-gradient(to right, #2b5876, #4e4376);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  font-family: "Arial", sans-serif;
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #2b5876;
   padding: 20px;
   color: white;
   width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.App-header h1 {
+  font-size: 2.5rem;
 }
 
 .App-main {
@@ -21,10 +28,11 @@
   align-items: center;
   padding: 20px;
   width: 100%;
+  flex: 1;
 }
 
 .App-footer {
-  background-color: #282c34;
+  background-color: #2b5876;
   padding: 10px;
   color: white;
   width: 100%;

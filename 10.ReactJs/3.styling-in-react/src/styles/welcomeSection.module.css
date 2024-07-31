@@ -1,3 +1,4 @@
+/* src/styles/welcomeSection.module.css */
 .welcomeSection {
   display: flex;
   align-items: center;
@@ -7,8 +8,9 @@
   max-width: 1200px;
   background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .welcomeText {
@@ -17,15 +19,28 @@
 }
 
 .welcomeText h2 {
-  font-size: 24px;
+  font-size: 2rem;
   margin-bottom: 10px;
+  color: #2b5876;
 }
 
 .welcomeText p {
-  font-size: 18px;
+  font-size: 1.25rem;
+  color: #4e4376;
 }
 
 .slider {
   flex: 1;
   max-width: 600px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
