@@ -1,0 +1,39 @@
+/* src/styles/arrow.module.css */
+.customPrevArrow,
+.customNextArrow {
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1;
+  font-size: 24px;
+  line-height: 0;
+  transform: translateY(-50%);
+  transition: background 0.3s, transform 0.3s;
+}
+
+.customPrevArrow {
+  left: 15px;
+}
+
+.customNextArrow {
+  right: 15px;
+}
+
+.customPrevArrow:hover,
+.customNextArrow:hover {
+  background: rgba(0, 0, 0, 1);
+  transform: scale(1.1);
+}
+
+.customPrevArrow:focus,
+.customNextArrow:focus {
+  outline: none;
+}

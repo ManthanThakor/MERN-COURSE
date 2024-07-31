@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { PrevArrow, NextArrow } from "./Arrow";
 import styles from "../styles/slider.module.css";
 
 const images = [
@@ -17,7 +18,7 @@ const images = [
   },
   {
     id: 3,
-    url: "https://cdn.pixabay.com/photo/2023/07/28/04/44/girl-8154388_640.jpg",
+    url: "https://cdn.pixabay.com/photo/2023/11/15/13/55/woman-8390124_1280.jpg",
     title: "Slide 3",
   },
 ];
@@ -31,6 +32,8 @@ const SliderComponent = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
+    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow />,
   };
 
   return (
