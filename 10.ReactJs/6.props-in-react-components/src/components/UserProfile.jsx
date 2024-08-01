@@ -2,7 +2,7 @@ import React from "react";
 import "animate.css";
 import "../style/UserProfile.css";
 
-const UserProfile = () => {
+const UserProfile = (props) => {
   return (
     <>
       <h1 className="title animate__animated animate__fadeInDown">
@@ -17,15 +17,15 @@ const UserProfile = () => {
             <b>Name</b>:
           </div>
           <div>
-            <p>Devil</p>
+            <p>{props.Name}</p>
           </div>
         </div>
         <div className="details-one">
           <div>
-            <b>Age</b>:
+            <b>{props.Age}</b>:
           </div>
           <div>
-            <p>30</p>
+            <p>20</p>
           </div>
         </div>
         <div className="details-one">
@@ -33,7 +33,7 @@ const UserProfile = () => {
             <b>Email</b>:
           </div>
           <div>
-            <p>devil@example.com</p>
+            <p>{props.Email}</p>
           </div>
         </div>
         <div className="details-one">
@@ -41,7 +41,7 @@ const UserProfile = () => {
             <b>Address</b>:
           </div>
           <div>
-            <p>123 Main St, Anytown, USA</p>
+            <p>{props.Address}</p>
           </div>
         </div>
         <div className="details-one">
@@ -49,7 +49,7 @@ const UserProfile = () => {
             <b>Hobbies</b>:
           </div>
           <div>
-            <p>Reading, Gaming, Painting</p>
+            <p>{props.hobbies}</p>
           </div>
         </div>
         <div className="details-one">
@@ -57,7 +57,7 @@ const UserProfile = () => {
             <b>Is Admin</b>:
           </div>
           <div>
-            <p>True</p>
+            <p>{props.IsAdmin}</p>
           </div>
         </div>
         <div className="details-one">
@@ -65,12 +65,7 @@ const UserProfile = () => {
             <b>About</b>:
           </div>
           <div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto
-              assumenda autem amet consequatur molestias. Consequatur ea nobis
-              libero eum earum dolorum aperiam veritatis, labore delectus est?
-              Sed quae distinctio laborum.
-            </p>
+            <p>{props.About}</p>
           </div>
         </div>
       </div>
