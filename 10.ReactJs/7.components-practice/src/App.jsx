@@ -5,6 +5,8 @@ import "./App.css";
 import ProfileImage from "./components/ProfileImage";
 import ProfileName from "./components/ProfileName";
 import ProfileRole from "./components/ProfileRole";
+import ProfileAbout from "./components/ProfileAbout";
+import Profileicons from "./components/ProfileIcons";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -35,12 +37,12 @@ function App() {
               <div className="personal-choice">
                 <div className="vertical-line" />
                 {/* About */}
-                {/* <ProfileAbout /> */}
+                <ProfileAbout About="I chose the MERN Stack Developer track for my passion in solving challenges through full-stack development, integrating MongoDB, Express,  React, and Node.js to build seamless, user-friendly applications." />
               </div>
             </div>
             <div className="brand-frame">
               {/* Social icons */}
-              {/* <Profileicons /> */}
+              <Profileicons />
             </div>
           </div>
         </section>
