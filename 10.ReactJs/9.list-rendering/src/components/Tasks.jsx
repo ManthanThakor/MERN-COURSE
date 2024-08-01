@@ -1,6 +1,6 @@
 import React from "react";
 
-const task = () => {
+const Tasks = () => {
   return (
     <>
       <div className="task-main">
@@ -15,4 +15,4 @@ const task = () => {
   );
 };
 
-export default task;
+export default Tasks;
