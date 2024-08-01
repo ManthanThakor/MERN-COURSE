@@ -12,10 +12,16 @@ const Tasks = () => {
     <>
       <div className="task-main">
         <div className="task-title">
-          <h1>Task Title</h1>
+          <h1>Task List</h1>
         </div>
         <div className="task-description">
-          <p>Task Description</p>
+          {tasks.map((tasks) => {
+            return (
+              <li key={tasks.id}>
+                {tasks.name} - {tasks.completed ? "Completed" : "Pending"}
+              </li>
+            );
+          })}
         </div>
       </div>
     </>
