@@ -1,0 +1,143 @@
+body {
+  background-color: #121212;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  color: #fff;
+}
+
+.main-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.main-description {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.loading {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 50px;
+  color: #bbb;
+  animation: fadeIn 2s infinite alternate;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.error-message {
+  text-align: center;
+  color: #ff4c4c;
+  font-size: 1.5rem;
+  margin-top: 50px;
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.card-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px));
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.card-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.post-card {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.post-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+}
+
+.post-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.post-title {
+  padding: 15px 20px;
+  background-color: #333;
+  border-bottom: 1px solid #444;
+}
+
+.post-title h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.post-body {
+  padding: 15px 20px;
+}
+
+.extra-section,
+.contact-section {
+  background-color: #1e1e1e;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  max-width: 600px;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.extra-section h2,
+.contact-section h2 {
+  margin-top: 0;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
