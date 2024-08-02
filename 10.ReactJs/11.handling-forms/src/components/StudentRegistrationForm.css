@@ -67,10 +67,11 @@ button[type="reset"] {
   margin-top: 20px;
 }
 
-.social-login img {
+.social-icon {
   width: 30px;
   height: 30px;
   margin: 0 10px;
+  color: #fff;
   cursor: pointer;
 }
 
@@ -86,7 +87,12 @@ footer {
   color: #fff;
   margin-top: 20px;
 }
-
+.text-for-social-login {
+  color: #fff;
+  text-align: center;
+  display: block;
+  margin-top: 15px;
+}
 footer a {
   color: #9b59b6;
   text-decoration: none;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./StudentRegistrationForm.css";
+import { FaGoogle, FaGithub, FaTwitter } from "react-icons/fa";
 
 const StudentRegistrationForm = () => {
   const [studentName, setStudentName] = useState("");
@@ -78,11 +79,13 @@ const StudentRegistrationForm = () => {
         </button>
 
         <div className="social-login">
-          <img src="/path/to/google-icon.png" alt="Google Login" />
-          <img src="/path/to/x-icon.png" alt="X Login" />
-          <img src="/path/to/github-icon.png" alt="GitHub Login" />
+          <FaGoogle className="social-icon" />
+          <FaTwitter className="social-icon" />
+          <FaGithub className="social-icon" />
         </div>
-        <span>Login with social accounts</span>
+        <span className="text-for-social-login">
+          Login with social accounts
+        </span>
         <footer>
           <p>
             Don't you have an account? <a href="/signup">Sign up</a>
