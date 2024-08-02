@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import "./StudentRegistrationForm.css";
 
 const StudentRegistrationForm = () => {
-  //! Manage the input state
   const [studentName, setStudentName] = useState("");
   const [studentAge, setStudentAge] = useState("");
   const [course, setCourse] = useState("Science");
   const [consent, setConsent] = useState(false);
 
-  //! Handle change
   const handleNameChange = (e) => {
     setStudentName(e.target.value);
   };
@@ -25,10 +23,8 @@ const StudentRegistrationForm = () => {
     setConsent(e.target.checked);
   };
 
-  //! Handle Submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you can add logic to handle form submission, e.g., sending data to a server
     console.log({
       studentName,
       studentAge,
@@ -37,7 +33,6 @@ const StudentRegistrationForm = () => {
     });
   };
 
-  //! Handle reset
   const handleReset = () => {
     setStudentName("");
     setStudentAge("");
@@ -68,12 +63,14 @@ const StudentRegistrationForm = () => {
           </select>
         </div>
         <div className="form-data-consent">
-          <label>Consent:</label>
-          <input
-            type="checkbox"
-            checked={consent}
-            onChange={handleConsentChange}
-          />
+          <label>
+            <input
+              type="checkbox"
+              checked={consent}
+              onChange={handleConsentChange}
+            />
+            Consent
+          </label>
         </div>
         <button type="submit">Submit</button>
         <button type="reset" onClick={handleReset}>
