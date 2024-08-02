@@ -76,6 +76,18 @@ const StudentRegistrationForm = () => {
         <button type="reset" onClick={handleReset}>
           Reset
         </button>
+
+        <div className="social-login">
+          <img src="/path/to/google-icon.png" alt="Google Login" />
+          <img src="/path/to/x-icon.png" alt="X Login" />
+          <img src="/path/to/github-icon.png" alt="GitHub Login" />
+        </div>
+        <span>Login with social accounts</span>
+        <footer>
+          <p>
+            Don't you have an account? <a href="/signup">Sign up</a>
+          </p>
+        </footer>
       </form>
     </>
   );
