@@ -1,25 +1,30 @@
 const jwt = require("jsonwebtoken");
-const isAuthenticated = async (req, res, next) => {
-  //! Get the token from the header
-  const headerObj = req.headers;
-  const token = headerObj.authorization.split(" ")[1];
 
-  //Verify token
-  const verifyToken = jwt.verify(token, "anyKey", (err, decoded) => {
-    if (err) {
-      return false;
-    } else {
-      return decoded;
-    }
-  });
-  if (verifyToken) {
-    //save the user into req.obj
-    req.user = verifyToken.id;
-    next();
-  } else {
-    const err = new Error("Token expired please login again");
-    next(err);
+const isAuthenticated = (req, res, next) => {
+  const authHeader = req.headers.authorization;
+
+  if (!authHeader) {
+    return res.status(401).json({ message: "Authorization header missing" });
   }
+
+  const token = authHeader.split(" ")[1];
+
+  if (!token) {
+    return res.status(401).json({ message: "Token missing" });
+  }
+
+  jwt.verify(
+    token,
+    process.env.JWT_SECRET || "your-secret-key",
+    (err, decoded) => {
+      if (err) {
+        return res.status(401).json({ message: "Token invalid or expired" });
+      }
+
+      req.user = decoded.id;
+      next();
+    }
+  );
 };
 
 module.exports = isAuthenticated;

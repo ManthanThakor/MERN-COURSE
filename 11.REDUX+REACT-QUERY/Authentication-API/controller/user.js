@@ -4,51 +4,64 @@ const asyncHandler = require("express-async-handler");
 const User = require("../model/User");
 
 const userCtrl = {
-  //!Register
+  //! Register
   register: asyncHandler(async (req, res) => {
     const { username, email, password } = req.body;
-    //!Validations
+
+    //! Validations
     if (!username || !email || !password) {
-      throw new Error("Please all fields are required");
+      return res.status(400).json({ message: "All fields are required" });
     }
-    //! check if user already exists
-    const userExits = await User.findOne({ email });
-    if (userExits) {
-      throw new Error("User already exists");
+
+    //! Check if user already exists
+    const userExists = await User.findOne({ email });
+    if (userExists) {
+      return res.status(400).json({ message: "User already exists" });
     }
+
     //! Hash the user password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
-    //!Create the user
+
+    //! Create the user
     const userCreated = await User.create({
       username,
       password: hashedPassword,
       email,
     });
-    //!Send the response
 
-    res.json({
+    //! Send the response
+    res.status(201).json({
       username: userCreated.username,
       email: userCreated.email,
-      id: userCreated.id,
+      id: userCreated._id,
     });
   }),
-  //!Login
+
+  //! Login
   login: asyncHandler(async (req, res) => {
     const { email, password } = req.body;
-    //!Check if user email exists
+
+    //! Check if user email exists
     const user = await User.findOne({ email });
     if (!user) {
-      throw new Error("Invalid credentials");
+      return res.status(400).json({ message: "Invalid credentials" });
     }
-    //!Check if user password is valid
+
+    //! Check if user password is valid
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      throw new Error("Invalid credentials");
+      return res.status(400).json({ message: "Invalid credentials" });
     }
+
     //! Generate the token
-    const token = jwt.sign({ id: user._id }, "anyKey", { expiresIn: "30d" });
-    //!Send the response
+    const token = jwt.sign(
+      { id: user._id },
+      process.env.JWT_SECRET || "your-secret-key",
+      { expiresIn: "30d" }
+    );
+
+    //! Send the response
     res.json({
       message: "Login success",
       token,
@@ -57,11 +70,16 @@ const userCtrl = {
       username: user.username,
     });
   }),
-  //!Profile
+
+  //! Profile
   profile: asyncHandler(async (req, res) => {
-    //Find the user
+    //! Find the user
     const user = await User.findById(req.user).select("-password");
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
     res.json({ user });
   }),
 };
+
 module.exports = userCtrl;
