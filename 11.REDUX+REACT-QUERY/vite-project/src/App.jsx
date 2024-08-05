@@ -1,13 +1,21 @@
 import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+import Homepage from "./components/HomePage";
+import PublicNavbar from "./components/PublicNavbar";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <>
-      <div className="bg-blue-500 text-white p-4">
-        <h1 className="text-3xl font-bold">Hello, Tailwind CSS!</h1>
-      </div>
-    </>
+    <BrowserRouter>
+      {/* Navbar */}
+      <PublicNavbar />
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+      </Routes>
+      {/* Footer */}
+      <Footer />
+    </BrowserRouter>
   );
 }
 
