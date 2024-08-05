@@ -1,17 +1,27 @@
 import React from "react";
 import { FiMail, FiLock } from "react-icons/fi";
 import { useFormik } from "formik";
+import { useDispatch } from "react-redux";
+import { useMutation } from "@tanstack/react-query";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
-//! Validation schema
+import { loginAPI } from "../services/userService";
+import AlertMessage from "./AlertMessage";
+import { login } from "../redux/slices/authSlice"; // Updated import
+
 const validationSchema = Yup.object({
   email: Yup.string()
     .email("Enter a valid email")
     .required("Email is required"),
-  password: Yup.string().required("Pasword is required"),
+  password: Yup.string().required("Password is required"),
 });
+
 const Login = () => {
-  //!Handle form using formik
+  const mutation = useMutation({
+    mutationFn: loginAPI,
+    mutationKey: ["login"],
+  });
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -19,7 +29,15 @@ const Login = () => {
     },
     validationSchema,
     onSubmit: (values) => {
-      // Implementation of form submission
+      mutation
+        .mutateAsync(values)
+        .then((data) => {
+          dispatch(login(data)); // Updated action
+          localStorage.setItem("userInfo", JSON.stringify(data));
+        })
+        .catch((e) => {
+          console.error(e);
+        });
     },
   });
 
@@ -40,6 +58,20 @@ const Login = () => {
             </Link>
           </p>
         </div>
+        {mutation.isLoading && (
+          <AlertMessage type="loading" message="Loading please wait..." />
+        )}
+        {mutation.isSuccess && (
+          <AlertMessage type="success" message="Login Success" />
+        )}
+        {mutation.isError && (
+          <AlertMessage
+            type="error"
+            message={
+              mutation.error?.response?.data?.message || "An error occurred"
+            }
+          />
+        )}
         <form className="mt-8 space-y-6" onSubmit={formik.handleSubmit}>
           <div className="rounded-md shadow-sm -space-y-px">
             <div className="mb-4">
