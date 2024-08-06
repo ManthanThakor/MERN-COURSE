@@ -36,9 +36,9 @@ const Header = () => {
         <div className="header-payment-container">
           <button>Hire Me</button>
           <i className="fa-brands fa-paypal"></i>
-          <i class="fa-brands fa-cc-visa"></i>
-          <i class="fa-brands fa-cc-mastercard"></i>
-          <i class="fa-brands fa-cc-amex"></i>
+          <i className="fa-brands fa-cc-visa"></i>
+          <i className="fa-brands fa-cc-mastercard"></i>
+          <i className="fa-brands fa-cc-amex"></i>
         </div>
       </div>
       {/* Image container */}
