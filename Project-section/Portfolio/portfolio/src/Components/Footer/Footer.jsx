@@ -10,32 +10,32 @@ const Footer = () => {
 
       {/* copyright */}
       <div className="footer-cpyright">
-        <p>© 2022 I-Novotek Academy. All Right reserved</p>
+        <p>© 2024 Manthan All Right reserved</p>
       </div>
       {/* social */}
       <ul className="footer-social-media">
         <li>
-          <a href="https://www.youtube.com/c/inovotek-academy">
+          <a href="/">
             <i className="fa-brands fa-facebook-f"></i>
           </a>
         </li>
         <li>
-          <a href="https://www.youtube.com/c/inovotek-academy">
+          <a href="/">
             <i className="fa-brands fa-twitter"></i>
           </a>
         </li>
         <li>
-          <a href="https://www.youtube.com/c/inovotek-academy">
+          <a href="/">
             <i className="fa-brands fa-instagram"></i>
           </a>
         </li>
         <li>
-          <a href="https://www.youtube.com/c/inovotek-academy">
+          <a href="/">
             <i className="fa-brands fa-youtube"></i>
           </a>
         </li>
         <li>
-          <a href="https://www.youtube.com/c/inovotek-academy">
+          <a href="/">
             <i className="fa-brands fa-linkedin"></i>
           </a>
         </li>
